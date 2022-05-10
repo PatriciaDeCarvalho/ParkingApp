@@ -11,7 +11,10 @@ class MainActivity : AppCompatActivity() {
 
         //Floating action button
         val fab: View = findViewById(R.id.floatingActionButton)
-
+        //ejecuta código al presionar view
+        fab.setOnClickListener{}
 
     }
+
+
 }
