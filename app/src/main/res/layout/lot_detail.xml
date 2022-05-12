@@ -10,6 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_height="170sp"
         android:layout_gravity="center"
         app:cardBackgroundColor="#E3E3E3"
@@ -21,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30sp"
             android:layout_marginTop="30sp"
-            android:fontFamily="@font/averia_libre_light"
+            android:fontFamily="@font/alata"
             android:text="@string/day"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -32,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30sp"
             android:layout_marginTop="60sp"
-            android:fontFamily="@font/averia_serif_libre_light"
+            android:fontFamily="@font/alata"
             android:text="@string/montAndYear"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -43,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30sp"
             android:layout_marginTop="90sp"
-            android:fontFamily="@font/averia_serif_libre_light"
+            android:fontFamily="@font/alata"
             android:text="@string/time"
             android:textColor="#6A6A6A"
             android:textSize="20sp"
@@ -58,7 +59,7 @@
             android:layout_marginStart="30sp"
             android:layout_marginTop="30sp"
             android:layout_marginEnd="30sp"
-            android:fontFamily="@font/averia_serif_libre_light"
+            android:fontFamily="@font/alata"
             android:text="@string/day2"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -71,7 +72,7 @@
             android:layout_marginStart="30sp"
             android:layout_marginTop="60sp"
             android:layout_marginEnd="30sp"
-            android:fontFamily="@font/averia_serif_libre_light"
+            android:fontFamily="@font/alata"
             android:text="@string/montAndYear2"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -83,7 +84,7 @@
             android:layout_gravity="end"
             android:layout_marginTop="90sp"
             android:layout_marginEnd="30sp"
-            android:fontFamily="@font/averia_serif_libre_light"
+            android:fontFamily="@font/alata"
             android:text="@string/time2"
             android:textColor="#6A6A6A"
             android:textSize="20sp"

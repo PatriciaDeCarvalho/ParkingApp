@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">ParkingApp</string>
+    <string name="_free">18 free</string>
+    <string name="_busy">12 busy</string>
+    <string name="_parkingNumber">1</string>
+    <string name="secondtext">secondText</string>
+    <string name="firstText">firstText</string>
+    <string name="parkingNumberImage">parkingNumberImage</string>
+    <string name="parking_number">1</string>
+    <string name="day">Monday</string>
+    <string name="montAndYear">May 2022</string>
+    <string name="time">20:30 PM</string>
+    <string name="time2">20:30 PM</string>
+    <string name="day2">Monday</string>
+    <string name="montAndYear2">May 2022</string>
+    <string name="buttonText">Button</string>
+    <string name="authorization_code">Authorization code</string>
+    <string name="end_date_time">End date/time</string>
+    <string name="starr_date_time">starr date/time</string>
+    <string name="parking_slot">Parking Slot</string>
+    <string name="calendar_2">calendar_2</string>
+    <string name="calendar_1">calendar_1</string>
 </resources>
