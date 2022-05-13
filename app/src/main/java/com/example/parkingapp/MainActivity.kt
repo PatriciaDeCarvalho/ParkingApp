@@ -9,6 +9,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         //Floating action button
         val fab: View = findViewById(R.id.floatingActionButton)
         //ejecuta código al presionar view

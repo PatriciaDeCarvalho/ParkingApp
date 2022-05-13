@@ -1,3 +1,4 @@
 package com.example.parkingapp
 
-class Parking (var lotList: Collection<Lot>)
+class Parking (var lotComponentsList: Int )
+//Collection<LotComponents>)
