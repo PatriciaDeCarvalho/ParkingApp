@@ -10,29 +10,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkingApp">
 
-        <activity android:name=".Parking"
-            android:exported="true"
-            android:parentActivityName=".Reservation">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity android:name=".Reservation"
-            android:parentActivityName=".MainActivity"
-            android:exported="true">
 
         </activity>
 
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".LotComponents"
+            android:exported="true"
+            android:parentActivityName=".Reservation">
 
         </activity>
 
+        <activity
+            android:name=".Reservation"
+            android:exported="true"
+            android:parentActivityName=".MainActivity">
 
+
+        </activity>
     </application>
-
 </manifest>

@@ -1,6 +1,10 @@
 package com.example.parkingapp
+
+import androidx.appcompat.app.AppCompatActivity
+
 //Modelo de datos para el listado de Lots
 
-data class LotComponents(
-    var parkingLot: Int,
-    var reservationList: List<Reservation>)
+class LotComponents : AppCompatActivity()
+   // var parkingLot: Int,
+   // var reservationList: List<Reservation>
+
