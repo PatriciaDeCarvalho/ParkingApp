@@ -16,9 +16,9 @@ class MainActivity : AppCompatActivity() {
         initRecyclerWiew()
 
 //        //Floating action button
-//        val fab: View = findViewById(R.id.floatingActionButton)
+        val fab: View = findViewById(R.id.floatingActionButton)
 //        //ejecuta código al presionar view
-//        fab.setOnClickListener{}
+       fab.setOnClickListener{}
     }
 
     fun initRecyclerWiew(){
