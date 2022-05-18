@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-class Reservation : AppCompatActivity()
+class ReservartionActivity : AppCompatActivity()
 //    val authrizationCode: String,
 //    val startDateTimeInMillis: Long,
 //    val endDateTimeInMillis: Long,
@@ -15,11 +15,12 @@ class Reservation : AppCompatActivity()
       super.onCreate(savedInstanceState)
       setContentView(R.layout.activity_add_reservation)
    }
-
-   override fun onBackPressed() {
-      super.onBackPressed()
-      startActivity(Intent(this, MainActivity::class.java))
-   }
 }
+
+//   override fun onBackPressed() {
+//      super.onBackPressed()
+//      startActivity(Intent(this, ParkingActivity::class.java))
+//   }
+
 
 

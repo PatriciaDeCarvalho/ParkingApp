@@ -2,7 +2,7 @@ package com.example.parkingapp.lotAdapter
 
 class LotList {
     companion object{
-        var dateTimeEnd = listOf<Lot>(
+        var timeList = listOf<Lot>(
             Lot(
                 dateOfStart = "Monday 25 May",
                 timeGetFree = "15:00"),

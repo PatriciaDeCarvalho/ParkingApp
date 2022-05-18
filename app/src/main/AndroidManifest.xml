@@ -11,27 +11,27 @@
         android:theme="@style/Theme.ParkingApp">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ParkingActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
         </activity>
 
         <activity
             android:name=".LotComponents"
             android:exported="true"
-            android:parentActivityName=".Reservation">
+            android:parentActivityName=".ReservartionActivity">
 
         </activity>
 
         <activity
-            android:name=".Reservation"
+            android:name=".ReservartionActivity"
             android:exported="true"
-            android:parentActivityName=".MainActivity">
-
+            android:parentActivityName=".ParkingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
     </application>
