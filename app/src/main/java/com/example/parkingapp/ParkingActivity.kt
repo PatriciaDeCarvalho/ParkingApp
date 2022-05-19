@@ -15,7 +15,7 @@ class ParkingActivity : AppCompatActivity() {
         initRecyclerWiew()
 
 //        //Floating action button
-        val fab: View = findViewById(R.id.floatingActionButton)
+        val fab: View = findViewById(R.id.floatingActionButton1)
 //        //ejecuta código al presionar view
         fab.setOnClickListener {}
     }

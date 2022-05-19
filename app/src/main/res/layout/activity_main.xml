@@ -9,11 +9,11 @@
     <ProgressBar
         android:id="@+id/progressBar"
         style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
-        android:layout_width="355dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="21dp"
+        android:layout_width="@dimen/progressBar_layout_width"
+        android:layout_height="@dimen/progressBar_layout_height"
+        android:layout_marginStart="@dimen/progressBar_marginStart"
+        android:layout_marginTop="@dimen/progressBar_layout_marginTop"
+        android:layout_marginEnd="@dimen/progressBar_layout_marginEnd"
         android:background="#00000000"
         android:max="100"
         android:progress="10"
@@ -25,21 +25,21 @@
 
     <View
         android:id="@+id/rectangleProgressBar"
-        android:layout_width="414dp"
-        android:layout_height="71dp"
+        android:layout_width="@dimen/rectangleProgressBar_layout_width"
+        android:layout_height="@dimen/rectangleProgressBar_layout_height"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/busy"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/textWiew_busy_layout_width"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
+        android:layout_marginStart="@dimen/textWiew_busy_layout_marginStart"
         android:text="@string/_busy"
-        android:textSize="16sp"
+        android:textSize="@dimen/textWiew_busy_textSize"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangleProgressBar"
+        app:layout_constraintBottom_toBottomOf="@id/rectangleProgressBar"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -48,29 +48,29 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="21dp"
         android:text="@string/_free"
-        android:textSize="16sp"
+        android:textSize="@dimen/textWiew_free_textSize"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangleProgressBar"
+        app:layout_constraintBottom_toBottomOf="@id/rectangleProgressBar"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:layout_marginTop="20dp"
+        android:layout_margin="@dimen/recyclerView1_layout_margin"
+        android:layout_marginTop="@dimen/recyclerView1_layout_marginTop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rectangleProgressBar" />
+        app:layout_constraintTop_toBottomOf="@id/rectangleProgressBar" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/floatingActionButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/floatingActionButton1_layout_margin"
         android:contentDescription="@string/add_reservartion"
-        android:elevation="4dp"
+        android:elevation="@dimen/floatingActionButton1_elevation"
         android:src="@drawable/ic_baseline_add_24"
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -80,9 +80,9 @@
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/rectangleProgressBar"
-        app:layout_constraintEnd_toStartOf="@+id/rectangleProgressBar"
+        android:layout_marginEnd="@dimen/buttonBack_layout_marginEnd"
+        app:layout_constraintBottom_toTopOf="@id/rectangleProgressBar"
+        app:layout_constraintEnd_toStartOf="@id/rectangleProgressBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

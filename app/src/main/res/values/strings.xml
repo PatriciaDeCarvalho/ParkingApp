@@ -16,9 +16,10 @@
     <string name="buttonText">Button</string>
     <string name="authorization_code">Authorization code</string>
     <string name="end_date_time">End date/time</string>
-    <string name="starr_date_time">starr date/time</string>
+    <string name="starr_date_time">start date/time</string>
     <string name="parking_slot">Parking Slot</string>
-    <string name="calendar_2">calendar_2</string>
-    <string name="calendar_1">calendar_1</string>
+    <string name="calendar_2">calendar 2</string>
+    <string name="calendar_1">calendar</string>
     <string name="add_reservartion">add reservartion</string>
+    <string name="save">Save</string>
 </resources>

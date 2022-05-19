@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="progressBar_layout_width">355dp</dimen>
+    <dimen name="progressBar_layout_height">0dp</dimen>
+    <dimen name="progressBar_marginStart">21dp</dimen>
+    <dimen name="progressBar_layout_marginTop">28dp</dimen>
+    <dimen name="progressBar_layout_marginEnd">21dp</dimen>
+
+    <dimen name="rectangleProgressBar_layout_width">414dp</dimen>
+    <dimen name="rectangleProgressBar_layout_height">71dp</dimen>
+
+    <dimen name="textWiew_busy_layout_width">0dp</dimen>
+    <dimen name="textWiew_busy_layout_marginStart">21dp</dimen>
+    <dimen name="textWiew_busy_textSize">16sp</dimen>
+
+    <dimen name="textWiew_free_layout_width">0dp</dimen>
+    <dimen name="textWiew_free_layout_marginEnd">21dp</dimen>
+    <dimen name="textWiew_free_textSize">16sp</dimen>
+
+    <dimen name="recyclerView1_layout_margin">20dp</dimen>
+    <dimen name="recyclerView1_layout_marginTop">20dp</dimen>
+
+    <dimen name="floatingActionButton1_layout_margin">16dp</dimen>
+    <dimen name="floatingActionButton1_elevation">4dp</dimen>
+    <dimen name="floatingActionButton1_borderWidth">0dp</dimen>
+
+    <dimen name="buttonBack_layout_marginEnd">1dp</dimen>
+
+    //--------------------End ActivityMain----------------------
+
+    <dimen name="planets_spinner1_layout_width">340dp</dimen>
+    <dimen name="planets_spinner1_layout_height">48dp</dimen>
+    <dimen name="planets_spinner1_layout_margin">20sp</dimen>
+
+    <dimen name="rectangle_spinner1_layout_width">0sp</dimen>
+    <dimen name="rectangle_spinner1_layout_height">60dp</dimen>
+    <dimen name="rectangle_spinner1_layout_margin">20sp</dimen>
+    <dimen name="rectangle_spinner1_layout_marginTop">20dp</dimen>
+    <dimen name="rectangle_spinner1_layout_marginEnd">20sp</dimen>
+
+    <dimen name="rectangle_StartTime_layout_width">0sp</dimen>
+    <dimen name="rectangle_StartTime_layout_height">60dp</dimen>
+    <dimen name="rectangle_StartTime_layout_margin">20sp</dimen>
+    <dimen name="rectangle_StartTime_layout_marginEnd">20sp</dimen>
+
+    <dimen name="rectangle_EndTime_layout_width">0dp</dimen>
+    <dimen name="rectangle_EndTime_layout_height">60dp</dimen>
+    <dimen name="rectangle_EndTime_layout_margin">20sp</dimen>
+    <dimen name="rectangle_EndTime_layout_marginStart">20dp</dimen>
+    <dimen name="rectangle_EndTime_layout_marginEnd">20dp</dimen>
+
+    <dimen name="rectangle_EndTime2_layout_width">0sp</dimen>
+    <dimen name="rectangle_EndTime2_layout_height">60dp</dimen>
+    <dimen name="rectangle_EndTime2_layout_marginStart">20dp</dimen>
+    <dimen name="rectangle_EndTime2_layout_marginTop">20dp</dimen>
+    <dimen name="rectangle_EndTime2_layout_marginEnd">20dp</dimen>
+
+
+    <dimen name="calendar_1_layout_marginEnd">20sp</dimen>
+
+    <dimen name="calendar_2_layout_marginEnd">20sp</dimen>
+
+    <dimen name="textView_parking_slot_layout_marginStart">20sp</dimen>
+
+    <dimen name="textView2_start_date_time_layout_marginStart">20sp</dimen>
+
+    <dimen name="textView3_start_date_time_layout_marginStart">20sp</dimen>
+
+    <dimen name="textView4_start_date_time_layout_marginStart">20sp</dimen>
+
+    <dimen name="button_Reservation_layout_width">0dp</dimen>
+    <dimen name="button_Reservation_layout_height">48dp</dimen>
+    <dimen name="button_Reservation_layout_margin">20dp</dimen>
+
+
+</resources>
+

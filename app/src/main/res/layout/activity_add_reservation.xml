@@ -7,24 +7,27 @@
     android:foregroundTintMode="add">
 
     <Spinner
-        android:id="@+id/planets_spinner"
+        android:id="@+id/planets_spinner1"
         style="@style/Widget.AppCompat.Spinner.DropDown"
-        android:layout_width="340dp"
-        android:layout_height="46dp"
-        android:layout_margin="20sp"
+        android:layout_width="@dimen/planets_spinner1_layout_width"
+        android:layout_height="@dimen/planets_spinner1_layout_height"
+        android:layout_margin="@dimen/planets_spinner1_layout_margin"
         android:layerType="software"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangle_spinner"
+        app:layout_constraintBottom_toBottomOf="@id/rectangle_spinner1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_spinner" />
+        app:layout_constraintTop_toTopOf="@id/rectangle_spinner1"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <View
-        android:id="@+id/rectangle_spinner"
-        android:layout_width="0sp"
-        android:layout_height="60dp"
-        android:layout_margin="20sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20sp"
+        android:id="@+id/rectangle_spinner1"
+        android:layout_width="@dimen/rectangle_spinner1_layout_width"
+        android:layout_height="@dimen/rectangle_spinner1_layout_height"
+        android:layout_margin="@dimen/rectangle_spinner1_layout_margin"
+        android:layout_marginTop="@dimen/rectangle_spinner1_layout_marginTop"
+        android:layout_marginEnd="@dimen/rectangle_spinner1_layout_marginEnd"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@id/rectangle_StartTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,110 +35,103 @@
 
     <View
         android:id="@+id/rectangle_StartTime"
-        android:layout_width="0sp"
-        android:layout_height="60dp"
-        android:layout_margin="20sp"
-        android:layout_marginEnd="20sp"
+        android:layout_width="@dimen/rectangle_StartTime_layout_width"
+        android:layout_height="@dimen/rectangle_StartTime_layout_height"
+        android:layout_margin="@dimen/rectangle_StartTime_layout_margin"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/rectangle_StartTime_layout_marginEnd"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rectangle_spinner" />
+        app:layout_constraintTop_toBottomOf="@id/rectangle_spinner1" />
 
     <View
         android:id="@+id/rectangle_EndTime"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_margin="20sp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="@dimen/rectangle_EndTime_layout_width"
+        android:layout_height="@dimen/rectangle_EndTime_layout_height"
+        android:layout_margin="@dimen/rectangle_EndTime_layout_margin"
+        android:layout_marginStart="@dimen/rectangle_EndTime_layout_marginStart"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="@dimen/rectangle_EndTime_layout_marginEnd"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rectangle_StartTime" />
+        app:layout_constraintTop_toBottomOf="@id/rectangle_StartTime" />
 
     <View
         android:id="@+id/rectangle_EndTime2"
-        android:layout_width="0sp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="@dimen/rectangle_EndTime2_layout_width"
+        android:layout_height="@dimen/rectangle_EndTime2_layout_height"
+        android:layout_marginStart="@dimen/rectangle_EndTime2_layout_marginStart"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="@dimen/rectangle_EndTime2_layout_marginEnd"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rectangle_EndTime" />
-
+        app:layout_constraintTop_toBottomOf="@id/rectangle_EndTime" />
 
     <ImageView
         android:id="@+id/calendar_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20sp"
+        android:layout_marginEnd="@dimen/calendar_1_layout_marginEnd"
         android:contentDescription="@string/calendar_1"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangle_StartTime"
-        app:layout_constraintEnd_toEndOf="@+id/rectangle_StartTime"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_StartTime"
+        app:layout_constraintBottom_toBottomOf="@id/rectangle_StartTime"
+        app:layout_constraintEnd_toEndOf="@id/rectangle_StartTime"
+        app:layout_constraintTop_toTopOf="@id/rectangle_StartTime"
         app:srcCompat="@drawable/ic_action_name" />
 
     <ImageView
         android:id="@+id/calendar_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20sp"
+        android:layout_marginEnd="@dimen/calendar_2_layout_marginEnd"
         android:contentDescription="@string/calendar_2"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangle_EndTime"
-        app:layout_constraintEnd_toEndOf="@+id/rectangle_EndTime"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_EndTime"
+        app:layout_constraintBottom_toBottomOf="@id/rectangle_EndTime"
+        app:layout_constraintEnd_toEndOf="@id/rectangle_EndTime"
+        app:layout_constraintTop_toTopOf="@id/rectangle_EndTime"
         app:srcCompat="@drawable/ic_action_name" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20sp"
+        android:layout_marginStart="@dimen/textView_parking_slot_layout_marginStart"
         android:text="@string/parking_slot"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangle_spinner"
-        app:layout_constraintStart_toStartOf="@+id/rectangle_spinner"
-        app:layout_constraintTop_toTopOf="@+id/planets_spinner" />
+        app:layout_constraintBottom_toBottomOf="@id/rectangle_spinner1"
+        app:layout_constraintStart_toStartOf="@id/rectangle_spinner1"
+        app:layout_constraintTop_toTopOf="@id/planets_spinner1" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="@dimen/textView2_start_date_time_layout_marginStart"
         android:text="@string/starr_date_time"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangle_StartTime"
-        app:layout_constraintStart_toStartOf="@+id/rectangle_StartTime"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_StartTime" />
+        app:layout_constraintBottom_toBottomOf="@id/rectangle_StartTime"
+        app:layout_constraintStart_toStartOf="@id/rectangle_StartTime"
+        app:layout_constraintTop_toTopOf="@id/rectangle_StartTime" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="@dimen/textView3_start_date_time_layout_marginStart"
         android:layout_height="wrap_content"
         android:text="@string/end_date_time"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangle_EndTime"
-        app:layout_constraintStart_toStartOf="@+id/rectangle_EndTime"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_EndTime" />
+        app:layout_constraintBottom_toBottomOf="@id/rectangle_EndTime"
+        app:layout_constraintStart_toStartOf="@id/rectangle_EndTime"
+        app:layout_constraintTop_toTopOf="@id/rectangle_EndTime" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="@dimen/textView4_start_date_time_layout_marginStart"
         android:text="@string/authorization_code"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangle_EndTime2"
-        app:layout_constraintStart_toStartOf="@+id/rectangle_EndTime2"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_EndTime2"
+        app:layout_constraintBottom_toBottomOf="@id/rectangle_EndTime2"
+        app:layout_constraintStart_toStartOf="@id/rectangle_EndTime2"
+        app:layout_constraintTop_toTopOf="@id/rectangle_EndTime2"
         app:layout_constraintVertical_bias="0.536" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:text="@string/save"
-        android:textColor="@color/design_default_color_background"
-        android:layout_margin="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
