@@ -13,6 +13,7 @@
         android:layout_height="@dimen/planets_spinner1_layout_height"
         android:layout_margin="@dimen/planets_spinner1_layout_margin"
         android:layerType="software"
+        android:entries="@array/lotsSpinner"
         app:layout_constraintBottom_toBottomOf="@id/rectangle_spinner1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

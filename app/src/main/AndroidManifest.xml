@@ -19,10 +19,7 @@
             android:name=".LotDetailActivity"
             android:exported="true"
             android:parentActivityName=".LotDetailActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
 
@@ -30,6 +27,10 @@
             android:name=".ReservartionActivity"
             android:exported="true"
             android:parentActivityName=".ReservartionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
