@@ -8,27 +8,27 @@
     <View
         android:id="@+id/rectangle"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="@dimen/item_rectangle_layout_height"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-    //elipse
+<!--elipse-->
     <View
         android:id="@+id/ellipse_1"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="@dimen/item_ellipse_1_layout_width"
+        android:layout_height="@dimen/item_ellipse_1_layout_height"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="@dimen/item_ellipse_1_layout_marginStart"
         android:background="@drawable/ellipse_1"
         app:layout_constraintBottom_toBottomOf="@+id/rectangle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rectangle" />
 
-    //date
+<!--date-->
     <TextView
         android:id="@+id/firstText"
         android:layout_width="wrap_content"
@@ -36,13 +36,13 @@
         android:layout_marginTop="16dp"
         android:text="@string/firstText"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="20sp"
+        android:textSize="@dimen/item_fiestText_textSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/ellipse_1"
         app:layout_constraintTop_toTopOf="parent" />
 
-    //time
+<!--time-->
     <TextView
         android:id="@+id/secondText"
         android:layout_width="wrap_content"
@@ -50,8 +50,8 @@
         android:text="@string/secondtext"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@android:color/darker_gray"
-        android:textSize="15sp"
-        android:layout_marginTop="5dp"
+        android:textSize="@dimen/item_secondText_textSize"
+        android:layout_marginTop="@dimen/item_secondText_layout_marginTop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/ellipse_1"
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:text="@string/parking_number"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="@dimen/item_parkingNumber_textSize"
         app:layout_constraintBottom_toBottomOf="@+id/ellipse_1"
         app:layout_constraintEnd_toEndOf="@+id/ellipse_1"
         app:layout_constraintStart_toStartOf="@+id/ellipse_1"

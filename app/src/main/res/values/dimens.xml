@@ -18,7 +18,10 @@
     <dimen name="textWiew_free_textSize">16sp</dimen>
 
     <dimen name="recyclerView1_layout_margin">20dp</dimen>
+    <dimen name="recyclerView1_layout_marginStart">20dp</dimen>
     <dimen name="recyclerView1_layout_marginTop">20dp</dimen>
+    <dimen name="recyclerView1_layout_marginEnd">20dp</dimen>
+    <dimen name="recyclerView1_layout_marginBottom">20dp</dimen>
 
     <dimen name="floatingActionButton1_layout_margin">16dp</dimen>
     <dimen name="floatingActionButton1_elevation">4dp</dimen>
@@ -72,6 +75,20 @@
     <dimen name="button_Reservation_layout_height">48dp</dimen>
     <dimen name="button_Reservation_layout_margin">20dp</dimen>
 
+    //--------------------End Activity_add_reservation----------------------
+
+    <dimen name="item_rectangle_layout_height">80dp</dimen>
+
+    <dimen name="item_ellipse_1_layout_width">40dp</dimen>
+    <dimen name="item_ellipse_1_layout_height">40dp</dimen>
+    <dimen name="item_ellipse_1_layout_marginStart">10dp</dimen>
+
+    <dimen name="item_fiestText_textSize">20sp</dimen>
+
+    <dimen name="item_secondText_textSize">15sp</dimen>
+    <dimen name="item_secondText_layout_marginTop">5dp</dimen>
+
+    <dimen name="item_parkingNumber_textSize">20sp</dimen>
 
 </resources>
 
