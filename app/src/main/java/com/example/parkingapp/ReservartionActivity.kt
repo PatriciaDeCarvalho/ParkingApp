@@ -5,10 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 class ReservartionActivity : AppCompatActivity()
-//    val authrizationCode: String,
-//    val startDateTimeInMillis: Long,
-//    val endDateTimeInMillis: Long,
-//    val parkingLot: Int,
+
 
 {
    override fun onCreate(savedInstanceState: Bundle?) {

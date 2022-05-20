@@ -20,7 +20,7 @@ class ParkingActivity : AppCompatActivity() {
         fab.setOnClickListener {}
     }
 
-    fun initRecyclerWiew(){
+    private  fun initRecyclerWiew(){
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView1)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = LotAdapter(LotList.timeList)

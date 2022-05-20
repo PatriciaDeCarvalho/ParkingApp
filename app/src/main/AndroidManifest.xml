@@ -13,26 +13,25 @@
         <activity
             android:name=".ParkingActivity"
             android:exported="true">
-
-
         </activity>
 
         <activity
-            android:name=".LotComponents"
+            android:name=".LotDetailActivity"
+            android:exported="true"
+            android:parentActivityName=".LotDetailActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".ReservartionActivity"
             android:exported="true"
             android:parentActivityName=".ReservartionActivity">
 
         </activity>
 
-        <activity
-            android:name=".ReservartionActivity"
-            android:exported="true"
-            android:parentActivityName=".ParkingActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
     </application>
 </manifest>
