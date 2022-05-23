@@ -1,6 +1,4 @@
-package com.example.parkingapp
-
-import androidx.appcompat.app.AppCompatActivity
+package com.example.parkingapp.reservationAdapter
 
 //Modelo de datos para el listado de Reservas
 

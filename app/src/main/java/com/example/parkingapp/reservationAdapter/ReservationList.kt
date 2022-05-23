@@ -1,6 +1,4 @@
-package com.example.parkingapp.ReservationAdapter
-
-import com.example.parkingapp.Reservation
+package com.example.parkingapp.reservationAdapter
 
 class ReservationList {
     companion object {
@@ -30,21 +28,21 @@ class ReservationList {
                 authorizationCode = "four",
                 starDateTimeInMillis = "12000000",
                 endDateTimeInMillis = "13000000",
-                parkingLot = 2
+                parkingLot = 3
             ),
 
             Reservation(
                 authorizationCode = "five",
                 starDateTimeInMillis = "15000000",
                 endDateTimeInMillis = "19000000",
-                parkingLot = 2
+                parkingLot = 1
             ),
 
             Reservation(
                 authorizationCode = "six",
                 starDateTimeInMillis = "6000000",
                 endDateTimeInMillis = "7000000",
-                parkingLot = 2
+                parkingLot = 5
             ),
 
             Reservation(
@@ -58,7 +56,7 @@ class ReservationList {
                 authorizationCode = "eight",
                 starDateTimeInMillis = "18000000",
                 endDateTimeInMillis = "19000000",
-                parkingLot = 2
+                parkingLot = 6
             ),
 
             Reservation(

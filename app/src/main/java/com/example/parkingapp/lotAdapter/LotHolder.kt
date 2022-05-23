@@ -4,14 +4,19 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.parkingapp.R
+import com.example.parkingapp.databinding.FragmentLotsBinding
+import com.example.parkingapp.databinding.ItemBinding
 
 class LotHolder(view:View) : RecyclerView.ViewHolder(view) {
 
-    val lastDate = view.findViewById<TextView>(R.id.firstText)
-    val lastTime = view.findViewById<TextView>(R.id.secondText)
+    private lateinit var binding: ItemBinding
 
 
-    fun render(lotModel: Lot) {
+    val lastDate = binding.firstText
+    val lastTime = binding.secondText
+
+
+    fun model(lotModel: Lot) {
 
         lastDate.text = lotModel.dateOfStart
         lastTime.text = lotModel.timeGetFree

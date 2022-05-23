@@ -31,7 +31,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.parkingapp.R
-import com.example.parkingapp.lotAdapter.Lot
 
 class LotAdapter(val lotList: List<Lot>): RecyclerView.Adapter<LotHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): LotHolder {
@@ -43,7 +42,7 @@ class LotAdapter(val lotList: List<Lot>): RecyclerView.Adapter<LotHolder>() {
     override fun onBindViewHolder(holder: LotHolder,position: Int) {
         val item = lotList[position]
 
-        holder.render(item)
+        holder.model(item)
     }
 
     override fun getItemCount()= lotList.size
