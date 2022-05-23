@@ -1,24 +1,31 @@
 package com.example.parkingapp.lotAdapter
 
 import android.view.View
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.parkingapp.R
-import com.example.parkingapp.databinding.FragmentLotsBinding
-import com.example.parkingapp.databinding.ItemBinding
+import com.example.parkingapp.databinding.RecyclerItemBinding
+import com.example.parkingapp.fragments.ItemOnRecyclerViewClicked
 
-class LotHolder(view:View) : RecyclerView.ViewHolder(view) {
+class LotHolder(private val view: View, val listener: ItemOnRecyclerViewClicked) : RecyclerView.ViewHolder(view) {
 
-    private lateinit var binding: ItemBinding
-
-
-    val lastDate = binding.firstText
-    val lastTime = binding.secondText
+    private lateinit var binding: RecyclerItemBinding
 
 
-    fun model(lotModel: Lot) {
+    fun bindLot(lot: Lot) {
+        val binding = RecyclerItemBinding.bind(view)
+        binding.apply {
+            tvDate.text = lot.dateOfStart
+            tvTime.text = lot.timeGetFree
+        }
 
-        lastDate.text = lotModel.dateOfStart
-        lastTime.text = lotModel.timeGetFree
+        binding.root.setOnClickListener {
+            listener.onClick(lot)
+        }
+
     }
+
+
+//    fun model(lotModel: Lot) {
+//        lastDate.text = lotModel.dateOfStart
+//        lastTime.text = lotModel.timeGetFree
+//    }
 }

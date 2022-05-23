@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <View
         android:id="@+id/rectangle"
@@ -30,7 +30,7 @@
 
 <!--date-->
     <TextView
-        android:id="@+id/firstText"
+        android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -44,7 +44,7 @@
 
 <!--time-->
     <TextView
-        android:id="@+id/secondText"
+        android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/secondtext"
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/ellipse_1"
-        app:layout_constraintTop_toBottomOf="@+id/firstText"
+        app:layout_constraintTop_toBottomOf="@+id/tv_date"
         tools:ignore="MissingConstraints" />
 
     <TextView

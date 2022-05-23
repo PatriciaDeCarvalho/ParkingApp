@@ -1,11 +1,7 @@
 package com.example.parkingapp.reservationAdapter
 
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.parkingapp.R
-import com.example.parkingapp.databinding.ItemBinding
 import com.example.parkingapp.databinding.LotDetailBinding
 
 class ReservationHolder(view: View) : RecyclerView.ViewHolder(view) {

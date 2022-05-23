@@ -33,8 +33,55 @@ class LotList {
 
             Lot(
                 dateOfStart = "Monday 25 May",
-                timeGetFree = "12:40")
+                timeGetFree = "12:40"),
 
+            Lot(
+                dateOfStart = "Monday 25 May",
+                timeGetFree = "12:40"),
+
+            Lot(
+                dateOfStart = "Monday 25 May",
+                timeGetFree = "12:40"),
+
+            Lot(
+                dateOfStart = "Monday 25 May",
+                timeGetFree = "12:40"),
+
+            Lot(
+                dateOfStart = "Monday 25 May",
+                timeGetFree = "12:40"),
+
+            Lot(
+                dateOfStart = "Monday 25 May",
+                timeGetFree = "12:40"),
+
+            Lot(
+                dateOfStart = "Monday 25 May",
+                timeGetFree = "12:40"),
+
+            Lot(
+                dateOfStart = "Monday 25 May",
+                timeGetFree = "12:40"),
+
+            Lot(
+                dateOfStart = "Monday 25 May",
+                timeGetFree = "12:40"),
+
+            Lot(
+                dateOfStart = "Monday 25 May",
+                timeGetFree = "12:40"),
+
+            Lot(
+                dateOfStart = "Monday 25 May",
+                timeGetFree = "12:40"),
+
+            Lot(
+                dateOfStart = "Monday 25 May",
+                timeGetFree = "12:40"),
+
+            Lot(
+                dateOfStart = "Saturday 13 May",
+                timeGetFree = "12:ZZZZZ")
             )
 
     }

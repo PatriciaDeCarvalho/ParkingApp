@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/addReservationFragment">
+    app:startDestination="@id/lotsFragment">
     <fragment
         android:id="@+id/lotsFragment"
         android:name="com.example.parkingapp.fragments.LotsFragment"
@@ -11,10 +11,16 @@
         tools:layout="@layout/fragment_lots">
         <action
             android:id="@+id/action_lotsFragment_to_lotDetailFragment"
-            app:destination="@id/lotDetailFragment" />
+            app:destination="@id/lotDetailFragment">
+            <argument
+                android:name="item"
+                app:argType="com.example.parkingapp.lotAdapter.Lot" />
+        </action>
+
         <action
             android:id="@+id/action_lotsFragment_to_addReservationFragment"
             app:destination="@id/addReservationFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/lotDetailFragment"
@@ -29,5 +35,5 @@
         android:id="@+id/addReservationFragment"
         android:name="com.example.parkingapp.fragments.AddReservationFragment"
         android:label="AddReservationFragment"
-        tools:layout="@layout/fragment_add_reservation"/>
+        tools:layout="@layout/fragment_add_reservation" />
 </navigation>

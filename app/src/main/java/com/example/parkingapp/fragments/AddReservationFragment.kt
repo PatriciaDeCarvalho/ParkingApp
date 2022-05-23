@@ -1,30 +1,44 @@
 package com.example.parkingapp.fragments
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentAddReservationBinding
 import com.example.parkingapp.DatePickerFragment
+import com.example.parkingapp.databinding.FragmentLotDetailsBinding
 
-class AddReservationFragment : Fragment(R.layout.fragment_add_reservation) {
+class AddReservationFragment : Fragment() {
 
-    lateinit var binding: FragmentAddReservationBinding
+    private var binding: FragmentAddReservationBinding?=null
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentAddReservationBinding.inflate(inflater, container, false)
+        return binding?.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentAddReservationBinding.bind(view)
 
-        val spinnerView = binding.planetsSpinner1
-        val rectangleStartTime = binding.rectangleStartTime
-        val rectangleEndTime = binding.rectangleEndTime
-        val authorizationCode = binding.rectangleAuthorizationCode
-        val buttonAddReservation = binding.buttonAdd
-        val spinner: Spinner = spinnerView
+        val spinnerView = binding?.planetsSpinner1
+        val rectangleStartTime = binding?.rectangleStartTime
+        val rectangleEndTime = binding?.rectangleEndTime
+        val authorizationCode = binding?.rectangleAuthorizationCode
+        val buttonAddReservation = binding?.buttonAdd
+        val spinner: Spinner? = spinnerView
 
-        spinnerCreate(spinner)
+        spinner?.let {
+            spinnerCreate(it)
+        }
+
      //   datePicker()
 
     }

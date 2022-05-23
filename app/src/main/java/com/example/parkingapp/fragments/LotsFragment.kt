@@ -6,41 +6,66 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentLotsBinding
+import com.example.parkingapp.lotAdapter.Lot
 import com.example.parkingapp.lotAdapter.LotAdapter
 import com.example.parkingapp.lotAdapter.LotList
 
 
-class LotsFragment : Fragment(R.layout.fragment_lots) {
+class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
 
-    private lateinit var binding : FragmentLotsBinding
+    private var binding : FragmentLotsBinding? = null
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentLotsBinding.inflate(inflater, container, false)
+        return binding?.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentLotsBinding.bind(view)
 
-        initRecyclerWiewLots()
+        initRecyclerViewLots()
 
         //FloatingActionButton
-        binding.floatingActionButton1.setOnClickListener() {
+        binding?.floatingActionButton1?.setOnClickListener() {
             findNavController().navigate(R.id.action_lotsFragment_to_addReservationFragment)
-
-        //must to select one recyclerview item
-        //must to get id Lot and Show all reservations with that Id in LotDetailFragment, order it before
 
         }
     }
     //Recycler View
-    private  fun initRecyclerWiewLots(){
-        val recyclerView = binding.recyclerView1
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = LotAdapter(LotList.timeList)
+    private  fun initRecyclerViewLots(){
+        binding?.rvLots?.apply {
+            adapter = LotAdapter(LotList.timeList, this@LotsFragment)
+        }
+
+    }
+    override fun onClick(lot: Lot) {
+        Toast.makeText(context, lot.dateOfStart, Toast.LENGTH_LONG).show()
+        //findNavController().navigate(R.id.action_lotsFragment_to_lotDetailFragment)
+//        NavHostFragment.findNavController(this).navigate(
+//            FindUsMapFragmentDirections.goToFindUsBottomSheet(
+//                channelInfoArray.toTypedArray(),
+//                completeChannel,
+//                channelType.channelName
+//            )
+//        )
 
     }
 
+    override fun onDestroyView() {
+        // Consider not storing the binding instance in a field, if not needed.
+        binding = null
+        super.onDestroyView()
+    }
 
+}
+
+interface ItemOnRecyclerViewClicked {
+    fun onClick(lot: Lot)
 }

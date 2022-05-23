@@ -9,8 +9,8 @@
     <ProgressBar
         android:id="@+id/progressBar"
         style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
-        android:layout_width="@dimen/progressBar_layout_width"
-        android:layout_height="@dimen/progressBar_layout_height"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
         android:layout_marginStart="@dimen/progressBar_marginStart"
         android:layout_marginTop="@dimen/progressBar_layout_marginTop"
         android:layout_marginEnd="@dimen/progressBar_layout_marginEnd"
@@ -43,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/free"
+        android:id="@+id/tv_fee"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="21dp"
@@ -54,15 +54,21 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView1"
+        android:id="@+id/rv_lots"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_margin="@dimen/recyclerView1_layout_margin"
-        android:layout_marginTop="@dimen/recyclerView1_layout_marginTop"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rectangleProgressBar" />
+        app:layout_constraintTop_toBottomOf="@id/rectangleProgressBar"
+        tools:itemCount="4"
+        tools:listitem="@layout/recycler_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton1"
