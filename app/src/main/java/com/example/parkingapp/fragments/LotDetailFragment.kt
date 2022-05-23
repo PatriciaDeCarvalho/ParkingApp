@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentLotDetailsBinding
@@ -17,6 +18,7 @@ import com.example.parkingapp.reservationAdapter.ReservationList
 class LotDetailFragment : Fragment() {
 
     private var binding: FragmentLotDetailsBinding?=null
+    private val args: LotDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +32,11 @@ class LotDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentLotDetailsBinding.bind(view)
 
+        //var myLotSelected = arguments?.getString("item")
+        val lot =  args.item
+        Toast.makeText(context,lot.dateOfStart, Toast.LENGTH_LONG ).show()
+
+        //TODO aqui revisar el log y corregir asi como lo hicimos en LotsFragment
         initRecyclerWiewReservations()
 
         //FloatingActionButton

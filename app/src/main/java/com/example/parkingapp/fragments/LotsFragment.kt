@@ -47,6 +47,8 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
     }
     override fun onClick(lot: Lot) {
         Toast.makeText(context, lot.dateOfStart, Toast.LENGTH_LONG).show()
+        findNavController().navigate(LotsFragmentDirections.actionLotsFragmentToLotDetailFragment(lot))
+
         //findNavController().navigate(R.id.action_lotsFragment_to_lotDetailFragment)
 //        NavHostFragment.findNavController(this).navigate(
 //            FindUsMapFragmentDirections.goToFindUsBottomSheet(
