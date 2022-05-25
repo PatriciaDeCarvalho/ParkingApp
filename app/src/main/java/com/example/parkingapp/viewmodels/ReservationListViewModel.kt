@@ -1,8 +1,15 @@
-package com.example.parkingapp.reservationAdapter
+package com.example.parkingapp.viewmodels
 
-class ReservationList {
-    companion object {
-        var reservationList = listOf<Reservation>(
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.example.parkingapp.lotAdapter.Lot
+import com.example.parkingapp.reservationAdapter.Reservation
+
+class ReservationListViewModel: ViewModel(){
+
+    val reservationList: MutableLiveData<List<Reservation>> by lazy { MutableLiveData<List<Reservation>>().also {getLotListReservations () } }
+
+    private fun getLotListReservations() = listOf<Reservation>(
             Reservation(
                 authorizationCode = "one",
                 starDateTimeInMillis = "16000000",
@@ -65,7 +72,7 @@ class ReservationList {
                 endDateTimeInMillis = "15000000",
                 parkingLot = 2
             )
-        )
+    )
+
     }
 
-}

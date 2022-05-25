@@ -1,5 +1,7 @@
 package com.example.parkingapp.fragments
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
@@ -8,8 +10,7 @@ import android.view.ViewGroup
 import android.widget.*
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentAddReservationBinding
-import com.example.parkingapp.DatePickerFragment
-import com.example.parkingapp.databinding.FragmentLotDetailsBinding
+import java.util.*
 
 class AddReservationFragment : Fragment() {
 
@@ -23,28 +24,31 @@ class AddReservationFragment : Fragment() {
         return binding?.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentAddReservationBinding.bind(view)
 
         val spinnerView = binding?.planetsSpinner1
-        val rectangleStartTime = binding?.rectangleStartTime
-        val rectangleEndTime = binding?.rectangleEndTime
         val authorizationCode = binding?.rectangleAuthorizationCode
         val buttonAddReservation = binding?.buttonAdd
         val spinner: Spinner? = spinnerView
 
-        spinner?.let {
-            spinnerCreate(it)
+        binding?.rectangleStartTime?.setOnClickListener {
+            showDateTimePickerDialog()
         }
 
-     //   datePicker()
+        binding?.rectangleEndTime?.setOnClickListener {
+            showDateTimePickerDialog()
+        }
 
+        spinner?.let {
+            showSpinner(it)
+        }
     }
 
-
-    fun spinnerCreate(spinner: Spinner): SpinnerAdapter {
+    fun showSpinner(spinner: Spinner): SpinnerAdapter {
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter.createFromResource(
@@ -60,28 +64,47 @@ class AddReservationFragment : Fragment() {
             spinner.adapter = adapter
             return spinner.adapter
         }
-/*fun datePicker(){
 
 
-    binding apply {
-        rectangleStartTime.setOnClickListener()
-
-        //new instance dataPickerFragment
-        val datePickerFragment = DatePickerFragment()
-        val supportFragmentManager = requireActivity().supportFragmentManager
-
-        supportFragmentManager.setFragmentResultListener("REQUEST_KEY",viewLifecycleOwner)
-    }
-    resultKey, bundle -> if (resultKey == "REQUEST_KEY"){
-        val date = bundle.getString("SELECTED_DATE")
-        tvSelectedDate.text = date
-    }
-}*/
     }
 
+    private fun showDateTimePickerDialog() {
 
-//    fun saveReservation(buttonAddReservation) {
-//        buttonAddReservation.SetOfCleanListener
-//    }
+        val calendar = Calendar.getInstance()
+
+        val timelistener = TimePickerDialog.OnTimeSetListener { _, hour, minutes ->
+
+            //save information instead of toast
+            Toast.makeText(
+                activity, "$hour:$minutes", Toast.LENGTH_LONG
+            ).show()
+        }
+
+        TimePickerDialog(
+            activity,
+            timelistener,
+            calendar.get(Calendar.HOUR_OF_DAY),
+            calendar.get(Calendar.MINUTE),
+            false
+        ).show()
+
+        val dateTimeListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
+            Toast.makeText(
+                activity, "$day/$month/$year", Toast.LENGTH_LONG
+            ).show()
+
+        }
+
+        DatePickerDialog(
+            requireContext(),
+            dateTimeListener,
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        ).show()
+    }
+
+
+
 
 }

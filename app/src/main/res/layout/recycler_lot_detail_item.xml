@@ -17,7 +17,7 @@
         app:cardCornerRadius="5sp">
 
         <TextView
-            android:id="@+id/text_day_Star"
+            android:id="@+id/tv_satrtDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30sp"
@@ -28,7 +28,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/text_mont_year_star"
+            android:id="@+id/tv_startMonthYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30sp"
@@ -39,7 +39,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/text_time_star"
+            android:id="@+id/tv_startTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30sp"
@@ -52,7 +52,7 @@
 
 
         <TextView
-            android:id="@+id/text_day_end"
+            android:id="@+id/tv_endDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -65,7 +65,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/text_mont_year_end"
+            android:id="@+id/tv_endMonthYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -78,7 +78,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/text_time_end"
+            android:id="@+id/tv_endTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -91,14 +91,14 @@
             android:textStyle="normal" />
 
         <Button
-            android:id="@+id/button_card"
+            android:id="@+id/bn_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="30sp"
             android:layout_marginBottom="6sp"
             android:backgroundTint="@color/white"
-            android:text="@string/buttonText"
+            android:text="Add"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:cornerRadius="20dp" />

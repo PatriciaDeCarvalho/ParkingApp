@@ -5,7 +5,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.parkingapp.databinding.RecyclerItemBinding
 import com.example.parkingapp.fragments.ItemOnRecyclerViewClicked
 
-class LotHolder(private val view: View, val listener: ItemOnRecyclerViewClicked) : RecyclerView.ViewHolder(view) {
+class LotHolder(private val view: View, val listener: ItemOnRecyclerViewClicked) :
+    RecyclerView.ViewHolder(view) {
 
     private lateinit var binding: RecyclerItemBinding
 
@@ -22,10 +23,4 @@ class LotHolder(private val view: View, val listener: ItemOnRecyclerViewClicked)
         }
 
     }
-
-
-//    fun model(lotModel: Lot) {
-//        lastDate.text = lotModel.dateOfStart
-//        lastTime.text = lotModel.timeGetFree
-//    }
-}
+    }

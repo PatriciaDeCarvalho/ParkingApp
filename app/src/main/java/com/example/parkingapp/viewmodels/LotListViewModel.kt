@@ -1,8 +1,16 @@
-package com.example.parkingapp.lotAdapter
+package com.example.parkingapp.viewmodels
 
-class LotList {
-    companion object{
-        var timeList = listOf<Lot>(
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.example.parkingapp.lotAdapter.Lot
+
+class LotListViewModel: ViewModel(){
+
+    val lotList: MutableLiveData<List<Lot>>by lazy {
+        MutableLiveData<List<Lot>>().also {
+            getLotList() } }
+
+    private fun getLotList()  = listOf<Lot>(
             Lot(
                 dateOfStart = "Monday 25 May",
                 timeGetFree = "15:00"),
@@ -85,4 +93,3 @@ class LotList {
             )
 
     }
-}

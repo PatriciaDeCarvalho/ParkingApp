@@ -29,6 +29,7 @@
         <action
             android:id="@+id/action_lotDetailFragment_to_addReservationFragment"
             app:destination="@id/addReservationFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/addReservationFragment"
