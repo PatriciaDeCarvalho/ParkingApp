@@ -1,5 +1,6 @@
 package com.example.parkingapp.viewmodels
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.parkingapp.lotAdapter.Lot
@@ -7,7 +8,12 @@ import com.example.parkingapp.reservationAdapter.Reservation
 
 class ReservationListViewModel: ViewModel(){
 
-    val reservationList: MutableLiveData<List<Reservation>> by lazy { MutableLiveData<List<Reservation>>().also {getLotListReservations () } }
+    val reservationList: MutableLiveData<List<Reservation>> by lazy {
+        MutableLiveData<List<Reservation>>().apply {
+            value = getLotListReservations()
+        }
+    }
+
 
     private fun getLotListReservations() = listOf<Reservation>(
             Reservation(
@@ -75,4 +81,3 @@ class ReservationListViewModel: ViewModel(){
     )
 
     }
-
