@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/lotsFragment">
+
     <fragment
         android:id="@+id/lotsFragment"
         android:name="com.example.parkingapp.fragments.LotsFragment"
@@ -33,11 +34,7 @@
         <action
             android:id="@+id/action_lotDetailFragment_to_addReservationFragment"
             app:destination="@id/addReservationFragment" />
-
         <!--    Return  Fragment 2 to fragment 1-->
-        <action
-            android:id="@+id/action_lotDetailFragment_to_lotsFragment"
-            app:destination="@id/lotsFragment" />
     </fragment>
 
     <fragment
@@ -51,10 +48,15 @@
             android:id="@+id/action_addReservationFragment_to_lotsFragment"
             app:destination="@id/lotsFragment" />
 
-        <!--     Fragment 3 to fragment 2-->
-        <action
-            android:id="@+id/action_addReservationFragment_to_lotDetailFragment"
-            app:destination="@id/lotDetailFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/deleteDialogFragment"
+        android:name="com.example.parkingapp.fragments.DeleteDialogFragment"
+        android:label="DeleteDialogFragment"
+        tools:layout="@layout/delete_dialog_fragment">
+        <action
+            android:id="@+id/action_deleteDialogFragment_to_lotDetailFragment"
+            app:destination="@id/lotDetailFragment" />
+    </dialog>
 </navigation>
 

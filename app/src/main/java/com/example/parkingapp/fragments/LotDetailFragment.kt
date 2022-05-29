@@ -20,7 +20,7 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
 
     private var binding: FragmentLotDetailsBinding? = null
     private val viewModel: ReservationListViewModel by viewModels()
-    lateinit var lotSelected: com.example.domain.model.Lot
+    lateinit var lotSelected: Lot
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,18 +40,12 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
         // receipt bundle
         arguments?.let {
             lotSelected = it.getSerializable("objectLot") as Lot
-
         }
 
-//      binding = FragmentLotDetailsBinding.bind(view)
+        binding = FragmentLotDetailsBinding.bind(view)
         Toast.makeText(context, "llego bien", Toast.LENGTH_LONG).show()
 
-        //Back arrow in action bar -> To change button to arrow
-        binding?.buttonTest?.setOnClickListener() {
-            findNavController().navigate(R.id.action_lotDetailFragment_to_lotsFragment)
-        }
 
-        val nav  = Navigation.createNavigateOnClickListener(R.id.action_lotDetailFragment_to_lotsFragment)
 
         //FloatingActionButton
         binding?.floatingActionButton2?.setOnClickListener() {
@@ -86,7 +80,6 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
                 dialog.show(it, "Costum Dialog")
             }
 
-       // }
     }
 
 

@@ -162,13 +162,14 @@
         app:layout_constraintTop_toBottomOf="@+id/rectangle_AuthorizationCode" />
 
     <EditText
-        android:id="@+id/et_authorization_code"
+        android:id="@+id/et_authorization_code_registered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/tv_authorization_code"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAdd"
+        android:hint="Enter the code"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/rectangle_AuthorizationCode"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/rectangle_AuthorizationCode"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_AuthorizationCode" />
 </androidx.constraintlayout.widget.ConstraintLayout>

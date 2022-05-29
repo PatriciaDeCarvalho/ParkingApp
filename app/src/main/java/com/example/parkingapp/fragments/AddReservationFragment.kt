@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.parkingapp.R
@@ -39,7 +41,9 @@ class AddReservationFragment : Fragment(), OnclickCancelReservation {
         val authorizationCode = binding?.rectangleAuthorizationCode
         val buttonAddReservation = binding?.buttonAdd
         val spinner: Spinner? = spinnerView
-
+        //editText Authorization Code Hide
+        var editText = binding?.etAuthorizationCodeRegistered
+        editText?.isInvisible = true
 
 
         binding?.rectangleStartTime?.setOnClickListener {
@@ -54,9 +58,11 @@ class AddReservationFragment : Fragment(), OnclickCancelReservation {
             showSpinner(it)
         }
 
-        //Back arrow in action bar -> To change button to arrow
-        binding?.buttonAdd?.setOnClickListener() {
-            Toast.makeText(context, "Reservation successfully saved", Toast.LENGTH_LONG).show()
+        //Authorization Code
+        authorizationCode?.setOnClickListener() {
+
+            binding?.textView4?.setVisibility(View.GONE)
+            editText?.isInvisible = false
 
         }
 
@@ -121,6 +127,7 @@ class AddReservationFragment : Fragment(), OnclickCancelReservation {
     //Save reservation
     override fun onClickReservation(reservation: Reservation) {
 
+
    //spinner number selected
         //date time start
         //date time end
@@ -128,6 +135,8 @@ class AddReservationFragment : Fragment(), OnclickCancelReservation {
 
         //add all in array reservations add lot
     }
+
+
 }
 
 interface OnclickCancelReservation {
