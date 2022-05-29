@@ -2,6 +2,7 @@ package com.example.parkingapp.lotAdapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.model.Lot
 import com.example.parkingapp.databinding.RecyclerItemBinding
 import com.example.parkingapp.fragments.ItemOnRecyclerViewClicked
 
@@ -16,6 +17,7 @@ class LotHolder(private val view: View, val listener: ItemOnRecyclerViewClicked)
         binding.apply {
             tvDate.text = lot.dateOfStart
             tvTime.text = lot.timeGetFree
+
         }
 
         binding.root.setOnClickListener {

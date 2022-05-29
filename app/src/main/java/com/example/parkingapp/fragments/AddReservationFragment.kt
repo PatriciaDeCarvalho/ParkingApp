@@ -1,20 +1,23 @@
 package com.example.parkingapp.fragments
 
+import android.app.ActionBar
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentAddReservationBinding
+import com.example.parkingapp.reservationAdapter.Reservation
 import java.util.*
 
-class AddReservationFragment : Fragment() {
+class AddReservationFragment : Fragment(), OnclickCancelReservation {
 
-    private var binding: FragmentAddReservationBinding?=null
+    private var binding: FragmentAddReservationBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,6 +25,8 @@ class AddReservationFragment : Fragment() {
     ): View? {
         binding = FragmentAddReservationBinding.inflate(inflater, container, false)
         return binding?.root
+
+
     }
 
 
@@ -35,6 +40,8 @@ class AddReservationFragment : Fragment() {
         val buttonAddReservation = binding?.buttonAdd
         val spinner: Spinner? = spinnerView
 
+
+
         binding?.rectangleStartTime?.setOnClickListener {
             showDateTimePickerDialog()
         }
@@ -46,6 +53,13 @@ class AddReservationFragment : Fragment() {
         spinner?.let {
             showSpinner(it)
         }
+
+        //Back arrow in action bar -> To change button to arrow
+        binding?.buttonAdd?.setOnClickListener() {
+            Toast.makeText(context, "Reservation successfully saved", Toast.LENGTH_LONG).show()
+
+        }
+
     }
 
     fun showSpinner(spinner: Spinner): SpinnerAdapter {
@@ -81,7 +95,7 @@ class AddReservationFragment : Fragment() {
         }
 
         TimePickerDialog(
-            activity,
+            activity, androidx.appcompat.R.style.Base_V28_Theme_AppCompat,
             timelistener,
             calendar.get(Calendar.HOUR_OF_DAY),
             calendar.get(Calendar.MINUTE),
@@ -104,7 +118,18 @@ class AddReservationFragment : Fragment() {
         ).show()
     }
 
+    //Save reservation
+    override fun onClickReservation(reservation: Reservation) {
 
+   //spinner number selected
+        //date time start
+        //date time end
+        //authorization Code
 
+        //add all in array reservations add lot
+    }
+}
 
+interface OnclickCancelReservation {
+    fun onClickReservation(reservation: Reservation)
 }

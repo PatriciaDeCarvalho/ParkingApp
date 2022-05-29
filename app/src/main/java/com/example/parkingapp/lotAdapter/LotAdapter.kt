@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.parkingapp.R
 import com.example.parkingapp.fragments.ItemOnRecyclerViewClicked
 
-class LotAdapter(val lotList: List<Lot>, val listener: ItemOnRecyclerViewClicked): RecyclerView.Adapter<LotHolder>() {
+class LotAdapter(val lotList: List<com.example.domain.model.Lot>, val listener: ItemOnRecyclerViewClicked): RecyclerView.Adapter<LotHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): LotHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
 

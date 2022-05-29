@@ -3,13 +3,11 @@ package com.example.parkingapp.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.parkingapp.lotAdapter.Lot
-import kotlinx.coroutines.launch
+import com.example.domain.model.Lot
 
 class LotListViewModel : ViewModel() {
 
-     val lotList: MutableLiveData<List<Lot>> by lazy {
+    val lotList: MutableLiveData<List<Lot>> by lazy {
         MutableLiveData<List<Lot>>().apply {
             value = loadLots()
         }
@@ -19,7 +17,11 @@ class LotListViewModel : ViewModel() {
         return lotList
     }
 
-
+//    private fun getLotList2() {
+//        viewModelScope.launch {
+//            getLotList()
+//        }
+//    }
 
     private fun loadLots() = mutableListOf<Lot>(
         Lot(
@@ -102,7 +104,8 @@ class LotListViewModel : ViewModel() {
             dateOfStart = "Saturday 13 May",
             timeGetFree = "12:ZZZZZ")
     )
-}
 
+
+}
 
 

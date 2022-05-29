@@ -9,31 +9,50 @@
         android:name="com.example.parkingapp.fragments.LotsFragment"
         android:label="LotsFragment"
         tools:layout="@layout/fragment_lots">
-        <action
-            android:id="@+id/action_lotsFragment_to_lotDetailFragment"
-            app:destination="@id/lotDetailFragment"/>
 
+        <!--     Fragment 1 to fragment 2-->
+        <!--     Fragment 1 to fragment 3-->
         <action
             android:id="@+id/action_lotsFragment_to_addReservationFragment"
             app:destination="@id/addReservationFragment" />
-
+        <action
+            android:id="@+id/action_lotsFragment_to_lotDetailFragment"
+            app:destination="@id/lotDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/lotDetailFragment"
         android:name="com.example.parkingapp.fragments.LotDetailFragment"
-        android:label="LotDetailFragment"
+        android:label="@string/lot_title"
         tools:layout="@layout/fragment_lot_details">
         <argument
             android:name="item"
-            app:argType="com.example.parkingapp.lotAdapter.Lot" />
+            app:argType="integer" />
+
+        <!--     Fragment 2 to fragment 3-->
         <action
             android:id="@+id/action_lotDetailFragment_to_addReservationFragment"
             app:destination="@id/addReservationFragment" />
 
+        <!--    Return  Fragment 2 to fragment 1-->
+        <action
+            android:id="@+id/action_lotDetailFragment_to_lotsFragment"
+            app:destination="@id/lotsFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/addReservationFragment"
         android:name="com.example.parkingapp.fragments.AddReservationFragment"
         android:label="AddReservationFragment"
-        tools:layout="@layout/fragment_add_reservation" />
+        tools:layout="@layout/fragment_add_reservation" >
+
+        <!--     Fragment 3 to fragment 1-->
+        <action
+            android:id="@+id/action_addReservationFragment_to_lotsFragment"
+            app:destination="@id/lotsFragment" />
+
+        <!--     Fragment 3 to fragment 2-->
+        <action
+            android:id="@+id/action_addReservationFragment_to_lotDetailFragment"
+            app:destination="@id/lotDetailFragment" />
+    </fragment>
 </navigation>

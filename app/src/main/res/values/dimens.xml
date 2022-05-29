@@ -11,16 +11,16 @@
 
     <dimen name="textWiew_busy_layout_width">0dp</dimen>
     <dimen name="textWiew_busy_layout_marginStart">21dp</dimen>
-    <dimen name="textWiew_busy_textSize">16sp</dimen>
+    <dimen name="textWiew_busy_textSize">20sp</dimen>
 
     <dimen name="textWiew_free_layout_width">0dp</dimen>
     <dimen name="textWiew_free_layout_marginEnd">21dp</dimen>
-    <dimen name="textWiew_free_textSize">16sp</dimen>
+    <dimen name="textWiew_free_textSize">20sp</dimen>
 
-    <dimen name="recyclerView1_layout_margin">20dp</dimen>
-    <dimen name="recyclerView1_layout_marginStart">20dp</dimen>
+    <dimen name="recyclerView1_layout_margin">10dp</dimen>
+    <dimen name="recyclerView1_layout_marginStart">10dp</dimen>
     <dimen name="recyclerView1_layout_marginTop">20dp</dimen>
-    <dimen name="recyclerView1_layout_marginEnd">20dp</dimen>
+    <dimen name="recyclerView1_layout_marginEnd">10dp</dimen>
     <dimen name="recyclerView1_layout_marginBottom">20dp</dimen>
 
     <dimen name="floatingActionButton1_layout_margin">16dp</dimen>

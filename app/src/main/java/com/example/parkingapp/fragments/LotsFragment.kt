@@ -10,17 +10,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.domain.model.Lot
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentLotsBinding
-import com.example.parkingapp.lotAdapter.Lot
 import com.example.parkingapp.lotAdapter.LotAdapter
-import com.example.parkingapp.reservationAdapter.Reservation
 import com.example.parkingapp.viewmodels.LotListViewModel
 
 
-class LotsFragment : Fragment(),ItemOnRecyclerViewClicked {
+class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
 
-    private var binding : FragmentLotsBinding? = null
+    private var binding: FragmentLotsBinding? = null
     private val viewModel: LotListViewModel by viewModels()
 
     override fun onCreateView(
@@ -35,8 +34,6 @@ class LotsFragment : Fragment(),ItemOnRecyclerViewClicked {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         //FloatingActionButton
         binding?.floatingActionButton1?.setOnClickListener() {
             findNavController().navigate(R.id.action_lotsFragment_to_addReservationFragment)
@@ -44,22 +41,33 @@ class LotsFragment : Fragment(),ItemOnRecyclerViewClicked {
         viewModel.lotList.observe(viewLifecycleOwner) { lotList ->
             initRecyclerViewLots(lotList)
         }
+
+
     }
+
     //Recycler View
-    private  fun initRecyclerViewLots(lotList:List<Lot>){
+    private fun initRecyclerViewLots(lotList: List<com.example.domain.model.Lot>) {
+        //  val decoration = DividerItemDecoration(this, ConstraintLayoutManager.orientation)
+
         binding?.rvLots?.apply {
 
             adapter = LotAdapter(lotList, this@LotsFragment)
         }
 
     }
+
     override fun onClick(lot: Lot) {
         Toast.makeText(context, lot.dateOfStart, Toast.LENGTH_LONG).show()
 
-        findNavController().navigate(LotsFragmentDirections.actionLotsFragmentToLotDetailFragment(lot))
+        val bundle = Bundle()
+        bundle.putSerializable("objectLot", lot)
+        //enviar al fragment siguiente
+        findNavController().navigate(
+            R.id.action_lotsFragment_to_lotDetailFragment,
+            bundle
+        )
 
     }
-
 
     override fun onDestroyView() {
         // Consider not storing the binding instance in a field, if not needed.
@@ -70,10 +78,8 @@ class LotsFragment : Fragment(),ItemOnRecyclerViewClicked {
 }
 
 interface ItemOnRecyclerViewClicked {
-    fun onClick(lot: Lot)
-
+    fun onClick(lot: com.example.domain.model.Lot)
 
 
 }
-
 

@@ -3,12 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="5dp">
 
     <View
         android:id="@+id/rectangle"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_rectangle_layout_height"
+        android:background="@color/blue"
+        android:outlineAmbientShadowColor="@color/white"
+        android:layout_marginBottom="5dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/firstText"
+        android:textColor="@color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="@dimen/item_fiestText_textSize"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +54,7 @@
         android:layout_height="wrap_content"
         android:text="@string/secondtext"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@color/grey"
         android:textSize="@dimen/item_secondText_textSize"
         android:layout_marginTop="@dimen/item_secondText_layout_marginTop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,9 +67,11 @@
         android:id="@+id/parkingNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:text="@string/parking_number"
         android:textColor="#FFFFFF"
         android:textSize="@dimen/item_parkingNumber_textSize"
+
         app:layout_constraintBottom_toBottomOf="@+id/ellipse_1"
         app:layout_constraintEnd_toEndOf="@+id/ellipse_1"
         app:layout_constraintStart_toStartOf="@+id/ellipse_1"

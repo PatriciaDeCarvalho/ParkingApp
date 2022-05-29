@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="5dp">
 
 
     <!-- A CardView that contains a TextView -->
@@ -13,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_height="170sp"
         android:layout_gravity="center"
-        app:cardBackgroundColor="#E3E3E3"
+        app:cardBackgroundColor="@color/orange"
         app:cardCornerRadius="5sp">
 
         <TextView
@@ -24,6 +25,7 @@
             android:layout_marginTop="30sp"
             android:fontFamily="sans-serif"
             android:text="@string/day"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -34,6 +36,7 @@
             android:layout_marginStart="30sp"
             android:layout_marginTop="60sp"
             android:fontFamily="sans-serif"
+            android:textColor="@color/white"
             android:text="@string/montAndYear"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -46,7 +49,8 @@
             android:layout_marginTop="90sp"
             android:fontFamily="sans-serif"
             android:text="@string/time"
-            android:textColor="#6A6A6A"
+            android:textColor="@color/greylight"
+            android:shadowColor="@color/black"
             android:textSize="20sp"
             android:textStyle="normal" />
 
@@ -60,6 +64,7 @@
             android:layout_marginTop="30sp"
             android:layout_marginEnd="30sp"
             android:fontFamily="sans-serif"
+            android:textColor="@color/white"
             android:text="@string/day2"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -73,6 +78,7 @@
             android:layout_marginTop="60sp"
             android:layout_marginEnd="30sp"
             android:fontFamily="sans-serif"
+            android:textColor="@color/white"
             android:text="@string/montAndYear2"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -86,20 +92,20 @@
             android:layout_marginEnd="30sp"
             android:fontFamily="sans-serif"
             android:text="@string/time2"
-            android:textColor="#6A6A6A"
+            android:textColor="@color/greylight"
             android:textSize="20sp"
             android:textStyle="normal" />
 
         <Button
-            android:id="@+id/bn_add"
+            android:id="@+id/bn_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="30sp"
             android:layout_marginBottom="6sp"
-            android:backgroundTint="@color/white"
-            android:text="Add"
-            android:textColor="@color/black"
+            android:backgroundTint="@color/blue"
+            android:text="Delete"
+            android:textColor="@color/white"
             android:textSize="12sp"
             app:cornerRadius="20dp" />
     </androidx.cardview.widget.CardView>
