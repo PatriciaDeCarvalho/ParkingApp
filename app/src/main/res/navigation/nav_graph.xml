@@ -11,22 +11,23 @@
         tools:layout="@layout/fragment_lots">
 
         <!--     Fragment 1 to fragment 2-->
+        <action
+            android:id="@+id/action_lotsFragment_to_lotDetailFragment"
+            app:destination="@id/lotDetailFragment"/>
         <!--     Fragment 1 to fragment 3-->
         <action
             android:id="@+id/action_lotsFragment_to_addReservationFragment"
             app:destination="@id/addReservationFragment" />
-        <action
-            android:id="@+id/action_lotsFragment_to_lotDetailFragment"
-            app:destination="@id/lotDetailFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/lotDetailFragment"
         android:name="com.example.parkingapp.fragments.LotDetailFragment"
-        android:label="@string/lot_title"
+        android:label="LotDetailFragment"
         tools:layout="@layout/fragment_lot_details">
         <argument
             android:name="item"
-            app:argType="integer" />
+            app:argType="com.example.domain.model.Lot" />
 
         <!--     Fragment 2 to fragment 3-->
         <action
@@ -56,3 +57,4 @@
             app:destination="@id/lotDetailFragment" />
     </fragment>
 </navigation>
+
