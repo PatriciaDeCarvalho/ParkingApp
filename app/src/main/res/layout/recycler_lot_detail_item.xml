@@ -12,46 +12,46 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_height="170sp"
+        android:layout_height="@dimen/cardWiew_layout_height"
         android:layout_gravity="center"
         app:cardBackgroundColor="@color/orange"
-        app:cardCornerRadius="5sp">
+        app:cardCornerRadius="@dimen/card_view_cardCornerRadius">
 
         <TextView
-            android:id="@+id/tv_satrtDay"
+            android:id="@+id/tv_startDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30sp"
-            android:layout_marginTop="30sp"
+            android:layout_marginStart="@dimen/tv_startDay_layout_marginstart"
+            android:layout_marginTop="@dimen/tv_startDay_layour_marginTop"
             android:fontFamily="sans-serif"
             android:text="@string/day"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/tv_startDay_text"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_startMonthYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30sp"
-            android:layout_marginTop="60sp"
+            android:layout_marginStart="@dimen/tv_startMonthYear_layout_marginStart"
+            android:layout_marginTop="@dimen/tv_startMonthYear_layout_MarginTop"
             android:fontFamily="sans-serif"
             android:textColor="@color/white"
             android:text="@string/montAndYear"
-            android:textSize="20sp"
+            android:textSize="@dimen/tv_startMonthYear_textSize"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_startTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30sp"
-            android:layout_marginTop="90sp"
+            android:layout_marginStart="@dimen/tv_startTime_layout_marginStart"
+            android:layout_marginTop="@dimen/tv_startTime_layoutMarginTop"
             android:fontFamily="sans-serif"
             android:text="@string/time"
             android:textColor="@color/greylight"
             android:shadowColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="@dimen/tv_startTime_textSize"
             android:textStyle="normal" />
 
 
@@ -60,13 +60,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginStart="30sp"
-            android:layout_marginTop="30sp"
-            android:layout_marginEnd="30sp"
+            android:layout_marginStart="@dimen/tv_endDay_layout_marginStart"
+            android:layout_marginTop="@dimen/tv_endDay_layout_marginTop"
+            android:layout_marginEnd="@dimen/tv_endDay_layout_marginEnd"
             android:fontFamily="sans-serif"
             android:textColor="@color/white"
             android:text="@string/day2"
-            android:textSize="20sp"
+            android:textSize="@dimen/tv_endDay_textSize"
             android:textStyle="bold" />
 
         <TextView
@@ -74,13 +74,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginStart="30sp"
-            android:layout_marginTop="60sp"
-            android:layout_marginEnd="30sp"
+            android:layout_marginStart="@dimen/tv_endMonthYear_layout_marginStart"
+            android:layout_marginTop="@dimen/tv_endMonthYearlayout_marginTop"
+            android:layout_marginEnd="@dimen/tv_endMonthYear_layout_marginEnd"
             android:fontFamily="sans-serif"
             android:textColor="@color/white"
             android:text="@string/montAndYear2"
-            android:textSize="20sp"
+            android:textSize="@dimen/tv_endMonthYear_textSize"
             android:textStyle="bold" />
 
         <TextView
@@ -88,12 +88,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginTop="90sp"
-            android:layout_marginEnd="30sp"
+            android:layout_marginTop="@dimen/tv_endTime_layout_marginTop"
+            android:layout_marginEnd="@dimen/tv_endTime_layout_marginEnd"
             android:fontFamily="sans-serif"
             android:text="@string/time2"
             android:textColor="@color/greylight"
-            android:textSize="20sp"
+            android:textSize="@dimen/tv_endTime_textSize"
             android:textStyle="normal" />
 
         <Button
@@ -101,13 +101,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_marginEnd="30sp"
-            android:layout_marginBottom="6sp"
+            android:layout_marginEnd="@dimen/bn_delete_layout_marginEnd"
+            android:layout_marginBottom="@dimen/bn_delete_layout_marginBottom"
             android:backgroundTint="@color/blue"
-            android:text="Delete"
+            android:text="@string/delete"
             android:textColor="@color/white"
-            android:textSize="12sp"
-            app:cornerRadius="20dp" />
+            android:textSize="@dimen/bn_delete_textSize"
+            app:cornerRadius="@dimen/bn_delete_corner_radius" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

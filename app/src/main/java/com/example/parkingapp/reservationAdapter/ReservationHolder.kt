@@ -16,7 +16,7 @@ class ReservationHolder(
         val binding = RecyclerLotDetailItemBinding.bind(view)
 
         binding.apply {
-            tvSatrtDay.text = lotReservations.starDateTimeInMillis
+            tvStartDay.text = lotReservations.starDateTimeInMillis
             tvStartMonthYear.text = lotReservations.starDateTimeInMillis
             tvStartTime.text = lotReservations.starDateTimeInMillis
             tvEndDay.text = lotReservations.endDateTimeInMillis

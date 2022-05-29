@@ -42,7 +42,7 @@ class AddReservationFragment : Fragment(), OnclickCancelReservation {
         val buttonAddReservation = binding?.buttonAdd
         val spinner: Spinner? = spinnerView
         //editText Authorization Code Hide
-        var editText = binding?.etAuthorizationCodeRegistered
+        val editText = binding?.etAuthorizationCodeRegistered
         editText?.isInvisible = true
 
 
@@ -66,6 +66,10 @@ class AddReservationFragment : Fragment(), OnclickCancelReservation {
 
         }
 
+        val enteredCode = editText?.text?.toString()
+
+
+      //  onClickReservation(Reservation)
     }
 
     fun showSpinner(spinner: Spinner): SpinnerAdapter {

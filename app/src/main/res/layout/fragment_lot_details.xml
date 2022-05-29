@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/recyclerView1_layout_margin"
         android:layout_marginStart="@dimen/recyclerView1_layout_marginStart"
-        android:layout_marginTop="@dimen/recyclerView1_layout_marginTop"
+        android:layout_marginTop="@dimen/recyclerView1_layout_marginTop2"
         android:layout_marginEnd="@dimen/recyclerView1_layout_marginEnd"
         android:layout_marginBottom="@dimen/recyclerView1_layout_marginBottom"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -32,17 +32,8 @@
         android:contentDescription="@string/add_reservartion"
         android:elevation="@dimen/floatingActionButton1_elevation"
         android:src="@drawable/ic_baseline_add_24"
-        android:backgroundTint="@color/orange"
+        android:backgroundTint="@color/blue"
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/buttonTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

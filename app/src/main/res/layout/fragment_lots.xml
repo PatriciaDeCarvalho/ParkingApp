@@ -53,10 +53,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_lots"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_margin="@dimen/recyclerView1_layout_margin"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="@dimen/rv_lots_marginTop"
+        android:layout_marginBottom="@dimen/rv_lots_marginBottom"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
