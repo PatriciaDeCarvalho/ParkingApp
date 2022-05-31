@@ -112,7 +112,7 @@
         app:layout_constraintTop_toTopOf="@id/planets_spinner1" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_startEndTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/textView2_start_date_time_layout_marginStart"
@@ -124,7 +124,7 @@
         app:layout_constraintTop_toTopOf="@id/rectangle_StartTime" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_endDateTime"
         android:layout_width="wrap_content"
         android:layout_marginStart="@dimen/textView3_start_date_time_layout_marginStart"
         android:layout_height="wrap_content"

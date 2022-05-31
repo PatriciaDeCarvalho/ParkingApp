@@ -14,11 +14,12 @@ import androidx.fragment.app.viewModels
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentAddReservationBinding
 import com.example.domain.model.Reservation
-import com.example.parkingapp.viewmodels.AddReservationViewModel
+import com.example.parkingapp.viewmodels.addViewModel.AddViewModel
+import java.text.SimpleDateFormat
 import java.util.*
 
 class AddReservationFragment : Fragment() {
-    private val viewModel: AddReservationViewModel by viewModels()
+    private val viewModel: AddViewModel by viewModels()
     private var binding: FragmentAddReservationBinding? = null
 
     override fun onCreateView(
@@ -28,6 +29,7 @@ class AddReservationFragment : Fragment() {
         binding = FragmentAddReservationBinding.inflate(inflater, container, false)
         return binding?.root
     }
+    lateinit var dateTimeWithFormat : String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -92,10 +94,12 @@ class AddReservationFragment : Fragment() {
             val enteredCode = editText?.text?.toString()
             Toast.makeText(activity, "$itemSelected + $enteredCode", Toast.LENGTH_LONG).show()
 
+            //save startDateTime
+
+
 
         }
     }
-
 
     // create Spinner
     fun createSpinner(spinner: Spinner): SpinnerAdapter {
@@ -117,28 +121,33 @@ class AddReservationFragment : Fragment() {
       //onitemselectedlistener
     }
 
-    private fun showDateTimePickerDialog() {
+    private fun showDateTimePickerDialog()  {
 
         val calendar = Calendar.getInstance()
         val dateTimeSelected = calendar
+        dateTimeWithFormat = " dd-MM-yyyy hh:mm "
 
         val dateListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
             dateTimeSelected.set(Calendar.YEAR, year)
             dateTimeSelected.set(Calendar.MONTH, month)
             dateTimeSelected.set(Calendar.DAY_OF_MONTH, day)
-            binding?.textView2?.text="Date: $year/$month/$day"
-            Toast.makeText(
-                activity, "$day/$month/$year", Toast.LENGTH_LONG
-            ).show()
 
+            Toast.makeText(activity, "$day/$month/$year", Toast.LENGTH_LONG).show()
+
+            val format = " dd-MM-yyyy hh:mm "
+            val sdf = SimpleDateFormat(format, Locale.UK)
+            val dateTimeWithFormat = sdf.format(dateTimeSelected.time)
+
+            binding?.tvStartEndTime?.text = " $dateTimeWithFormat"
         }
 
         val timelistener = TimePickerDialog.OnTimeSetListener { _, hour, minutes ->
             dateTimeSelected.set(Calendar.MINUTE, minutes)
             dateTimeSelected.set(Calendar.HOUR, hour)
 
-            binding?.textView3?.text="Time: $hour:$minutes"
-//
+            Toast.makeText(activity, "$minutes/$hour", Toast.LENGTH_LONG).show()
+
+            binding?.tvEndDateTime?.text=" $dateTimeWithFormat"
         }
 
         TimePickerDialog(
@@ -157,6 +166,8 @@ class AddReservationFragment : Fragment() {
             calendar.get(Calendar.DAY_OF_MONTH)
         ).show()
     }
+
+
 
     }
 

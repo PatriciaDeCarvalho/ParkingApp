@@ -13,13 +13,13 @@ import com.example.domain.model.Lot
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentLotsBinding
 import com.example.parkingapp.lotAdapter.LotAdapter
-import com.example.parkingapp.viewmodels.LotListViewModel
+import com.example.parkingapp.viewmodels.lotViewModels.LotViewModel
 
 
 class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
 
     private var binding: FragmentLotsBinding? = null
-    private val viewModel: LotListViewModel by viewModels()
+    private val viewModel: LotViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

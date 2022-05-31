@@ -1,11 +1,11 @@
-package com.example.parkingapp.viewmodels
+package com.example.parkingapp.viewmodels.lotViewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.domain.model.Lot
 
-class LotListViewModel : ViewModel() {
+class LotViewModel : ViewModel() {
 
     val lotList: MutableLiveData<List<Lot>> by lazy {
         MutableLiveData<List<Lot>>().apply {

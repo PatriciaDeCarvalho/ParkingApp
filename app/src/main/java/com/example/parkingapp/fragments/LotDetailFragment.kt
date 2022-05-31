@@ -12,13 +12,13 @@ import com.example.parkingapp.databinding.FragmentLotDetailsBinding
 import com.example.domain.model.Lot
 import com.example.domain.model.Reservation
 import com.example.parkingapp.reservationAdapter.ReservationAdapter
-import com.example.parkingapp.viewmodels.ReservationListViewModel
+import com.example.parkingapp.viewmodels.reservationViewModels.ReservatioViewModel
 
 
 class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
 
     private var binding: FragmentLotDetailsBinding? = null
-    private val viewModel: ReservationListViewModel by viewModels()
+    private val viewModel: ReservatioViewModel by viewModels()
     lateinit var lotSelected: Lot
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
