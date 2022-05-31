@@ -1,10 +1,8 @@
 package com.example.parkingapp.viewmodels
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.domain.model.Lot
-import com.example.parkingapp.reservationAdapter.Reservation
+import com.example.domain.model.Reservation
 
 class ReservationListViewModel : ViewModel() {
 

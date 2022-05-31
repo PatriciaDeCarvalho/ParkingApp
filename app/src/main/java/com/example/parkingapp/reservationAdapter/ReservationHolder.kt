@@ -2,6 +2,7 @@ package com.example.parkingapp.reservationAdapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.model.Reservation
 import com.example.parkingapp.databinding.RecyclerLotDetailItemBinding
 import com.example.parkingapp.fragments.ItemReservationOnRecyclerViewClicked
 

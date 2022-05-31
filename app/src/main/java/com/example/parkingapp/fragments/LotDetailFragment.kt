@@ -6,12 +6,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentLotDetailsBinding
 import com.example.domain.model.Lot
-import com.example.parkingapp.reservationAdapter.Reservation
+import com.example.domain.model.Reservation
 import com.example.parkingapp.reservationAdapter.ReservationAdapter
 import com.example.parkingapp.viewmodels.ReservationListViewModel
 
@@ -43,9 +42,6 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
         }
 
         binding = FragmentLotDetailsBinding.bind(view)
-        Toast.makeText(context, "llego bien", Toast.LENGTH_LONG).show()
-
-
 
         //FloatingActionButton
         binding?.floatingActionButton2?.setOnClickListener() {
@@ -55,19 +51,10 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
 
     //RecyclerView
     private fun initRecyclerWiewReservations(listR : List<Reservation>) {
-
         binding?.rvReservations?.apply {
-
             adapter = ReservationAdapter(listR, this@LotDetailFragment)
         }
     }
-
-
-    override fun onDestroyView() {
-        binding = null
-        super.onDestroyView()
-    }
-
 
     //Show dialog in cancel button
     override fun onClickReservation(reservation: Reservation) {
@@ -82,8 +69,13 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
 
     }
 
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
+    }
 
 }
+
 interface ItemReservationOnRecyclerViewClicked{
     fun onClickReservation(reservation: Reservation)
 }

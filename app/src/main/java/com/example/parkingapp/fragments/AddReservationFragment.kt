@@ -1,6 +1,5 @@
 package com.example.parkingapp.fragments
 
-import android.app.ActionBar
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
@@ -8,17 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import android.widget.AdapterView.*
 import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.viewModels
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentAddReservationBinding
-import com.example.parkingapp.reservationAdapter.Reservation
+import com.example.domain.model.Reservation
+import com.example.parkingapp.viewmodels.AddReservationViewModel
 import java.util.*
 
-class AddReservationFragment : Fragment(), OnclickCancelReservation {
-
+class AddReservationFragment : Fragment() {
+    private val viewModel: AddReservationViewModel by viewModels()
     private var binding: FragmentAddReservationBinding? = null
 
     override fun onCreateView(
@@ -27,58 +27,83 @@ class AddReservationFragment : Fragment(), OnclickCancelReservation {
     ): View? {
         binding = FragmentAddReservationBinding.inflate(inflater, container, false)
         return binding?.root
-
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentAddReservationBinding.bind(view)
 
-        val spinnerView = binding?.planetsSpinner1
+        val spinner: Spinner? = binding?.planetsSpinner1
+        val textSelected = binding?.textView
         val authorizationCode = binding?.rectangleAuthorizationCode
         val buttonAddReservation = binding?.buttonAdd
-        val spinner: Spinner? = spinnerView
+
         //editText Authorization Code Hide
         val editText = binding?.etAuthorizationCodeRegistered
         editText?.isInvisible = true
 
-
+        //show DateTimePickerStart
         binding?.rectangleStartTime?.setOnClickListener {
             showDateTimePickerDialog()
         }
-
+        //show DateTimePickerEnd
         binding?.rectangleEndTime?.setOnClickListener {
             showDateTimePickerDialog()
         }
-
+        //show Spinner
         spinner?.let {
-            showSpinner(it)
+            createSpinner(it)
+        }
+        //listen Spinner
+
+     //   var itemSelected : String = "item text"
+
+        spinner?.onItemSelectedListener = object:
+
+            OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
         }
 
-        //Authorization Code
-        authorizationCode?.setOnClickListener() {
 
+        //show input Authorization Code
+        authorizationCode?.setOnClickListener() {
             binding?.textView4?.setVisibility(View.GONE)
             editText?.isInvisible = false
-
         }
 
-        val enteredCode = editText?.text?.toString()
+        //SAVE button
+        buttonAddReservation?.setOnClickListener{
+
+            //Spinner value
+            val itemSelected = spinner?.selectedItem.toString()
+
+            //save code
+            val enteredCode = editText?.text?.toString()
+            Toast.makeText(activity, "$itemSelected + $enteredCode", Toast.LENGTH_LONG).show()
 
 
-      //  onClickReservation(Reservation)
+        }
     }
 
-    fun showSpinner(spinner: Spinner): SpinnerAdapter {
+
+    // create Spinner
+    fun createSpinner(spinner: Spinner): SpinnerAdapter {
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter.createFromResource(
             requireActivity(), R.array.lotsSpinner,
             android.R.layout.simple_spinner_item
-
         ).also { adapter ->
 
             // Specify the layout to use when the list of choices appears
@@ -89,19 +114,31 @@ class AddReservationFragment : Fragment(), OnclickCancelReservation {
             return spinner.adapter
         }
 
-
+      //onitemselectedlistener
     }
 
     private fun showDateTimePickerDialog() {
 
         val calendar = Calendar.getInstance()
+        val dateTimeSelected = calendar
+
+        val dateListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
+            dateTimeSelected.set(Calendar.YEAR, year)
+            dateTimeSelected.set(Calendar.MONTH, month)
+            dateTimeSelected.set(Calendar.DAY_OF_MONTH, day)
+            binding?.textView2?.text="Date: $year/$month/$day"
+            Toast.makeText(
+                activity, "$day/$month/$year", Toast.LENGTH_LONG
+            ).show()
+
+        }
 
         val timelistener = TimePickerDialog.OnTimeSetListener { _, hour, minutes ->
+            dateTimeSelected.set(Calendar.MINUTE, minutes)
+            dateTimeSelected.set(Calendar.HOUR, hour)
 
-            //save information instead of toast
-            Toast.makeText(
-                activity, "$hour:$minutes", Toast.LENGTH_LONG
-            ).show()
+            binding?.textView3?.text="Time: $hour:$minutes"
+//
         }
 
         TimePickerDialog(
@@ -112,36 +149,18 @@ class AddReservationFragment : Fragment(), OnclickCancelReservation {
             false
         ).show()
 
-        val dateTimeListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
-            Toast.makeText(
-                activity, "$day/$month/$year", Toast.LENGTH_LONG
-            ).show()
-
-        }
-
         DatePickerDialog(
             requireContext(),
-            dateTimeListener,
+            dateListener,
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
         ).show()
     }
 
-    //Save reservation
-    override fun onClickReservation(reservation: Reservation) {
-
-
-   //spinner number selected
-        //date time start
-        //date time end
-        //authorization Code
-
-        //add all in array reservations add lot
     }
 
-
-}
+//}
 
 interface OnclickCancelReservation {
     fun onClickReservation(reservation: Reservation)

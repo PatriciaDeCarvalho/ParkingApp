@@ -1,7 +1,6 @@
 package com.example.parkingapp.fragments
 
 
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,6 +26,10 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         savedInstanceState: Bundle?
     ): View? {
 
+        viewModel.lotList.observe(viewLifecycleOwner) { lotList ->
+            initRecyclerViewLots(lotList)
+        }
+
         binding = FragmentLotsBinding.inflate(inflater, container, false)
         return binding?.root
     }
@@ -38,19 +41,13 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         binding?.floatingActionButton1?.setOnClickListener() {
             findNavController().navigate(R.id.action_lotsFragment_to_addReservationFragment)
         }
-        viewModel.lotList.observe(viewLifecycleOwner) { lotList ->
-            initRecyclerViewLots(lotList)
-        }
-
 
     }
-
     //Recycler View
     private fun initRecyclerViewLots(lotList: List<com.example.domain.model.Lot>) {
         //  val decoration = DividerItemDecoration(this, ConstraintLayoutManager.orientation)
 
         binding?.rvLots?.apply {
-
             adapter = LotAdapter(lotList, this@LotsFragment)
         }
 
@@ -61,7 +58,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
 
         val bundle = Bundle()
         bundle.putSerializable("objectLot", lot)
-        //enviar al fragment siguiente
+        //send to next fragment
         findNavController().navigate(
             R.id.action_lotsFragment_to_lotDetailFragment,
             bundle

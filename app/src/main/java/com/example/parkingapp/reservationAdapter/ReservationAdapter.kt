@@ -1,14 +1,16 @@
 package com.example.parkingapp.reservationAdapter
 
 import android.view.LayoutInflater
-import android.view.OnReceiveContentListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.model.Reservation
 import com.example.parkingapp.R
-import com.example.parkingapp.fragments.ItemOnRecyclerViewClicked
 import com.example.parkingapp.fragments.ItemReservationOnRecyclerViewClicked
 
-class ReservationAdapter(val  reservationList:List<Reservation>,  val listener: ItemReservationOnRecyclerViewClicked) : RecyclerView.Adapter<ReservationHolder>(){
+class ReservationAdapter(
+
+   private  val  reservationList:List<Reservation>,
+   private  val listener: ItemReservationOnRecyclerViewClicked) : RecyclerView.Adapter<ReservationHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReservationHolder {
         val layoutInflater2 = LayoutInflater.from(parent.context)

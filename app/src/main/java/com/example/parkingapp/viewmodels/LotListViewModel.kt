@@ -17,11 +17,6 @@ class LotListViewModel : ViewModel() {
         return lotList
     }
 
-//    private fun getLotList2() {
-//        viewModelScope.launch {
-//            getLotList()
-//        }
-//    }
 
     private fun loadLots() = mutableListOf<Lot>(
         Lot(

@@ -1,4 +1,4 @@
-package com.example.parkingapp
+package com.example.parkingapp.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.parkingapp.R
 import com.example.parkingapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

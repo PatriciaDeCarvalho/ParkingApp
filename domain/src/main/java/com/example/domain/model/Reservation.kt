@@ -1,4 +1,4 @@
-package com.example.parkingapp.reservationAdapter
+package com.example.domain.model
 
 import java.io.Serializable
 
