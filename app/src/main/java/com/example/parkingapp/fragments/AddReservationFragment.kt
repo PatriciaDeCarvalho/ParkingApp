@@ -14,7 +14,7 @@ import androidx.fragment.app.viewModels
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentAddReservationBinding
 import com.example.domain.model.Reservation
-import com.example.parkingapp.viewmodels.addViewModel.AddViewModel
+import com.example.parkingapp.viewmodels.AddViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -29,7 +29,9 @@ class AddReservationFragment : Fragment() {
         binding = FragmentAddReservationBinding.inflate(inflater, container, false)
         return binding?.root
     }
-    lateinit var dateTimeWithFormat : String
+
+    lateinit var dateTimeWithFormatStart : String
+    lateinit var dateTimeWithFormatEnd : String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,19 +49,17 @@ class AddReservationFragment : Fragment() {
 
         //show DateTimePickerStart
         binding?.rectangleStartTime?.setOnClickListener {
-            showDateTimePickerDialog()
+            showDateTimePickerDialog(true)
         }
         //show DateTimePickerEnd
         binding?.rectangleEndTime?.setOnClickListener {
-            showDateTimePickerDialog()
+            showDateTimePickerDialog(false)
         }
         //show Spinner
         spinner?.let {
             createSpinner(it)
         }
         //listen Spinner
-
-     //   var itemSelected : String = "item text"
 
         spinner?.onItemSelectedListener = object:
 
@@ -76,7 +76,6 @@ class AddReservationFragment : Fragment() {
                 TODO("Not yet implemented")
             }
         }
-
 
         //show input Authorization Code
         authorizationCode?.setOnClickListener() {
@@ -96,7 +95,8 @@ class AddReservationFragment : Fragment() {
 
             //save startDateTime
 
-
+            val startDateTime = dateTimeWithFormatStart
+            val EndDateTime = dateTimeWithFormatEnd
 
         }
     }
@@ -118,14 +118,14 @@ class AddReservationFragment : Fragment() {
             return spinner.adapter
         }
 
-      //onitemselectedlistener
     }
 
-    private fun showDateTimePickerDialog()  {
+    private fun showDateTimePickerDialog( isStartDay: Boolean)  {
 
         val calendar = Calendar.getInstance()
         val dateTimeSelected = calendar
-        dateTimeWithFormat = " dd-MM-yyyy hh:mm "
+        dateTimeWithFormatStart = " dd-MM-yyyy hh:mm "
+        dateTimeWithFormatEnd = " dd-MM-yyyy hh:mm "
 
         val dateListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
             dateTimeSelected.set(Calendar.YEAR, year)
@@ -136,9 +136,14 @@ class AddReservationFragment : Fragment() {
 
             val format = " dd-MM-yyyy hh:mm "
             val sdf = SimpleDateFormat(format, Locale.UK)
-            val dateTimeWithFormat = sdf.format(dateTimeSelected.time)
 
-            binding?.tvStartEndTime?.text = " $dateTimeWithFormat"
+            if (isStartDay == true){
+                dateTimeWithFormatStart = sdf.format(dateTimeSelected.time)
+            }else{
+                dateTimeWithFormatEnd = sdf.format(dateTimeSelected.time)
+            }
+
+
         }
 
         val timelistener = TimePickerDialog.OnTimeSetListener { _, hour, minutes ->
@@ -147,7 +152,8 @@ class AddReservationFragment : Fragment() {
 
             Toast.makeText(activity, "$minutes/$hour", Toast.LENGTH_LONG).show()
 
-            binding?.tvEndDateTime?.text=" $dateTimeWithFormat"
+            binding?.tvEndDateTime?.text=" $dateTimeWithFormatEnd"
+            binding?.tvStartEndTime?.text = " $dateTimeWithFormatStart"
         }
 
         TimePickerDialog(

@@ -1,8 +1,5 @@
 package com.example.parkingapp.fragments
 
-import com.example.domain.model.Lot
-import java.io.Serializable
-
 class Tests {
 
     data class Lot(

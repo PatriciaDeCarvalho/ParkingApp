@@ -56,7 +56,6 @@
         android:layout_height="0dp"
         android:layout_margin="@dimen/recyclerView1_layout_margin"
         android:layout_marginTop="@dimen/rv_lots_marginTop"
-        android:layout_marginBottom="@dimen/rv_lots_marginBottom"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,7 +64,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_fee"
         app:layout_constraintVertical_bias="0.213"
-        tools:itemCount="4"
+        tools:itemCount="8"
         tools:listitem="@layout/recycler_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

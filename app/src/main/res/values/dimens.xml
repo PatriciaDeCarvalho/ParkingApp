@@ -36,24 +36,24 @@
     <dimen name="planets_spinner1_layout_margin">20sp</dimen>
 
     <dimen name="rectangle_spinner1_layout_width">0sp</dimen>
-    <dimen name="rectangle_spinner1_layout_height">60dp</dimen>
+    <dimen name="rectangle_spinner1_layout_height">40dp</dimen>
     <dimen name="rectangle_spinner1_layout_margin">20sp</dimen>
     <dimen name="rectangle_spinner1_layout_marginTop">20dp</dimen>
     <dimen name="rectangle_spinner1_layout_marginEnd">20sp</dimen>
 
     <dimen name="rectangle_StartTime_layout_width">0sp</dimen>
-    <dimen name="rectangle_StartTime_layout_height">60dp</dimen>
+    <dimen name="rectangle_StartTime_layout_height">40dp</dimen>
     <dimen name="rectangle_StartTime_layout_margin">20sp</dimen>
     <dimen name="rectangle_StartTime_layout_marginEnd">20sp</dimen>
 
     <dimen name="rectangle_EndTime_layout_width">0dp</dimen>
-    <dimen name="rectangle_EndTime_layout_height">60dp</dimen>
+    <dimen name="rectangle_EndTime_layout_height">40dp</dimen>
     <dimen name="rectangle_EndTime_layout_margin">20sp</dimen>
     <dimen name="rectangle_EndTime_layout_marginStart">20dp</dimen>
     <dimen name="rectangle_EndTime_layout_marginEnd">20dp</dimen>
 
     <dimen name="rectangle_EndTime2_layout_width">0sp</dimen>
-    <dimen name="rectangle_EndTime2_layout_height">60dp</dimen>
+    <dimen name="rectangle_EndTime2_layout_height">40dp</dimen>
     <dimen name="rectangle_EndTime2_layout_marginStart">20dp</dimen>
     <dimen name="rectangle_EndTime2_layout_marginTop">20dp</dimen>
     <dimen name="rectangle_EndTime2_layout_marginEnd">20dp</dimen>

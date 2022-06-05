@@ -1,4 +1,4 @@
-package com.example.parkingapp.viewmodels.reservationViewModels
+package com.example.parkingapp.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

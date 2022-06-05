@@ -5,8 +5,8 @@ import java.io.Serializable
 
 data class Reservation (
     val authorizationCode:String,
-    val starDateTimeInMillis:Long, //change to long
-    val endDateTimeInMillis:Long, //change to long
+    val starDateTimeInMillis:Long,
+    val endDateTimeInMillis:Long,
     val parkingLot: Int): Serializable
 
 

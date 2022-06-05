@@ -7,12 +7,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.domain.model.Lot
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentLotDetailsBinding
-import com.example.domain.model.Lot
 import com.example.domain.model.Reservation
 import com.example.parkingapp.reservationAdapter.ReservationAdapter
-import com.example.parkingapp.viewmodels.reservationViewModels.ReservatioViewModel
+import com.example.parkingapp.viewmodels.ReservatioViewModel
 
 
 class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {

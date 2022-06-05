@@ -1,4 +1,4 @@
-package com.example.parkingapp.viewmodels.addViewModel
+package com.example.parkingapp.viewmodels
 
 import androidx.lifecycle.ViewModel
 import com.example.parkingapp.R
