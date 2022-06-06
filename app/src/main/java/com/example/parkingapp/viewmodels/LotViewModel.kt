@@ -11,13 +11,18 @@ import com.example.domain.usecases.GetLotListUseCase
 
 import kotlinx.coroutines.launch
 
-class LotViewModel( val getLotListUseCase : GetLotListUseCase) : ViewModel() {
+class LotViewModel( private val getLotListUseCase : GetLotListUseCase) : ViewModel() {
     private val _lots = MutableLiveData<List<Lot>>()
     val lots: LiveData<List<Lot>> = _lots
 
     fun loadLots() = viewModelScope.launch{
        val lotResponse =  getLotListUseCase.getLots()
         _lots.postValue(lotResponse)
+
+
+
+
+
 
 //
 //    val lotList: MutableLiveData<List<Lot>> by lazy {

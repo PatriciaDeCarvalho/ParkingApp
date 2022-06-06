@@ -12,20 +12,27 @@ import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentLotDetailsBinding
 import com.example.domain.model.Reservation
 import com.example.parkingapp.reservationAdapter.ReservationAdapter
-import com.example.parkingapp.viewmodels.ReservatioViewModel
+import com.example.parkingapp.viewmodels.LotViewModel
+import com.example.parkingapp.viewmodels.LotViewModelProvider
+import com.example.parkingapp.viewmodels.ReservationViewModel
 
 
 class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
 
     private var binding: FragmentLotDetailsBinding? = null
-    private val viewModel: ReservatioViewModel by viewModels()
+
+    private val viewModel: ReservationViewModel by lazy {
+        LotViewModelProvider(requireActivity()).get(ReservationViewModel::class.java)
+    }
+
+
     lateinit var lotSelected: Lot
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        viewModel.reservationList.observe(viewLifecycleOwner){ reservationList ->
+        viewModel.reservations.observe(viewLifecycleOwner){ reservationList ->
             initRecyclerWiewReservations(reservationList)
         }
 
@@ -36,9 +43,11 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         // receipt bundle
         arguments?.let {
             lotSelected = it.getSerializable("objectLot") as Lot
+            viewModel.loadReservations()
         }
 
         binding = FragmentLotDetailsBinding.bind(view)
@@ -58,7 +67,7 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
 
     //Show dialog in cancel button
     override fun onClickReservation(reservation: Reservation) {
-        Toast.makeText(activity, "probando:" + reservation.parkingLot, Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, "delete Reservation" + reservation.parkingLot, Toast.LENGTH_SHORT).show()
        // binding?.rvReservations?.setOnClickListener {
 
             var dialog = DeleteDialogFragment()

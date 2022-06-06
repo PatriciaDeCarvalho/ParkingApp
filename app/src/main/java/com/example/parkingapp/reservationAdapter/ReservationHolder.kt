@@ -18,7 +18,7 @@ class ReservationHolder(
     private lateinit var binding: RecyclerLotDetailItemBinding
 
     fun bindLotDetail(lotReservations: Reservation) {
-        val binding = RecyclerLotDetailItemBinding.bind(view)
+         binding = RecyclerLotDetailItemBinding.bind(view)
 
         binding.apply {
             tvStartDay.text = dateFormat.dayFormat(lotReservations.starDateTimeInMillis)

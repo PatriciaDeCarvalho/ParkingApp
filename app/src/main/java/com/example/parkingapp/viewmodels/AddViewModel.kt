@@ -5,3 +5,4 @@ import com.example.parkingapp.R
 
 class AddViewModel: ViewModel() {
 }
+

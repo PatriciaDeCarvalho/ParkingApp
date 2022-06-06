@@ -49,7 +49,7 @@ val parkingId = "-N0TU9Cpn15-TzSEcoSZ"
 
     }
     //Recycler View
-    private fun initRecyclerViewLots(lotList: List<com.example.domain.model.Lot>) {
+    private fun initRecyclerViewLots(lotList: List<Lot>) {
 
         binding?.rvLots?.apply {
             adapter = LotAdapter(lotList, this@LotsFragment)

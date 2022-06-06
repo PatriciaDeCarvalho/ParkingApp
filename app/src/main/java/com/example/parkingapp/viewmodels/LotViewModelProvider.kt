@@ -6,5 +6,5 @@ import androidx.lifecycle.ViewModelStoreOwner
 
 class LotViewModelProvider(activity: Activity) : ViewModelProvider(
     activity as ViewModelStoreOwner,
-    LotViewModelFactory(activity.applicationContext)
+    ViewModelFactory(activity.applicationContext)
 )

@@ -1,3 +1,3 @@
 package com.example.data.repositories.service.response
 
-class AddResponse (addId: String)
+class AddResponse (var addName: String)

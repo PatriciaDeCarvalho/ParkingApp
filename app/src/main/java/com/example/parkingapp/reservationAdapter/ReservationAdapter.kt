@@ -8,9 +8,8 @@ import com.example.parkingapp.R
 import com.example.parkingapp.fragments.ItemReservationOnRecyclerViewClicked
 
 class ReservationAdapter(
-
-   private  val  reservationList:List<Reservation>,
-   private  val listener: ItemReservationOnRecyclerViewClicked) : RecyclerView.Adapter<ReservationHolder>(){
+    val  reservationList:List<Reservation>,
+    val listener: ItemReservationOnRecyclerViewClicked) : RecyclerView.Adapter<ReservationHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReservationHolder {
         val layoutInflater2 = LayoutInflater.from(parent.context)
