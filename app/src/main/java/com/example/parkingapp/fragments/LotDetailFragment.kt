@@ -32,7 +32,7 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
         savedInstanceState: Bundle?
     ): View? {
 
-        viewModel.reservations.observe(viewLifecycleOwner){ reservationList ->
+        viewModel.reservations.observe(viewLifecycleOwner) { reservationList ->
             initRecyclerWiewReservations(reservationList)
         }
 
@@ -59,35 +59,39 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
     }
 
     //RecyclerView
-    private fun initRecyclerWiewReservations(listR : List<Reservation>) {
+    private fun initRecyclerWiewReservations(listR: List<Reservation>) {
         binding?.rvReservations?.apply {
             adapter = ReservationAdapter(listR, this@LotDetailFragment)
         }
     }
 
     //Show dialog in cancel button
-    override fun onClickReservation(reservation: Reservation) {
-        Toast.makeText(activity, "delete Reservation" + reservation.parkingLot, Toast.LENGTH_SHORT).show()
-       // binding?.rvReservations?.setOnClickListener {
+    override fun onDeleteReservation(reservation: Reservation) {
+        Toast.makeText(activity, "delete Reservation" + reservation.parkingLot, Toast.LENGTH_SHORT)
+            .show()
 
-            var dialog = DeleteDialogFragment()
-            val fm = activity?.supportFragmentManager
-            fm?.let{
-                dialog.show(it, "Costum Dialog")
+
+        var dialog = DeleteDialogFragment()
+        dialog.onDeleteClick = { codeText ->
+         viewModel.deleteReservation(reservation, codeText)
+
             }
+        val fm = activity?.supportFragmentManager
+        fm?.let {
+            dialog.show(it, "Costum Dialog")
+
+        }
+    }
+        override fun onDestroyView() {
+            binding = null
+            super.onDestroyView()
+        }
 
     }
 
-    override fun onDestroyView() {
-        binding = null
-        super.onDestroyView()
+    interface ItemReservationOnRecyclerViewClicked {
+        fun onDeleteReservation(reservation: Reservation)
     }
-
-}
-
-interface ItemReservationOnRecyclerViewClicked{
-    fun onClickReservation(reservation: Reservation)
-}
 
 
 

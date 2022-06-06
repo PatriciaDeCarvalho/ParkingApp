@@ -15,34 +15,18 @@ class LotViewModel( private val getLotListUseCase : GetLotListUseCase) : ViewMod
     private val _lots = MutableLiveData<List<Lot>>()
     val lots: LiveData<List<Lot>> = _lots
 
-    fun loadLots() = viewModelScope.launch{
-       val lotResponse =  getLotListUseCase.getLots()
+    fun loadLots() = viewModelScope.launch {
+        val lotResponse = getLotListUseCase.getLots()
         _lots.postValue(lotResponse)
-
-
-
-
-
-
-//
-//    val lotList: MutableLiveData<List<Lot>> by lazy {
-//
-//
-//        MutableLiveData<List<Lot>>().apply {
-//            value = loadLots()
-//        }
-//    }
-//
-////Scope  use case?
-//        fun getLots(parkingId: String)= viewModelScope.launch {
-//            val lotResponse = LotRepository.getLots(parkingId)
-//            _lots.postValue(lotResponse.getOrNull())
-//        }
-//
-//    private fun loadLots() = getLotListUseCase()
-//}
     }
-}
+
+
+
+
+
+
+    }
+
 
 
 

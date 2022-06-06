@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.data.repositories.LotRepositoryImpl
 import com.example.data.repositories.ReservationRepositoryImpl
 import com.example.data.repositories.service.LotService
-import com.example.data.repositories.service.retrofitInstance.ReservationService
+import com.example.data.repositories.service.ReservationService
 import com.example.domain.usecases.GetLotListUseCase
 import com.example.domain.usecases.GetReservationListUseCase
 

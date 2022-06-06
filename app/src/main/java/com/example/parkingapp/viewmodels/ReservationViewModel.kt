@@ -19,6 +19,14 @@ class ReservationViewModel(val getReservationListUseCase: GetReservationListUseC
           _reservations.postValue(reservationResponse)
       }
 
+    fun deleteReservation(reservation: Reservation, entryCode: String) = viewModelScope.launch {
+        val auxReservations = _reservations.value?.toMutableList()
+        if (reservation.authorizationCode == entryCode) {
+            auxReservations?.remove(reservation)
+            _reservations.postValue(auxReservations!!)
+        }
+    }
+
 
 
 

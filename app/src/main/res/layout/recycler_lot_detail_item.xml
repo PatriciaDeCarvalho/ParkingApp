@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_height="@dimen/cardWiew_layout_height"
         android:layout_gravity="center"
-        app:cardBackgroundColor="@color/orange"
+        app:cardBackgroundColor="@color/orange_dark"
         app:cardCornerRadius="@dimen/card_view_cardCornerRadius">
 
         <TextView

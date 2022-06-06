@@ -31,7 +31,7 @@ class ReservationHolder(
         }
 
         binding.bnDelete.setOnClickListener {
-            listener.onClickReservation(lotReservations)
+            listener.onDeleteReservation(lotReservations)
         }
     }
 }

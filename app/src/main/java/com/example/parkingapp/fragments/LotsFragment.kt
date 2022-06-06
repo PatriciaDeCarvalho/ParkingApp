@@ -27,7 +27,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         savedInstanceState: Bundle?
     ): View? {
 
-val parkingId = "-N0TU9Cpn15-TzSEcoSZ"
+
 
         viewModel.lots.observe(viewLifecycleOwner) { lotList ->
             initRecyclerViewLots(lotList)
@@ -46,6 +46,14 @@ val parkingId = "-N0TU9Cpn15-TzSEcoSZ"
         binding?.floatingActionButton1?.setOnClickListener() {
             findNavController().navigate(R.id.action_lotsFragment_to_addReservationFragment)
         }
+//        var tvBusy = binding.tvBusy.text
+  //      var tvFree = binding.tvFee.text
+//        var parkingLotsAvailable = //lista.size
+//            lista.forEach (){
+//                if (lista.reservation,isEmpty()){
+//                parkingLotsAvailable --
+//            }
+//            }
 
     }
     //Recycler View

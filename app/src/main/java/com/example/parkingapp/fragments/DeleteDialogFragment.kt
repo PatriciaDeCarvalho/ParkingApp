@@ -18,6 +18,8 @@ import com.example.parkingapp.databinding.FragmentLotsBinding
 class DeleteDialogFragment(): DialogFragment() {
     private var binding: DeleteDialogFragmentBinding? = null
 
+    lateinit var onDeleteClick:(String)-> Unit
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,7 +37,8 @@ class DeleteDialogFragment(): DialogFragment() {
         val ok = binding?.tvOkDelete?.setOnClickListener() {
             val authorizationCode = binding?.etAuthorizationCodeEntered
             val codeText = authorizationCode?.text?.toString()
-            Toast.makeText(context, "bfb$codeText", Toast.LENGTH_LONG).show()
+            //en caso de nulo vacio es valor por defecto
+           onDeleteClick.invoke(codeText ?: "")
             dismiss()
         }
 

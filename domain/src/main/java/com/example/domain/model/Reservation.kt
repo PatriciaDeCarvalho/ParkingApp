@@ -4,6 +4,7 @@ import java.io.Serializable
 
 
 data class Reservation (
+
     val authorizationCode:String,
     val starDateTimeInMillis:Long,
     val endDateTimeInMillis:Long,

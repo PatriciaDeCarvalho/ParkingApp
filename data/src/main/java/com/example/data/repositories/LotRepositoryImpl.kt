@@ -1,5 +1,6 @@
 package com.example.data.repositories
 import com.example.data.repositories.service.LotService
+import com.example.data.repositories.service.response.ParkingLotListResponse
 
 import com.example.domain.model.Lot
 import com.example.domain.model.Reservation
@@ -12,9 +13,10 @@ class LotRepositoryImpl : LotRepository {
 
 //bring list from the service
     override suspend fun getLotList(): List<Lot> {
-        return lotService.getLots()
+        return lotService.getLotsMock()
 
 
     }
-
+    //cambiar todas las llamadas para el retorno del nuevo valor Result<ParkingLotListResponse?>
+  //  Result<ParkingLotListResponse?>
 }

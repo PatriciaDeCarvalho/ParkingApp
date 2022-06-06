@@ -1,8 +1,6 @@
 package com.example.data.repositories
 
-import com.example.data.repositories.service.LotService
-import com.example.data.repositories.service.retrofitInstance.ReservationService
-import com.example.domain.model.Lot
+import com.example.data.repositories.service.ReservationService
 import com.example.domain.model.Reservation
 import com.example.domain.repositories.ReservationRepository
 

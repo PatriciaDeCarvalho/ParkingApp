@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/orange"
+    android:background="@color/orange_dark"
     tools:context=".activities.MainActivity">
 
     <ProgressBar
@@ -15,7 +15,7 @@
         android:layout_marginStart="@dimen/progressBar_marginStart"
         android:layout_marginTop="@dimen/progressBar_layout_marginTop"
         android:layout_marginEnd="@dimen/progressBar_layout_marginEnd"
-        android:background="@color/orange"
+        android:background="@color/orange_dark"
         android:max="100"
         android:progress="10"
         android:progressTint="#343A3F"

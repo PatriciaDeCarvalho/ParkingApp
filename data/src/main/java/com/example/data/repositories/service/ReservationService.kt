@@ -1,4 +1,4 @@
-package com.example.data.repositories.service.retrofitInstance
+package com.example.data.repositories.service
 
 import com.example.domain.model.Reservation
 
