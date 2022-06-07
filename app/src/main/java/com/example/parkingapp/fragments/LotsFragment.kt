@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.domain.model.Lot
+import com.example.domain.model.LotList
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentLotsBinding
 import com.example.parkingapp.lotAdapter.LotAdapter
@@ -56,7 +57,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
 
     }
     //Recycler View
-    private fun initRecyclerViewLots(lotList: List<Lot>) {
+    private fun initRecyclerViewLots(lotList: LotList) {
 
         binding?.rvLots?.apply {
             adapter = LotAdapter(lotList, this@LotsFragment)

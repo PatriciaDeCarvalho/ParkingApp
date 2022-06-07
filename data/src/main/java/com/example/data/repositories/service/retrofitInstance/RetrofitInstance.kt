@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
 
-    private const val BASE_URL =""
+    private const val BASE_URL ="https://parking-lot-5aace-default-rtdb.firebaseio.com"
 
         fun getRetrofit(): Retrofit {
             return Retrofit.Builder()

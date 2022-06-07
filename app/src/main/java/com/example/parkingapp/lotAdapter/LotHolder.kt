@@ -20,17 +20,17 @@ class LotHolder(private val view: View, val listener: ItemOnRecyclerViewClicked)
         binding.apply {
 
             parkingNumber.text = lot.parkingLot.toString()
-            lot.reservationList.firstOrNull()?.let{
-
-                //cxambiar para mostrar la reserva que corresponde, solo si esta ocupado en el momento
-                val endDateTime = Date(it.endDateTimeInMillis)
-
-                tvDate.text = SimpleDateFormat.getDateInstance().format(endDateTime)
-                tvTime.text = SimpleDateFormat.getTimeInstance().format(endDateTime)
-            }?: run {
-                tvTime.text = "Empty"
-                tvDate.visibility = GONE
-            }
+//            lot.reservationList.firstOrNull()?.let{
+//
+//                //cxambiar para mostrar la reserva que corresponde, solo si esta ocupado en el momento
+//                val endDateTime = Date(it.endDateTimeInMillis)
+//
+//                tvDate.text = SimpleDateFormat.getDateInstance().format(endDateTime)
+//                tvTime.text = SimpleDateFormat.getTimeInstance().format(endDateTime)
+//            }?: run {
+//                tvTime.text = "Empty"
+//                tvDate.visibility = GONE
+      //      }
 
 
 

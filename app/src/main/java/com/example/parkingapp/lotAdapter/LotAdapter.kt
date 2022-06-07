@@ -3,11 +3,12 @@ package com.example.parkingapp.lotAdapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.model.LotList
 
 import com.example.parkingapp.R
 import com.example.parkingapp.fragments.ItemOnRecyclerViewClicked
 
-class LotAdapter(val lotList: List<com.example.domain.model.Lot>, val listener: ItemOnRecyclerViewClicked):
+class LotAdapter(val lotList: LotList, val listener: ItemOnRecyclerViewClicked):
     RecyclerView.Adapter<LotHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): LotHolder {
@@ -17,11 +18,11 @@ class LotAdapter(val lotList: List<com.example.domain.model.Lot>, val listener: 
     }
 
     override fun onBindViewHolder(holder: LotHolder,position: Int) {
-        val item = lotList[position]
+        val item = lotList.lotList.get(position)
 
         holder.bindLot(item)
     }
 
-    override fun getItemCount()= lotList.size
+    override fun getItemCount()= lotList.lotList.size
 
 }

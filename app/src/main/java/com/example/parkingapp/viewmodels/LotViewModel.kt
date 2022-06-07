@@ -6,14 +6,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.repositories.LotRepositoryImpl
 import com.example.domain.model.Lot
+import com.example.domain.model.LotList
 import com.example.domain.repositories.LotRepository
 import com.example.domain.usecases.GetLotListUseCase
 
 import kotlinx.coroutines.launch
 
 class LotViewModel( private val getLotListUseCase : GetLotListUseCase) : ViewModel() {
-    private val _lots = MutableLiveData<List<Lot>>()
-    val lots: LiveData<List<Lot>> = _lots
+    private val _lots = MutableLiveData<LotList>()
+    val lots: LiveData<LotList> = _lots
 
     fun loadLots() = viewModelScope.launch {
         val lotResponse = getLotListUseCase.getLots()
