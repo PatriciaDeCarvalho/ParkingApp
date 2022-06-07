@@ -88,15 +88,18 @@ class AddReservationFragment : Fragment() {
 
             //Spinner value
             val itemSelected = spinner?.selectedItem.toString()
+            viewModel.itemSelectedVM = itemSelected as Int
 
             //save code
             val enteredCode = editText?.text?.toString()
+            viewModel.enteredCodeVM = enteredCode!!
             Toast.makeText(activity, "$itemSelected + $enteredCode", Toast.LENGTH_LONG).show()
 
             //save startDateTime
-
             val startDateTime = dateTimeWithFormatStart
-            val EndDateTime = dateTimeWithFormatEnd
+            viewModel.startDateTimeVM = startDateTime as Long
+            val endDateTime = dateTimeWithFormatEnd
+            viewModel.EndDateTimeVM = endDateTime as Long
 
         }
     }

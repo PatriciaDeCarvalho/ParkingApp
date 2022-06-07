@@ -29,6 +29,14 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
                 }
             }) as T
         }
+                //Como funciona el repository en post?
+//        else if  (modelClass == AddViewModel::class.java){
+//            return AddViewModel(--agregar UseCase--().apply {
+//                AddRepository = ReservationRepositoryImpl().apply {
+//                    reservationService = ReservationService()
+//                }
+//            }) as T
+//      }
         return super.create(modelClass)
     }
 }

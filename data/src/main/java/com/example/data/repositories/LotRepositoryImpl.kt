@@ -17,6 +17,6 @@ class LotRepositoryImpl : LotRepository {
 
 
     }
-    //cambiar todas las llamadas para el retorno del nuevo valor Result<ParkingLotListResponse?>
+    //cambiar todas las llamadas para el retormo del nuevo valor Result<ParkingLotListResponse?>
   //  Result<ParkingLotListResponse?>
 }
