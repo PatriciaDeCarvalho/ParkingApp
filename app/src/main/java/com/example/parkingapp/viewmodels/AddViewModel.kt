@@ -1,8 +1,12 @@
 package com.example.parkingapp.viewmodels
 import androidx.lifecycle.ViewModel
+import com.example.data.repositories.service.ReservationService
+import com.example.domain.model.Reservation
 
 
-class AddViewModel: ViewModel() {
+class AddViewModel(listReservations: ReservationService): ViewModel() {
+
+  //  private val reservationList:List<Reservation> = ReservationService.getReservations()
 
     var itemSelectedVM:Int = 0
     var enteredCodeVM:String = ""
@@ -11,7 +15,8 @@ class AddViewModel: ViewModel() {
 
 fun addReservation(){
 
-    //reservationList.add
+  //  var reservation = arrayOf(enteredCodeVM,startDateTimeVM,EndDateTimeVM,itemSelectedVM,)
+  //  reservationmList.add(reservation)
 }
 
 }
