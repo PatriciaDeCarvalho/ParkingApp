@@ -15,8 +15,8 @@ class AddViewModel(listReservations: ReservationService): ViewModel() {
 
 fun addReservation(){
 
-  //  var reservation = arrayOf(enteredCodeVM,startDateTimeVM,EndDateTimeVM,itemSelectedVM,)
-  //  reservationmList.add(reservation)
+  //  var reservation = listOf(enteredCodeVM,startDateTimeVM,EndDateTimeVM,itemSelectedVM,)
+  //  reservationList.add(reservation)
 }
 
 }

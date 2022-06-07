@@ -4,6 +4,4 @@ import java.io.Serializable
 
 data class Lot (
 
-    val parkingLot: Int,
-    var reservationList: List<Reservation>
-):Serializable
+    val parkingLot: Int) :Serializable

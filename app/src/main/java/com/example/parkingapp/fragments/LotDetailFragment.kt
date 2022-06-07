@@ -1,5 +1,7 @@
 package com.example.parkingapp.fragments
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,11 +45,12 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         // receipt bundle
         arguments?.let {
             lotSelected = it.getSerializable("objectLot") as Lot
             viewModel.loadReservations()
+            val mensaje = viewModel.loadReservations().toString()
+            Log.d(TAG,mensaje)
         }
 
         binding = FragmentLotDetailsBinding.bind(view)
@@ -69,7 +72,6 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
     override fun onDeleteReservation(reservation: Reservation) {
         Toast.makeText(activity, "delete Reservation" + reservation.parkingLot, Toast.LENGTH_SHORT)
             .show()
-
 
         var dialog = DeleteDialogFragment()
         dialog.onDeleteClick = { codeText ->

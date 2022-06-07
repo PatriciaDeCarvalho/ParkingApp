@@ -12,8 +12,8 @@ class LotRepositoryImpl : LotRepository {
   lateinit var lotService: LotService
 
 //bring list from the service
-    override suspend fun getLotList(): List<Lot> {
-        return lotService.getLotsMock()
+    override suspend fun getLotList(): Result<ParkingLotListResponse?> {
+        return lotService.getLots()
 
 
     }

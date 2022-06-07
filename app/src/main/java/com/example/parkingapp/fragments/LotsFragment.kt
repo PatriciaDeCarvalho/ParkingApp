@@ -28,7 +28,6 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
     ): View? {
 
 
-
         viewModel.lots.observe(viewLifecycleOwner) { lotList ->
             initRecyclerViewLots(lotList)
         }
@@ -47,9 +46,9 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
             findNavController().navigate(R.id.action_lotsFragment_to_addReservationFragment)
         }
 //        var tvBusy = binding.tvBusy.text
-  //      var tvFree = binding.tvFee.text
-//        var parkingLotsAvailable = //lista.size
-//            lista.forEach (){
+//        var tvFree = binding.tvFee.text
+//        var parkingLotsAvailable = viewModel.lotResponse.size
+//        viewModel.lotResponse.forEach (){
 //                if (lista.reservation,isEmpty()){
 //                parkingLotsAvailable --
 //            }

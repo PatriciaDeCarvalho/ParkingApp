@@ -4,5 +4,5 @@ import com.example.domain.model.Lot
 
 interface LotRepository {
 
-   suspend fun getLotList() : List<Lot>
+   suspend fun getLotList() : Result<ParkingLotListResponse?>
 }
