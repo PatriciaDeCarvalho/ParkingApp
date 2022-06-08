@@ -20,5 +20,5 @@ interface APIService {
     suspend fun getParkingLots(@Path("parkingId") id: String): ParkingLotListResponse
 
     @GET("{parkingId}/reservations.json")
-    suspend fun getReservations(@Path("parkingId") id: String): ReservationListResponse
+    suspend fun getReservations(@Path("parkingId") id: String): ReservationListResponse?
 }

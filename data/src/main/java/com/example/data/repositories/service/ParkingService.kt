@@ -45,7 +45,7 @@ class ParkingService {
                     PARKING_ID)
 
 
-                if (response.reservationList.isNotEmpty()) {
+                if (response?.reservationList?.isNotEmpty()!!) {
                     //llamar al maper para transformar Parking lot en parking lot list response
                     Result.Success(response.reservationList)
                 } else {

@@ -33,7 +33,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
             initRecyclerViewLots(lotList)
         }
         viewModel.reservations.observe(viewLifecycleOwner) { reservationList ->
-          Toast.makeText(context, reservationList.reservationList.first().authorizationCode,Toast.LENGTH_LONG ).show()
+       //   Toast.makeText(context, reservationList.reservationList.first().authorizationCode,Toast.LENGTH_LONG ).show()
         }
 
         binding = FragmentLotsBinding.inflate(inflater, container, false)

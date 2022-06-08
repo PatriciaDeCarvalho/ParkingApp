@@ -21,12 +21,12 @@ class ReservationHolder(
          binding = RecyclerLotDetailItemBinding.bind(view)
 
         binding.apply {
-            tvStartDay.text = dateFormat.dayFormat(lotReservations.starDateTimeInMillis)
-            tvStartMonthYear.text = dateFormat.monthYearFormat(lotReservations.starDateTimeInMillis)
-            tvStartTime.text = dateFormat.hourFormat(lotReservations.starDateTimeInMillis)
-            tvEndDay.text = dateFormat.dayFormat(lotReservations.starDateTimeInMillis)
-            tvEndMonthYear.text = dateFormat.monthYearFormat(lotReservations.starDateTimeInMillis)
-            tvEndTime.text = dateFormat.hourFormat(lotReservations.starDateTimeInMillis)
+            tvStartDay.text = dateFormat.dayFormat(lotReservations.starDateTimeInMillis as Long)
+            tvStartMonthYear.text = dateFormat.monthYearFormat(lotReservations.starDateTimeInMillis as Long)
+            tvStartTime.text = dateFormat.hourFormat(lotReservations.starDateTimeInMillis as Long)
+            tvEndDay.text = dateFormat.dayFormat(lotReservations.starDateTimeInMillis as Long)
+            tvEndMonthYear.text = dateFormat.monthYearFormat(lotReservations.starDateTimeInMillis as Long)
+            tvEndTime.text = dateFormat.hourFormat(lotReservations.starDateTimeInMillis as Long)
 
         }
 

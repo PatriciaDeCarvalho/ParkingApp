@@ -48,8 +48,8 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
         // receipt bundle
         arguments?.let {
             lotSelected = it.getSerializable("objectLot") as Lot
-            viewModel.loadReservations()
-            val mensaje = viewModel.loadReservations().toString()
+      //      viewModel.loadReservations()
+            val mensaje = "hola"//viewModel.loadReservations().toString()
             Log.d(TAG,mensaje)
         }
 

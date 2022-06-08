@@ -19,16 +19,20 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
                 repository= LotRepositoryImpl().apply {
                     lotService = ParkingService()
                 }
-            }) as T
-        }
-
-        else if  (modelClass == ReservationViewModel::class.java){
-            return ReservationViewModel(GetReservationListUseCase().apply {
-                reservRepository = ReservationRepositoryImpl().apply {
-                    reservationService = ReservationService()
+            }, GetReservationListUseCase().apply {
+                reservRepository= ReservationRepositoryImpl().apply {
+                    parkingService = ParkingService()
                 }
-            }) as T
+            } ) as T
         }
+//
+//        else if  (modelClass == ReservationViewModel::class.java){
+//            return ReservationViewModel(GetReservationListUseCase().apply {
+//                reservRepository = ReservationRepositoryImpl().apply {
+//                    reservationService = ReservationService()
+//                }
+//            }) as T
+//        }
                 //Como funciona el repository en post?
 //        else if  (modelClass == AddViewModel::class.java){
 //            return AddViewModel(--agregar UseCase--().apply {
