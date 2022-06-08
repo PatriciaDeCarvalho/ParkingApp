@@ -1,3 +1,7 @@
 package com.example.data.repositories.service.response
 
-data class ParkingLotRespsonse (var parkingLot:Int)
+import com.google.gson.annotations.SerializedName
+
+data class ParkingLotRespsonse (
+    @SerializedName("parkingLot")
+    var parkingLot:Int)

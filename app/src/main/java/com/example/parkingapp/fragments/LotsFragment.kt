@@ -32,6 +32,9 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         viewModel.lots.observe(viewLifecycleOwner) { lotList ->
             initRecyclerViewLots(lotList)
         }
+        viewModel.reservations.observe(viewLifecycleOwner) { reservationList ->
+          Toast.makeText(context, reservationList.reservationList.first().authorizationCode,Toast.LENGTH_LONG ).show()
+        }
 
         binding = FragmentLotsBinding.inflate(inflater, container, false)
         return binding?.root
@@ -41,6 +44,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.loadLots()
+        viewModel.loadReservations()
 
         //FloatingActionButton
         binding?.floatingActionButton1?.setOnClickListener() {

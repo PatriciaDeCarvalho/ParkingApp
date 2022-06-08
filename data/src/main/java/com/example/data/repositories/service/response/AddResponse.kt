@@ -1,3 +1,9 @@
 package com.example.data.repositories.service.response
 
-class AddResponse (var addName: String)
+import com.google.gson.annotations.SerializedName
+
+data class AddResponse (
+    @SerializedName("addReservation")
+    var addName: String)
+
+

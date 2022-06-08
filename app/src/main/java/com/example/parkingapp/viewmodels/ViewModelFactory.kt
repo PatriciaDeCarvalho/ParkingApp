@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.data.repositories.LotRepositoryImpl
 import com.example.data.repositories.ReservationRepositoryImpl
-import com.example.data.repositories.service.LotListService
+import com.example.data.repositories.service.ParkingService
 import com.example.data.repositories.service.ReservationService
 import com.example.domain.usecases.GetLotListUseCase
 import com.example.domain.usecases.GetReservationListUseCase
@@ -17,7 +17,7 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
         if (modelClass == LotViewModel::class.java){
             return LotViewModel(GetLotListUseCase().apply {
                 repository= LotRepositoryImpl().apply {
-                    lotService = LotListService()
+                    lotService = ParkingService()
                 }
             }) as T
         }

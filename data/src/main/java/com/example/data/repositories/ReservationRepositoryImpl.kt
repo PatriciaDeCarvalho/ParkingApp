@@ -1,17 +1,37 @@
 package com.example.data.repositories
 
+import com.example.data.repositories.service.ParkingService
 import com.example.data.repositories.service.ReservationService
+import com.example.data.repositories.service.response.ReservationResponse
+import com.example.domain.model.Lot
 import com.example.domain.model.Reservation
+import com.example.domain.model.ReservationList
 import com.example.domain.repositories.ReservationRepository
+import com.example.domain.util.Result
 
 class ReservationRepositoryImpl: ReservationRepository {
 
     //contains List of Reservations
-    lateinit var reservationService: ReservationService
+    lateinit var parkingService: ParkingService
 
-    //bring list from the service
-    override suspend fun getReservationsList(): List<Reservation> {
-        return reservationService.getReservations()
+    override suspend fun getReservationsList(): ReservationList {
+        var mutableReservationList = mutableListOf<Reservation>()
+        var reservationList = ReservationList(mutableReservationList)
+
+       var result =  parkingService.getReservations()
+
+
+        if (result is Result.Success) {
+            result.data.forEach {
+                mutableReservationList.add(Reservation(it.authorizationCode,it.startDate,it.endDate, it.parkingLot))
+            }
+
+        }
+        reservationList.reservationList = mutableReservationList
+        return reservationList
     }
 
-}
+
+
+    }
+

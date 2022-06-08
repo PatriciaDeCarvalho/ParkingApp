@@ -1,27 +1,24 @@
 package com.example.data.repositories.service.api
 
-import com.example.data.repositories.service.response.ParkingLotListResponse
-import com.example.data.repositories.service.response.ReservationListResponse
-import retrofit2.Call
-import retrofit2.Response
+
+import com.example.data.repositories.service.response.*
 import retrofit2.http.DELETE
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface APIService {
 
-// @GET("{parkingId}/reservations.json")
-// suspend fun getReservations(@Path("parkingId")id:String): Response<ReservationListResponse>
 
-//    @GET("parkings/{parkingId}/.json")
-//    suspend fun getParkingLots(@Path("parkingId")id:String): Call< Response<ParkingLotListResponse>>
-//
-//    @DELETE("parkings/{parkingId}/.json")
-//    fun deleteMascotaPorId(@Path ("id") id: String) : Call<SaveMascota>
-//
-////    @POST("{parkingId}/reservations.json")
-////            suspend fun
-@GET("parkings/{parkingId}/.json")
-suspend fun getParkingLots(@Path("parkingId")id:String): Call< Response<ParkingLotListResponse>>
+//    @DELETE("parkingId/{reservations}/.json")
+//    suspend fun deleteReservation(@Path("parkingId") id: DeleteResponse
+
+//    @POST("parkingId/{reservations}/.json")
+//    suspend fun addReservations(@Path("parkingId") id: String): AddResponse
+
+    @GET("parkings/{parkingId}/.json")
+    suspend fun getParkingLots(@Path("parkingId") id: String): ParkingLotListResponse
+
+    @GET("{parkingId}/reservations.json")
+    suspend fun getReservations(@Path("parkingId") id: String): ReservationListResponse
 }
-

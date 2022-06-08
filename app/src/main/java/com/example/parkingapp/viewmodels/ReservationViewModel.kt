@@ -14,10 +14,10 @@ class ReservationViewModel(val getReservationListUseCase: GetReservationListUseC
     private val _reservations =  MutableLiveData<List<Reservation>>()
     val reservations: LiveData<List<Reservation>> = _reservations
 
-      fun loadReservations() = viewModelScope.launch {
-          val reservationResponse = getReservationListUseCase.getReservations()
-          _reservations.postValue(reservationResponse)
-      }
+//      fun loadReservations() = viewModelScope.launch {
+//          val reservationResponse = getReservationListUseCase.getReservations()
+//          _reservations.postValue(reservationResponse)
+//      }
 
     fun deleteReservation(reservation: Reservation, entryCode: String) = viewModelScope.launch {
         val auxReservations = _reservations.value?.toMutableList()
