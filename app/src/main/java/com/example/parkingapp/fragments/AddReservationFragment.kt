@@ -60,7 +60,6 @@ class AddReservationFragment : Fragment() {
             createSpinner(it)
         }
         //listen Spinner
-
         spinner?.onItemSelectedListener = object:
 
             OnItemSelectedListener{

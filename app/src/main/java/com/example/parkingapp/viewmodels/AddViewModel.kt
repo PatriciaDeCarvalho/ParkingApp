@@ -6,7 +6,7 @@ import com.example.domain.model.Reservation
 
 class AddViewModel(listReservations: ReservationService): ViewModel() {
 
-  //  private val reservationList:List<Reservation> = ReservationService.getReservations()
+  //  private val reservationList:List<Reservation> = ParkingService.getReservations()
 
     var itemSelectedVM:Int = 0
     var enteredCodeVM:String = ""
