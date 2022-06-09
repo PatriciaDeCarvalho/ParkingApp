@@ -49,7 +49,7 @@
             android:layout_marginTop="@dimen/tv_startTime_layoutMarginTop"
             android:fontFamily="sans-serif"
             android:text="@string/time"
-            android:textColor="@color/greylight"
+            android:textColor="@color/orange"
             android:shadowColor="@color/black"
             android:textSize="@dimen/tv_startTime_textSize"
             android:textStyle="normal" />
@@ -92,7 +92,7 @@
             android:layout_marginEnd="@dimen/tv_endTime_layout_marginEnd"
             android:fontFamily="sans-serif"
             android:text="@string/time2"
-            android:textColor="@color/greylight"
+            android:textColor="@color/orange"
             android:textSize="@dimen/tv_endTime_textSize"
             android:textStyle="normal" />
 
@@ -103,7 +103,7 @@
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/bn_delete_layout_marginEnd"
             android:layout_marginBottom="@dimen/bn_delete_layout_marginBottom"
-            android:backgroundTint="@color/blue"
+            android:backgroundTint="@color/orange"
             android:text="@string/delete"
             android:textColor="@color/white"
             android:textSize="@dimen/bn_delete_textSize"

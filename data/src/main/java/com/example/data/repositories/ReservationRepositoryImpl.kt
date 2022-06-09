@@ -22,8 +22,9 @@ class ReservationRepositoryImpl: ReservationRepository {
 
 
         if (result is Result.Success) {
-            result.data.forEach {
-                mutableReservationList.add(Reservation(it.authorizationCode,it.startDate,it.endDate, it.parkingLot))
+            result.data.forEach {reservation ->
+                mutableReservationList.add(Reservation(reservation.authorizationCode,reservation.startDate,
+                    reservation.endDate, reservation.parkingLot))
             }
 
         }

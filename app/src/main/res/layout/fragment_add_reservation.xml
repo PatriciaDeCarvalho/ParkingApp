@@ -154,6 +154,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/buttonAdd_marginStart"
         android:layout_marginEnd="@dimen/buttonAdd_marginEnd"
+        android:background="@color/orange"
         android:text="@string/savebutton"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

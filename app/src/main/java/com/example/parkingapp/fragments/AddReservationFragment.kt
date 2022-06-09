@@ -1,5 +1,6 @@
 package com.example.parkingapp.fragments
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
@@ -8,9 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import android.widget.AdapterView.*
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentAddReservationBinding
 import com.example.domain.model.Reservation
@@ -72,7 +75,7 @@ class AddReservationFragment : Fragment() {
 
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
+
             }
         }
 
@@ -87,18 +90,24 @@ class AddReservationFragment : Fragment() {
 
             //Spinner value
             val itemSelected = spinner?.selectedItem.toString()
-            viewModel.itemSelectedVM = itemSelected as Int
+           // viewModel.itemSelectedVM = itemSelected as Int
 
             //save code
             val enteredCode = editText?.text?.toString()
-            viewModel.enteredCodeVM = enteredCode!!
+           // viewModel.enteredCodeVM = enteredCode!!
             Toast.makeText(activity, "$itemSelected + $enteredCode", Toast.LENGTH_LONG).show()
 
             //save startDateTime
             val startDateTime = dateTimeWithFormatStart
-            viewModel.startDateTimeVM = startDateTime as Long
+           // viewModel.startDateTimeVM = startDateTime as Long
+
             val endDateTime = dateTimeWithFormatEnd
-            viewModel.EndDateTimeVM = endDateTime as Long
+          //  viewModel.EndDateTimeVM = endDateTime as Long
+
+            Toast.makeText(context, ("$itemSelected"+"$enteredCode"+
+                "$startDateTime"+"$endDateTime"),Toast.LENGTH_LONG).show()
+
+            findNavController().navigate(R.id.action_addReservationFragment_to_lotsFragment)
 
         }
     }
@@ -122,7 +131,8 @@ class AddReservationFragment : Fragment() {
 
     }
 
-    private fun showDateTimePickerDialog( isStartDay: Boolean)  {
+    @SuppressLint("SetTextI18n")
+    private fun showDateTimePickerDialog(isStartDay: Boolean)  {
 
         val calendar = Calendar.getInstance()
         val dateTimeSelected = calendar
@@ -145,7 +155,6 @@ class AddReservationFragment : Fragment() {
                 dateTimeWithFormatEnd = sdf.format(dateTimeSelected.time)
             }
 
-
         }
 
         val timelistener = TimePickerDialog.OnTimeSetListener { _, hour, minutes ->
@@ -154,8 +163,8 @@ class AddReservationFragment : Fragment() {
 
             Toast.makeText(activity, "$minutes/$hour", Toast.LENGTH_LONG).show()
 
-            binding?.tvEndDateTime?.text=" $dateTimeWithFormatEnd"
-            binding?.tvStartEndTime?.text = " $dateTimeWithFormatStart"
+            binding?.tvEndDateTime?.text= dateTimeWithFormatEnd
+            binding?.tvStartEndTime?.text = dateTimeWithFormatStart
         }
 
         TimePickerDialog(
@@ -175,11 +184,9 @@ class AddReservationFragment : Fragment() {
         ).show()
     }
 
-
-
     }
 
-//}
+
 
 interface OnclickCancelReservation {
     fun onClickReservation(reservation: Reservation)

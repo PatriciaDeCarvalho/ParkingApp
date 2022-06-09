@@ -1,10 +1,12 @@
 package com.example.parkingapp.viewmodels
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
+import com.example.data.repositories.service.ParkingService
 import com.example.data.repositories.service.ReservationService
 import com.example.domain.model.Reservation
 
 
-class AddViewModel(listReservations: ReservationService): ViewModel() {
+class AddViewModel(listReservations: ParkingService): ViewModel() {
 
   //  private val reservationList:List<Reservation> = ParkingService.getReservations()
 
@@ -13,11 +15,13 @@ class AddViewModel(listReservations: ReservationService): ViewModel() {
     var startDateTimeVM:Long = 0
     var EndDateTimeVM:Long = 0
 
-fun addReservation(){
 
-  //  var reservation = listOf(enteredCodeVM,startDateTimeVM,EndDateTimeVM,itemSelectedVM,)
-  //  reservationList.add(reservation)
-}
+
+//fun addReservation(){
+//
+//  //  var reservation = listOf(enteredCodeVM,startDateTimeVM,EndDateTimeVM,itemSelectedVM,)
+//  //  reservationList.add(reservation)
+//}
 
 }
 
