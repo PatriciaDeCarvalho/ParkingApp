@@ -3,14 +3,10 @@ package com.example.parkingapp.lotAdapter
 import android.view.View
 import android.view.View.GONE
 import androidx.recyclerview.widget.RecyclerView
-import com.example.domain.model.Lot
 import com.example.domain.model.LotReservation
 import com.example.parkingapp.Utils.AppDateFormat
 import com.example.parkingapp.databinding.RecyclerItemBinding
 import com.example.parkingapp.fragments.ItemOnRecyclerViewClicked
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.util.*
 
 class LotHolder(private val view: View, val listener: ItemOnRecyclerViewClicked) :
     RecyclerView.ViewHolder(view) {
@@ -24,7 +20,7 @@ class LotHolder(private val view: View, val listener: ItemOnRecyclerViewClicked)
         binding.apply {
 
             parkingNumber.text = lot.parkingLot.toString()
-            lot.reswervationList?.firstOrNull()?.let{
+            lot.reservationList?.firstOrNull()?.let{
 
                 //cxambiar para mostrar la reserva que corresponde, solo si esta ocupado en el momento
        //         val endDateTime = DateFormat.getDateInstance().parse(it.endDateTimeInMillis)

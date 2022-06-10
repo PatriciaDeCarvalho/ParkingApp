@@ -18,14 +18,15 @@ class ReservationAdapter(
     }
 
     override fun onBindViewHolder(holder: ReservationHolder, position: Int) {
-        val item2 = reservationList[position]
+        val item2 = reservationList.get(position)
 
-        holder.bindLotDetail(item2)
+            holder.bindLotDetail(item2)
+
 
 
     }
 
-    override fun getItemCount()= reservationList.size
+    override fun getItemCount(): Int= reservationList.size
 
 
 }

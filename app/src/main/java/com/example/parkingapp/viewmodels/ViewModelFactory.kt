@@ -26,6 +26,11 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
             } ) as T
         }
 
+
+        return super.create(modelClass)
+    }
+}
+
 //        else if  (modelClass == ReservationViewModel::class.java){
 //            return ReservationViewModel(GetReservationListUseCase().apply {
 //                reservRepository = ReservationRepositoryImpl().apply {
@@ -33,7 +38,7 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
 //                }
 //            }) as T
 //        }
-                //Como funciona el repository en post?
+//Como funciona el repository en post?
 //        else if  (modelClass == AddViewModel::class.java){
 //            return AddViewModel(--agregar UseCase--().apply {
 //                AddRepository = ReservationRepositoryImpl().apply {
@@ -41,6 +46,3 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
 //                }
 //            }) as T
 //      }
-        return super.create(modelClass)
-    }
-}

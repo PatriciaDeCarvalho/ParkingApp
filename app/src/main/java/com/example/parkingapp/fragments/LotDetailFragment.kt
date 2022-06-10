@@ -1,3 +1,5 @@
+
+
 package com.example.parkingapp.fragments
 import android.content.ContentValues.TAG
 import android.os.Bundle
@@ -10,9 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.domain.model.Lot
+import com.example.domain.model.LotReservation
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentLotDetailsBinding
 import com.example.domain.model.Reservation
+import com.example.domain.model.ReservationList
 import com.example.parkingapp.reservationAdapter.ReservationAdapter
 import com.example.parkingapp.viewmodels.LotViewModel
 import com.example.parkingapp.viewmodels.LotViewModelProvider
@@ -28,15 +32,11 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
     }
 
 
-    lateinit var lotSelected: Lot
+    lateinit var lotSelected: LotReservation
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-//        viewModel.reservations.observe(viewLifecycleOwner) { reservationList ->
-//            initRecyclerWiewReservations(reservationList)
-//        }
 
         binding = FragmentLotDetailsBinding.inflate(inflater, container, false)
         return binding?.root
@@ -45,13 +45,19 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         // receipt bundle
         arguments?.let {
-            lotSelected = it.getSerializable("objectLot") as Lot
-      //      viewModel.loadReservations()
+            lotSelected = it.getSerializable("objectLot") as LotReservation
+            //      viewModel.loadReservations()
             val mensaje = "hola"//viewModel.loadReservations().toString()
             Log.d(TAG,mensaje)
+
+            initRecyclerWiewReservations(lotSelected.reservationList)
+
         }
+
 
         binding = FragmentLotDetailsBinding.bind(view)
 
@@ -84,16 +90,16 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
 //
 //        }
     }
-        override fun onDestroyView() {
-            binding = null
-            super.onDestroyView()
-        }
-
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
     }
 
-    interface ItemReservationOnRecyclerViewClicked {
-        fun onDeleteReservation(reservation: Reservation)
-    }
+}
+
+interface ItemReservationOnRecyclerViewClicked {
+    fun onDeleteReservation(reservation: Reservation)
+}
 
 
 
