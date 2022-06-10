@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ParkingApp</string>
-    <string name="_free">18 free</string>
-    <string name="_busy">12 busy</string>
+    <string name="_free">- Free</string>
+    <string name="_busy">- Busy</string>
     <string name="_parkingNumber">1</string>
     <string name="secondtext">secondText</string>
     <string name="firstText">firstText</string>

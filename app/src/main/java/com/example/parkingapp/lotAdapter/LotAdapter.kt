@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.LotList
+import com.example.domain.model.LotReservation
 
 import com.example.parkingapp.R
 import com.example.parkingapp.fragments.ItemOnRecyclerViewClicked
 
-class LotAdapter(val lotList: LotList, val listener: ItemOnRecyclerViewClicked):
+class LotAdapter(val lotList: List<LotReservation>, val listener: ItemOnRecyclerViewClicked):
     RecyclerView.Adapter<LotHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): LotHolder {
@@ -18,11 +19,11 @@ class LotAdapter(val lotList: LotList, val listener: ItemOnRecyclerViewClicked):
     }
 
     override fun onBindViewHolder(holder: LotHolder,position: Int) {
-        val item = lotList.lotList.get(position)
+        val item = lotList.get(position)
 
         holder.bindLot(item)
     }
 
-    override fun getItemCount()= lotList.lotList.size
+    override fun getItemCount()= lotList.size
 
 }

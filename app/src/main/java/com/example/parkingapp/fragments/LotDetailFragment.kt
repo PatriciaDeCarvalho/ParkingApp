@@ -23,8 +23,8 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
 
     private var binding: FragmentLotDetailsBinding? = null
 
-    private val viewModel: ReservationViewModel by lazy {
-        LotViewModelProvider(requireActivity()).get(ReservationViewModel::class.java)
+    private val viewModel: LotViewModel by lazy {
+        LotViewModelProvider(requireActivity()).get(LotViewModel::class.java)
     }
 
 
@@ -34,9 +34,9 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
         savedInstanceState: Bundle?
     ): View? {
 
-        viewModel.reservations.observe(viewLifecycleOwner) { reservationList ->
-            initRecyclerWiewReservations(reservationList)
-        }
+//        viewModel.reservations.observe(viewLifecycleOwner) { reservationList ->
+//            initRecyclerWiewReservations(reservationList)
+//        }
 
         binding = FragmentLotDetailsBinding.inflate(inflater, container, false)
         return binding?.root
@@ -72,17 +72,17 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
     override fun onDeleteReservation(reservation: Reservation) {
         Toast.makeText(activity, "delete Reservation" + reservation.parkingLot, Toast.LENGTH_SHORT)
             .show()
-
-        var dialog = DeleteDialogFragment()
-        dialog.onDeleteClick = { codeText ->
-         viewModel.deleteReservation(reservation, codeText)
-
-            }
-        val fm = activity?.supportFragmentManager
-        fm?.let {
-            dialog.show(it, "Costum Dialog")
-
-        }
+//
+//        var dialog = DeleteDialogFragment()
+//        dialog.onDeleteClick = { codeText ->
+//         viewModel.deleteReservation(reservation, codeText)
+//
+////            }
+//        val fm = activity?.supportFragmentManager
+//        fm?.let {
+//            dialog.show(it, "Costum Dialog")
+//
+//        }
     }
         override fun onDestroyView() {
             binding = null

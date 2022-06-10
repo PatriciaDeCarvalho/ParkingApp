@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.domain.model.Lot
 import com.example.domain.model.LotList
+import com.example.domain.model.LotReservation
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentLotsBinding
 import com.example.parkingapp.lotAdapter.LotAdapter
@@ -23,18 +24,11 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
     private val viewModel: LotViewModel by lazy {
         LotViewModelProvider(requireActivity()).get(LotViewModel::class.java)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
-        viewModel.lots.observe(viewLifecycleOwner) { lotList ->
-            initRecyclerViewLots(lotList)
-        }
-        viewModel.reservations.observe(viewLifecycleOwner) { reservationList ->
-       //   Toast.makeText(context, reservationList.reservationList.first().authorizationCode,Toast.LENGTH_LONG ).show()
-        }
 
         binding = FragmentLotsBinding.inflate(inflater, container, false)
         return binding?.root
@@ -43,8 +37,23 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.loadLots()
-        viewModel.loadReservations()
+
+        viewModel.lotProgress.observe(viewLifecycleOwner) {
+            binding?.tvBusy?.text = it.lotBusy.toString() + " Busy"
+            binding?.tvFee?.text = it.lotFree.toString() + " Free"
+            binding?.progressBar?.progress = it.lotBusy
+            binding?.progressBar?.max = it.lotBusy + it.lotFree
+        }
+        viewModel.lots.observe(viewLifecycleOwner) { lotList ->
+            initRecyclerViewLots(lotList)
+        }
+        viewModel.reservations.observe(viewLifecycleOwner) { reservationList ->
+            //   Toast.makeText(context, reservationList.reservationList.first().authorizationCode,Toast.LENGTH_LONG ).show()
+        }
+
+//        viewModel.loadLots()
+//        viewModel.loadReservations()
+        viewModel.loadData()
 
         //FloatingActionButton
         binding?.floatingActionButton1?.setOnClickListener() {
@@ -60,8 +69,9 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
 //            }
 
     }
+
     //Recycler View
-    private fun initRecyclerViewLots(lotList: LotList) {
+    private fun initRecyclerViewLots(lotList: List<LotReservation>) {
 
         binding?.rvLots?.apply {
             adapter = LotAdapter(lotList, this@LotsFragment)
@@ -76,7 +86,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         super.onDestroyView()
     }
 
-    override fun onClick(lot: Lot) {
+    override fun onClick(lot: LotReservation) {
         Toast.makeText(context, lot.parkingLot.toString(), Toast.LENGTH_LONG).show()
 
         val bundle = Bundle()
@@ -91,7 +101,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
 }
 
 interface ItemOnRecyclerViewClicked {
-    fun onClick(lot: com.example.domain.model.Lot)
+    fun onClick(lot: LotReservation)
 
 
 }
