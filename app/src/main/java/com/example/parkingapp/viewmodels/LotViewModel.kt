@@ -28,39 +28,39 @@ class LotViewModel(
 
 
 
-//    fun loadData() = viewModelScope.launch {
-//        var lots = getLotListUseCase.getLots()
-//        var reservations = getReservationListUseCase.getReservations()
-//        var result = mutableListOf<LotReservation>()
-//
-//        lots.lotList.forEach {
-//            var lotId = it.parkingLot
-//            var lotReservation = LotReservation(lotId)
-//            var reservationListLots = mutableListOf<Reservation>()
-//            reservations.reservationList.forEach {
-//
-//                if (lotId == it.parkingLot) {
-//                    reservationListLots.add(it)
-//
-//                }
-//            }
-//            lotReservation.reservationList = reservationListLots
-//            result.add(lotReservation)
-//        }
-//        var lotsFree: Int = 0
-//        var lotsBusy: Int = 0
-//
-//        result.forEach {
-//            if (it.reservationList?.isNotEmpty()!!) {
-//                lotsBusy++
-//            } else {
-//                lotsFree++
-//            }
-//        }
-//     var progressLot = LotProgress(lotsFree,lotsBusy)
-//        _lotProgress.postValue(progressLot)
-//        _lots.postValue(result)
-//    }
+    fun loadData() = viewModelScope.launch {
+        var lots = getLotListUseCase.getLots()
+        var reservations = getReservationListUseCase.getReservations()
+        var result = mutableListOf<LotReservation>()
+
+        lots.lotList.forEach {
+            var lotId = it.parkingLot
+            var lotReservation = LotReservation(lotId)
+            var reservationListLots = mutableListOf<Reservation>()
+            reservations.reservationList.forEach {
+
+                if (lotId == it.parkingLot) {
+                    reservationListLots.add(it)
+
+                }
+            }
+            lotReservation.reswervationList = reservationListLots
+            result.add(lotReservation)
+        }
+        var lotsFree: Int = 0
+        var lotsBusy: Int = 0
+
+        result.forEach {
+            if (it.reswervationList?.isNotEmpty()!!) {
+                lotsBusy++
+            } else {
+                lotsFree++
+            }
+        }
+     var progressLot = LotProgress(lotsFree,lotsBusy)
+        _lotProgress.postValue(progressLot)
+        _lots.postValue(result)
+    }
 
 
 }

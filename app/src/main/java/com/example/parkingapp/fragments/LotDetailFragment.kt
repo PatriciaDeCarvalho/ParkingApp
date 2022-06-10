@@ -16,7 +16,7 @@ import com.example.domain.model.LotReservation
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentLotDetailsBinding
 import com.example.domain.model.Reservation
-import com.example.domain.model.ReservationList
+
 import com.example.parkingapp.reservationAdapter.ReservationAdapter
 import com.example.parkingapp.viewmodels.LotViewModel
 import com.example.parkingapp.viewmodels.LotViewModelProvider
@@ -54,7 +54,7 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
             val mensaje = "hola"//viewModel.loadReservations().toString()
             Log.d(TAG,mensaje)
 
-            initRecyclerWiewReservations(lotSelected.reservationList)
+            initRecyclerWiewReservations(lotSelected.reswervationList)
 
         }
 
@@ -68,9 +68,12 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
     }
 
     //RecyclerView
-    private fun initRecyclerWiewReservations(listR: List<Reservation>) {
+    private fun initRecyclerWiewReservations(listR: MutableList<Reservation>?) {
         binding?.rvReservations?.apply {
-            adapter = ReservationAdapter(listR, this@LotDetailFragment)
+            listR?.let {
+                adapter = ReservationAdapter(it, this@LotDetailFragment)
+            }
+
         }
     }
 

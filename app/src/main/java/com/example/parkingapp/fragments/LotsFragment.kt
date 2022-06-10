@@ -16,7 +16,7 @@ import com.example.parkingapp.viewmodels.LotViewModel
 import com.example.parkingapp.viewmodels.LotViewModelProvider
 
 
-class LotsFragment : Fragment(), LotsFragment.ItemOnRecyclerViewClicked {
+class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
 
     private var binding: FragmentLotsBinding? = null
     private val viewModel: LotViewModel by lazy {
@@ -34,7 +34,7 @@ class LotsFragment : Fragment(), LotsFragment.ItemOnRecyclerViewClicked {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel.loadData()
 
         viewModel.lotProgress.observe(viewLifecycleOwner) {
             binding?.tvBusy?.text = it.lotBusy.toString() + " Busy"
@@ -45,12 +45,12 @@ class LotsFragment : Fragment(), LotsFragment.ItemOnRecyclerViewClicked {
         viewModel.lots.observe(viewLifecycleOwner) { lotList ->
             initRecyclerViewLots(lotList)
         }
-        viewModel.reservations.observe(viewLifecycleOwner) { reservationList ->
+        viewModel.reservations?.observe(viewLifecycleOwner) { reservationList ->
             //   Toast.makeText(context, reservationList.reservationList.first().authorizationCode,Toast.LENGTH_LONG ).show()
         }
 
 
-  //      viewModel.loadData()
+
 
         //FloatingActionButton
         binding?.floatingActionButton1?.setOnClickListener() {

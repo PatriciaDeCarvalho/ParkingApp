@@ -8,7 +8,7 @@ import com.example.parkingapp.R
 import com.example.parkingapp.fragments.ItemReservationOnRecyclerViewClicked
 
 class ReservationAdapter(
-    val  reservationList:List<Reservation>,
+    val  reservationList:MutableList<Reservation>,
     val listener: ItemReservationOnRecyclerViewClicked) : RecyclerView.Adapter<ReservationHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReservationHolder {
@@ -20,7 +20,7 @@ class ReservationAdapter(
     override fun onBindViewHolder(holder: ReservationHolder, position: Int) {
         val item2 = reservationList.get(position)
 
-            holder.bindLotDetail(item2)
+        holder.bindLotDetail(item2)
 
 
 
