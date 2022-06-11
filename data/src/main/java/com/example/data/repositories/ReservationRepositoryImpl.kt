@@ -1,9 +1,6 @@
 package com.example.data.repositories
 
 import com.example.data.repositories.service.ParkingService
-import com.example.data.repositories.service.ReservationService
-import com.example.data.repositories.service.response.ReservationResponse
-import com.example.domain.model.Lot
 import com.example.domain.model.Reservation
 import com.example.domain.model.ReservationList
 import com.example.domain.repositories.ReservationRepository
@@ -23,8 +20,8 @@ class ReservationRepositoryImpl: ReservationRepository {
 
         if (result is Result.Success) {
             result.data.forEach {reservation ->
-                mutableReservationList.add(Reservation(reservation.id, reservation.authorizationCode,reservation.startDate,
-                    reservation.endDate, reservation.parkingLot))
+                mutableReservationList.add(Reservation(reservation.id, reservation.authorizationCode,reservation.startDate.toLong(),
+                    reservation.endDate.toLong(), reservation.parkingLot))
             }
 
         }

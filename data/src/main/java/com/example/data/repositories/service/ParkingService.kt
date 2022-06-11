@@ -48,7 +48,7 @@ class ParkingService {
 
 
                 if (response?.reservationList?.isNotEmpty()!!) {
-                    //llamar al maper para transformar Parking lot en parking lot list response
+
                     Result.Success(response.reservationList)
                 } else {
                     Result.Failure(Exception("Ocurrio un error"))
@@ -80,14 +80,13 @@ class ParkingService {
         return result
     }
 
-    suspend fun addReservation(parkingId: String, reservation: Reservation):Result<Boolean>{
+    suspend fun addReservation(parkingId: String, reservation: ReservationRequest):Result<Boolean>{
         var result: Result<Boolean>
         withContext(Dispatchers.IO) {
 
             result = try {
                 val response = RetrofitInstance.getRetrofit().create(APIService::class.java).addReservations(
-                    parkingId, ReservationRequest(reservation.authorizationCode, reservation.endDateTimeInMillis,
-                    reservation.parkingLot, reservation.starDateTimeInMillis))
+                    parkingId, reservation)
                 if(response.isSuccessful){
                     Result.Success(true)
                 }else{
@@ -103,14 +102,3 @@ class ParkingService {
     }
 }
 
-//   fun getLotsMock(): List<Lot> {
-//        return listOf(
-//            Lot(1, listOf(Reservation("one", 11500000, 17600000, 1))),
-//            Lot(2, listOf(Reservation("two", 16000000, 19500000, 2))),
-//            Lot(3, listOf(Reservation("three", 12000000, 22000000, 2))),
-//            Lot(4, listOf(Reservation("four", 16000000, 17000000, 3))),
-//            Lot(5, listOf(Reservation("five", 16000000, 18600000, 4))),
-//            Lot(6, listOf(Reservation("eight", 16000000, 17000000, 5))),
-//            Lot(7, emptyList())
-//        )
-//    }

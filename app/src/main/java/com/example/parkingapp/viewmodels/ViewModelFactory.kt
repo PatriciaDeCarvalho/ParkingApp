@@ -7,7 +7,6 @@ import com.example.data.repositories.LotRepositoryImpl
 import com.example.data.repositories.ReservationRepositoryImpl
 import com.example.data.repositories.service.DeleteRepositoryImpl
 import com.example.data.repositories.service.ParkingService
-import com.example.data.repositories.service.ReservationService
 import com.example.domain.usecases.DeleteReservationUseCase
 import com.example.domain.usecases.GetLotListUseCase
 import com.example.domain.usecases.GetReservationListUseCase
