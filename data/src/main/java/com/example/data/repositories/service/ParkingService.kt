@@ -1,9 +1,11 @@
 package com.example.data.repositories.service
 import  com.example.domain.util.Result
 import com.example.data.repositories.service.api.APIService
+import com.example.data.repositories.service.request.ReservationRequest
 import com.example.data.repositories.service.response.ParkingLotRespsonse
 import com.example.data.repositories.service.response.ReservationResponse
 import com.example.data.repositories.service.retrofitInstance.RetrofitInstance
+import com.example.domain.model.Reservation
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -57,7 +59,48 @@ class ParkingService {
         }
         return result
     }
+    suspend fun deleteReservation(parkingId: String, reservationId: String):Result<Boolean>{
+        var result: Result<Boolean>
+        withContext(Dispatchers.IO) {
 
+            result = try {
+                val response = RetrofitInstance.getRetrofit().create(APIService::class.java).deleteReservation(
+                    parkingId, reservationId)
+                if(response.isSuccessful){
+                    Result.Success(true)
+                }else{
+                    Result.Failure(Exception(response.message()))
+                }
+
+
+            }catch (e: Exception){
+                Result.Failure(e)
+            }
+        }
+        return result
+    }
+
+    suspend fun addReservation(parkingId: String, reservation: Reservation):Result<Boolean>{
+        var result: Result<Boolean>
+        withContext(Dispatchers.IO) {
+
+            result = try {
+                val response = RetrofitInstance.getRetrofit().create(APIService::class.java).addReservations(
+                    parkingId, ReservationRequest(reservation.authorizationCode, reservation.endDateTimeInMillis,
+                    reservation.parkingLot, reservation.starDateTimeInMillis))
+                if(response.isSuccessful){
+                    Result.Success(true)
+                }else{
+                    Result.Failure(Exception(response.message()))
+                }
+
+
+            }catch (e: Exception){
+                Result.Failure(e)
+            }
+        }
+        return result
+    }
 }
 
 //   fun getLotsMock(): List<Lot> {

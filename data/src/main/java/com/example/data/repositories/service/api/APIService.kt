@@ -1,20 +1,19 @@
 package com.example.data.repositories.service.api
 
 
+import com.example.data.repositories.service.request.ReservationRequest
 import com.example.data.repositories.service.response.*
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.Response
+import retrofit2.http.*
 
 interface APIService {
 
 
     @DELETE("{parkingId}/reservations/{reservationId}.json")
-    suspend fun deleteReservation(@Path("parkingId") id: String): DeleteResponse
+    suspend fun deleteReservation(@Path("parkingId") parkingId: String,@Path("reservationId") reservationId: String): Response<Any?>
 
     @POST("{parkingId}/reservations.json")
-    suspend fun addReservations(@Path("parkingId") id: String): AddResponse
+    suspend fun addReservations(@Path("parkingId") id: String, @Body reservationRequest: ReservationRequest): Response<Any?>
 
     @GET("parkings/{parkingId}/.json")
     suspend fun getParkingLots(@Path("parkingId") id: String): ParkingLotListResponse

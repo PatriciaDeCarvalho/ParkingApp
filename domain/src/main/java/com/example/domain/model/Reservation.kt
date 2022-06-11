@@ -4,10 +4,10 @@ import java.io.Serializable
 
 
 data class Reservation (
-
+    val id: String,
     val authorizationCode:String,
-    val starDateTimeInMillis:String,
-    val endDateTimeInMillis:String,
+    val starDateTimeInMillis:Long,
+    val endDateTimeInMillis:Long,
     val parkingLot: Int): Serializable
 
 

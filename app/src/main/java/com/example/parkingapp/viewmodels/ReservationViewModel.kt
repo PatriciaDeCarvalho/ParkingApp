@@ -6,31 +6,40 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.model.Lot
 import com.example.domain.model.Reservation
+import com.example.domain.usecases.DeleteReservationUseCase
 import com.example.domain.usecases.GetReservationListUseCase
+import com.example.domain.util.Result
 import kotlinx.coroutines.launch
 
-class ReservationViewModel(val getReservationListUseCase: GetReservationListUseCase) : ViewModel() {
-
-    private val _reservations =  MutableLiveData<List<Reservation>>()
-    val reservations: LiveData<List<Reservation>> = _reservations
+class ReservationViewModel(val deleteReservationUseCase: DeleteReservationUseCase) : ViewModel() {
+    private val parkingId = "-N0TU9Cpn15-TzSEcoSZ"
+    private val mutableSuccessfulDelete = MutableLiveData<Boolean>()
+    val successfulDelete: LiveData<Boolean> = mutableSuccessfulDelete
 
 //      fun loadReservations() = viewModelScope.launch {
 //          val reservationResponse = getReservationListUseCase.getReservations()
 //          _reservations.postValue(reservationResponse)
 //      }
 
-    fun deleteReservation(reservation: Reservation, entryCode: String) = viewModelScope.launch {
-        val auxReservations = _reservations.value?.toMutableList()
-        if (reservation.authorizationCode == entryCode) {
-            auxReservations?.remove(reservation)
-            _reservations.postValue(auxReservations!!)
+    fun deleteReservation(reservation: Reservation, authorizationCode: String) =
+        viewModelScope.launch {
+
+            if (reservation.authorizationCode == authorizationCode) {
+                val deleteReservation =
+                    deleteReservationUseCase(parkingId, reservation, authorizationCode)
+                when (deleteReservation) {
+                    is Result.Success -> {
+                        mutableSuccessfulDelete.value = true
+                    }
+                    is Result.Failure -> {
+                        mutableSuccessfulDelete.value = false
+                    }
+                }
+            }else{
+                mutableSuccessfulDelete.value = false
+            }
+
         }
-    }
-
-
-
-
-
 
 
 }

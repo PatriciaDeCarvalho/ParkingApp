@@ -1,8 +1,8 @@
 package com.example.domain.repositories
 
-interface DeleteRepository {
+import com.example.domain.model.Reservation
+import com.example.domain.util.Result
 
-    fun deleteRepository(
- reservationId: String
-    )
+interface DeleteRepository {
+    suspend fun deleteReservation(parkingId: String, reservation: Reservation, authorizationCode: String): Result<Boolean>
 }

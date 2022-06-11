@@ -5,8 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.data.repositories.LotRepositoryImpl
 import com.example.data.repositories.ReservationRepositoryImpl
+import com.example.data.repositories.service.DeleteRepositoryImpl
 import com.example.data.repositories.service.ParkingService
 import com.example.data.repositories.service.ReservationService
+import com.example.domain.usecases.DeleteReservationUseCase
 import com.example.domain.usecases.GetLotListUseCase
 import com.example.domain.usecases.GetReservationListUseCase
 
@@ -25,24 +27,14 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
                 }
             } ) as T
         }
-
+      else if  (modelClass == ReservationViewModel::class.java){
+            return ReservationViewModel(DeleteReservationUseCase().apply {
+                repository = DeleteRepositoryImpl()
+            }) as T
+        }
 
         return super.create(modelClass)
     }
 }
 
-//        else if  (modelClass == ReservationViewModel::class.java){
-//            return ReservationViewModel(GetReservationListUseCase().apply {
-//                reservRepository = ReservationRepositoryImpl().apply {
-//                    reservationService = ReservationService()
-//                }
-//            }) as T
-//        }
-//Como funciona el repository en post?
-//        else if  (modelClass == AddViewModel::class.java){
-//            return AddViewModel(--agregar UseCase--().apply {
-//                AddRepository = ReservationRepositoryImpl().apply {
-//                    reservationService = ReservationService()
-//                }
-//            }) as T
-//      }
+

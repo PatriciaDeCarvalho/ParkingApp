@@ -1,8 +1,8 @@
 package com.example.domain.usecases
 
-import com.example.domain.repositories.AddRepository
+import com.example.domain.repositories.ReservationRepository
 
 class AddReservationUseCase {
 
-    lateinit var addRepository: AddRepository
+    lateinit var repository: ReservationRepository
 }

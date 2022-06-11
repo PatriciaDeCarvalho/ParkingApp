@@ -15,15 +15,15 @@ class ReservationRepositoryImpl: ReservationRepository {
     lateinit var parkingService: ParkingService
 
     override suspend fun getReservationsList(): ReservationList {
-        var mutableReservationList = mutableListOf<Reservation>()
-        var reservationList = ReservationList(mutableReservationList)
+        val mutableReservationList = mutableListOf<Reservation>()
+        val reservationList = ReservationList(mutableReservationList)
 
-       var result =  parkingService.getReservations()
+       val result =  parkingService.getReservations()
 
 
         if (result is Result.Success) {
             result.data.forEach {reservation ->
-                mutableReservationList.add(Reservation(reservation.authorizationCode,reservation.startDate,
+                mutableReservationList.add(Reservation(reservation.id, reservation.authorizationCode,reservation.startDate,
                     reservation.endDate, reservation.parkingLot))
             }
 
@@ -32,7 +32,11 @@ class ReservationRepositoryImpl: ReservationRepository {
         return reservationList
     }
 
-
-
+    override suspend fun deleteReservation(reservation: Reservation, entryCode: String): Boolean {
+   //     val result = parkingService.deleteReservation(reservation.parkingLot.toString(), reservation. )
+        return true
     }
+
+
+}
 
