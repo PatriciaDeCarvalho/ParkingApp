@@ -5,7 +5,7 @@ import com.example.domain.model.Reservation
 import com.example.domain.repositories.AddRepository
 import com.example.domain.util.Result
 
-class AddRepositoryImpl: AddRepository {
+class AddRepositoryImpl : AddRepository {
 
     private val addService: ParkingService = ParkingService()
 
@@ -24,7 +24,7 @@ class AddRepositoryImpl: AddRepository {
         return when (result) {
 
             is Result.Success -> {
-                Result.Success(result.data )
+                Result.Success(result.data)
             }
             is Result.Failure -> {
                 Result.Failure(result.exception)

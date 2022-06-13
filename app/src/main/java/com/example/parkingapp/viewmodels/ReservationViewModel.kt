@@ -16,17 +16,12 @@ class ReservationViewModel(val deleteReservationUseCase: DeleteReservationUseCas
     private val mutableSuccessfulDelete = MutableLiveData<Boolean>()
     val successfulDelete: LiveData<Boolean> = mutableSuccessfulDelete
 
-//      fun loadReservations() = viewModelScope.launch {
-//          val reservationResponse = getReservationListUseCase.getReservations()
-//          _reservations.postValue(reservationResponse)
-//      }
 
     fun deleteReservation(reservation: Reservation, authorizationCode: String) =
         viewModelScope.launch {
 
             if (reservation.authorizationCode == authorizationCode) {
-                val deleteReservation =
-                    deleteReservationUseCase(parkingId, reservation, authorizationCode)
+                val deleteReservation = deleteReservationUseCase(parkingId, reservation, authorizationCode)
                 when (deleteReservation) {
                     is Result.Success -> {
                         mutableSuccessfulDelete.value = true

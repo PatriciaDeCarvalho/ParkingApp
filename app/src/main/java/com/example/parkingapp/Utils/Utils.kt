@@ -2,6 +2,7 @@ package com.example.parkingapp.Utils
 
 
 import java.text.SimpleDateFormat
+import java.util.*
 
 class AppDateFormat {
 
@@ -15,6 +16,11 @@ class AppDateFormat {
     }
     fun monthYearFormat(date: Long): String {
         val simpleDateFormat = SimpleDateFormat("MMMM yyyy")
+        return simpleDateFormat.format(date)
+    }
+
+    fun completeFormat(date: Long): String{
+        val simpleDateFormat = SimpleDateFormat(" dd-MM-yyyy hh:mm ")
         return simpleDateFormat.format(date)
     }
 

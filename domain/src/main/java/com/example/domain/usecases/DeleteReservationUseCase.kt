@@ -6,10 +6,10 @@ import com.example.domain.util.Result
 
 class DeleteReservationUseCase {
 
-    lateinit var repository: DeleteRepository
+    lateinit var deleteRepository: DeleteRepository
 
     suspend operator fun invoke(parkingId: String,reservation: Reservation, authorizationCode: String ): Result<Boolean>{
-        return repository.deleteReservation(parkingId, reservation, authorizationCode)
+        return deleteRepository.deleteReservation(parkingId, reservation, authorizationCode)
     }
 
 }

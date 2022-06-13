@@ -24,19 +24,19 @@ class LotViewModel(
     val reservations: LiveData<ReservationList>? = _reservations
 
     private val _lotProgress = MutableLiveData<LotProgress>()
+
     val lotProgress: LiveData<LotProgress> = _lotProgress
 
 
-
     fun loadData() = viewModelScope.launch {
-        var lots = getLotListUseCase.getLots()
-        var reservations = getReservationListUseCase.getReservations()
-        var result = mutableListOf<LotReservation>()
+        val lots = getLotListUseCase.getLots()
+        val reservations = getReservationListUseCase.getReservations()
+        val result = mutableListOf<LotReservation>()
 
         lots.lotList.forEach {
-            var lotId = it.parkingLot
-            var lotReservation = LotReservation(lotId)
-            var reservationListLots = mutableListOf<Reservation>()
+            val lotId = it.parkingLot
+            val lotReservation = LotReservation(lotId)
+            val reservationListLots = mutableListOf<Reservation>()
             reservations.reservationList.forEach {
 
                 if (lotId == it.parkingLot) {
@@ -57,7 +57,7 @@ class LotViewModel(
                 lotsFree++
             }
         }
-     var progressLot = LotProgress(lotsFree,lotsBusy)
+        val progressLot = LotProgress(lotsFree,lotsBusy)
         _lotProgress.postValue(progressLot)
         _lots.postValue(result)
     }

@@ -167,7 +167,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:autofillHints="@string/enter_the_code"
         android:hint="@string/enter_the_code"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/rectangle_AuthorizationCode"
