@@ -5,19 +5,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.Reservation
 import com.example.parkingapp.Utils.AppDateFormat
 import com.example.parkingapp.databinding.RecyclerLotDetailItemBinding
-import com.example.parkingapp.fragments.ItemReservationOnRecyclerViewClicked
+
 
 class ReservationHolder(
 
-    private val view: View,
-    val listener: ItemReservationOnRecyclerViewClicked
+    private val view: View
+//    val listener: ItemReservationOnRecyclerViewClicked
     ) :RecyclerView.ViewHolder(view) {
 
     private val  dateFormat: AppDateFormat = AppDateFormat()
 
     private lateinit var binding: RecyclerLotDetailItemBinding
 
-    fun bindLotDetail(lotReservations: Reservation) {
+    fun bindLotDetail(
+        lotReservations: Reservation,
+        listener: (Reservation, Int) -> Unit,
+        position: Int
+    ) {
          binding = RecyclerLotDetailItemBinding.bind(view)
 
         binding.apply {
@@ -31,7 +35,7 @@ class ReservationHolder(
         }
 
         binding.bnDelete.setOnClickListener {
-            listener.onDeleteReservation(lotReservations)
+        listener(lotReservations, position)
         }
     }
 }

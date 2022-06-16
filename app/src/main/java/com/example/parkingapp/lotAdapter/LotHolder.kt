@@ -22,8 +22,7 @@ class LotHolder(private val view: View, val listener: ItemOnRecyclerViewClicked)
             parkingNumber.text = lot.parkingLot.toString()
             lot.reswervationList?.firstOrNull()?.let{
 
-                //cxambiar para mostrar la reserva que corresponde, solo si esta ocupado en el momento
-       //         val endDateTime = DateFormat.getDateInstance().parse(it.endDateTimeInMillis)
+
                 var day = dateFormat.dayFormat(it.endDateTimeInMillis.toLong())
                 var monthAndYear = dateFormat.monthYearFormat(it.endDateTimeInMillis.toLong())
                 var hour = dateFormat.hourFormat(it.endDateTimeInMillis.toLong())

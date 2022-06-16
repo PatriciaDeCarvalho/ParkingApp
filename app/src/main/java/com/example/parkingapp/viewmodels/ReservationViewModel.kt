@@ -9,7 +9,9 @@ import com.example.domain.model.Reservation
 import com.example.domain.usecases.DeleteReservationUseCase
 import com.example.domain.usecases.GetReservationListUseCase
 import com.example.domain.util.Result
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ReservationViewModel(val deleteReservationUseCase: DeleteReservationUseCase) : ViewModel() {
     private val parkingId = "-N0TU9Cpn15-TzSEcoSZ"
@@ -21,7 +23,7 @@ class ReservationViewModel(val deleteReservationUseCase: DeleteReservationUseCas
         viewModelScope.launch {
 
             if (reservation.authorizationCode == authorizationCode) {
-                val deleteReservation = deleteReservationUseCase(parkingId, reservation, authorizationCode)
+                val deleteReservation = withContext(Dispatchers.IO){ deleteReservationUseCase(parkingId, reservation, authorizationCode)}
                 when (deleteReservation) {
                     is Result.Success -> {
                         mutableSuccessfulDelete.value = true

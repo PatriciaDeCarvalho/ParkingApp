@@ -2,10 +2,9 @@ package com.example.data.repositories.service
 import  com.example.domain.util.Result
 import com.example.data.repositories.service.api.APIService
 import com.example.data.repositories.service.request.ReservationRequest
-import com.example.data.repositories.service.response.ParkingLotRespsonse
+import com.example.data.repositories.service.response.LotRespsonse
 import com.example.data.repositories.service.response.ReservationResponse
 import com.example.data.repositories.service.retrofitInstance.RetrofitInstance
-import com.example.domain.model.Reservation
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -17,8 +16,8 @@ class ParkingService {
         const val PARKING_ID = "-N0TU9Cpn15-TzSEcoSZ"
     }
 
-    suspend fun getLots(): Result<List<ParkingLotRespsonse>> {
-        var result: Result<List<ParkingLotRespsonse>>
+    suspend fun getLots(): Result<List<LotRespsonse>> {
+        var result: Result<List<LotRespsonse>>
         withContext(Dispatchers.IO) {
 
             result = try {

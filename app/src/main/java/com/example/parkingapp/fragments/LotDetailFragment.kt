@@ -5,27 +5,36 @@ package com.example.parkingapp.fragments
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
+import android.view.ContentInfo
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.model.Lot
 import com.example.domain.model.LotReservation
 import com.example.domain.model.Reservation
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentLotDetailsBinding
 import com.example.parkingapp.reservationAdapter.ReservationAdapter
+import com.example.parkingapp.viewmodels.LotViewModel
 import com.example.parkingapp.viewmodels.LotViewModelProvider
 import com.example.parkingapp.viewmodels.ReservationViewModel
 
 
-class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
-
+class LotDetailFragment : Fragment() //ItemReservationOnRecyclerViewClicked
+ {
+     private var lot: LotReservation? = null
     private var binding: FragmentLotDetailsBinding? = null
 
     private val viewModel: ReservationViewModel by lazy {
         LotViewModelProvider(requireActivity()).get(ReservationViewModel::class.java)
+    }
+
+    private val lotViewModel: LotViewModel by lazy {
+        LotViewModelProvider(requireActivity()).get(LotViewModel::class.java)
     }
 
 
@@ -44,6 +53,11 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
 
 
 
+        lotViewModel.lots.observe(viewLifecycleOwner) { _lot ->
+            lot = _lot.find { l ->
+                l.parkingLot == lotSelected.parkingLot
+            }
+        }
 
         // receipt bundle
         arguments?.let {
@@ -55,6 +69,9 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
             initRecyclerWiewReservations(lotSelected.reswervationList)
 
         }
+
+
+
 
 
         binding = FragmentLotDetailsBinding.bind(view)
@@ -69,7 +86,11 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
     private fun initRecyclerWiewReservations(listR: MutableList<Reservation>?) {
         binding?.rvReservations?.apply {
             listR?.let {
-                adapter = ReservationAdapter(it, this@LotDetailFragment)
+                adapter = ReservationAdapter(it) { reservation, pos ->
+                    onDeleteReservation(reservation, this, it, pos
+
+                    )
+                }
             }
 
         }
@@ -81,12 +102,18 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
         super.onDestroyView()
     }
 
-    override fun onDeleteReservation(reservation: Reservation) {
+     fun onDeleteReservation(reservation: Reservation, recyclerView: RecyclerView,
+                                     reservationList: MutableList<Reservation>, pos: Int) {
+         Toast.makeText(context, "${reservation.authorizationCode}", Toast.LENGTH_LONG).show()
         var dialog = DeleteDialogFragment()
         dialog.onDeleteClick = { codeText ->
                 viewModel.deleteReservation(reservation, codeText)
             viewModel.successfulDelete.observe(viewLifecycleOwner){ deleteSuccessfuly ->
                 if(deleteSuccessfuly){
+                    reservationList.removeAt(pos)
+
+                    recyclerView.adapter?.notifyItemRemoved(pos)
+
                     Toast.makeText(context, "Proccesed correctly", Toast.LENGTH_LONG).show()
                 }else{
                     Toast.makeText(context, "Could not be processed", Toast.LENGTH_LONG).show()
@@ -102,11 +129,16 @@ class LotDetailFragment : Fragment(), ItemReservationOnRecyclerViewClicked {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        lotViewModel.loadData()
+    }
+
 }
 
-interface ItemReservationOnRecyclerViewClicked {
-    fun onDeleteReservation(reservation: Reservation)
-}
+////interface ItemReservationOnRecyclerViewClicked {
+//    fun onDeleteReservation(reservation: Reservation)
+//}
 
 
 

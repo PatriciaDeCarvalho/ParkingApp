@@ -19,11 +19,11 @@ class AddViewModel(val addReservationUseCase: AddReservationUseCase): ViewModel(
     fun addReservation(reservation: Reservation)=
         viewModelScope.launch {
 
-            if (reservation.authorizationCode != null &&
-                reservation.endDateTimeInMillis != null &&
-                reservation.starDateTimeInMillis != null &&
-                reservation.parkingLot != null
-            ) {
+//            if (reservation.authorizationCode != null &&
+//                reservation.endDateTimeInMillis != null &&
+//                reservation.starDateTimeInMillis != null &&
+//                reservation.parkingLot != null
+//            ) {
 
                 val addReservation = addReservationUseCase(parkingId, reservation)
                 when (addReservation) {
@@ -34,9 +34,9 @@ class AddViewModel(val addReservationUseCase: AddReservationUseCase): ViewModel(
                         mutableSuccessfulAdd.postValue(false)
                     }
                 }
-            } else {
-                mutableSuccessfulAdd.postValue(false)
-            }
+//            } else {
+//                mutableSuccessfulAdd.postValue(false)
+//            }
 
 
         }

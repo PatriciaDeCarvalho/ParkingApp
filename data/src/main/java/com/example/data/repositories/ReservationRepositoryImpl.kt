@@ -1,33 +1,50 @@
 package com.example.data.repositories
 
+import com.example.data.repositories.room.dataBase.DataBase
+import com.example.data.repositories.room.mapper.ReservationMapperLocal
 import com.example.data.repositories.service.ParkingService
+import com.example.data.repositories.service.response.ReservationResponse
 import com.example.domain.model.Reservation
 import com.example.domain.model.ReservationList
 import com.example.domain.repositories.ReservationRepository
 import com.example.domain.util.Result
 
-class ReservationRepositoryImpl: ReservationRepository {
+class ReservationRepositoryImpl(private var parkingService: ParkingService,
+                                private var  parkingDataBase: DataBase): ReservationRepository {
 
-    //contains List of Reservations
-    lateinit var parkingService: ParkingService
+
 
     override suspend fun getReservationsList(): ReservationList {
         val mutableReservationList = mutableListOf<Reservation>()
         val reservationList = ReservationList(mutableReservationList)
 
-       val result =  parkingService.getReservations()
+            val result =  parkingService.getReservations()
 
+            if (result is Result.Success) {
+                result.data.forEach {reservation ->
+                    saveToDataBase(reservation)
+                }
 
-        if (result is Result.Success) {
-            result.data.forEach {reservation ->
-                mutableReservationList.add(Reservation(reservation.id, reservation.authorizationCode,reservation.startDate.toLong(),
-                    reservation.endDate.toLong(), reservation.parkingLot))
             }
+            reservationList.reservationList = getLocalInfo()
 
-        }
-        reservationList.reservationList = mutableReservationList
         return reservationList
     }
+        private suspend fun saveToDataBase(reservation: ReservationResponse){
+            val localReservation = ReservationMapperLocal().transformFromRepositoryToRoom(reservation)
+
+            parkingDataBase.getReservationDao().addReservation(localReservation)
+        }
+         private fun getLocalInfo(): MutableList<Reservation>{
+          val databaseReservations =  parkingDataBase.getReservationDao().getReservations()
+            val reservationList = mutableListOf<Reservation>()
+            databaseReservations.forEach{
+                reservationList.add(ReservationMapperLocal().transformFromRoomToDomain(it))
+
+            }
+            return reservationList
+        }
+
 
     override suspend fun deleteReservation(reservation: Reservation, entryCode: String): Boolean {
    //     val result = parkingService.deleteReservation(reservation.parkingLot.toString(), reservation. )

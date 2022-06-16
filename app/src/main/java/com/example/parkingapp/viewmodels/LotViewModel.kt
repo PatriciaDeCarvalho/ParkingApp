@@ -8,8 +8,10 @@ import com.example.domain.model.*
 import com.example.domain.usecases.GetLotListUseCase
 import com.example.domain.usecases.GetReservationListUseCase
 import com.example.parkingapp.uientity.LotProgress
+import kotlinx.coroutines.Dispatchers
 
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class LotViewModel(
 
@@ -29,8 +31,9 @@ class LotViewModel(
 
 
     fun loadData() = viewModelScope.launch {
-        val lots = getLotListUseCase.getLots()
-        val reservations = getReservationListUseCase.getReservations()
+        val lots = withContext(Dispatchers.IO) {getLotListUseCase.getLots()}
+        //when (val result = withContext(Dispatchers.IO) { getCharacterById(id, true) })
+        val reservations = withContext(Dispatchers.IO) {getReservationListUseCase.getReservations()}
         val result = mutableListOf<LotReservation>()
 
         lots.lotList.forEach {

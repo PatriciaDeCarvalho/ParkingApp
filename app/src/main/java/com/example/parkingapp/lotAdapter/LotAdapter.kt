@@ -25,4 +25,6 @@ class LotAdapter(val lotList: List<LotReservation>, val listener: ItemOnRecycler
 
     override fun getItemCount()= lotList.size
 
+
+
 }

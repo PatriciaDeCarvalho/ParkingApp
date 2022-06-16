@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.data.repositories.LotRepositoryImpl
 import com.example.data.repositories.ReservationRepositoryImpl
+import com.example.data.repositories.room.dataBase.DataBase
 import com.example.data.repositories.service.AddRepositoryImpl
 import com.example.data.repositories.service.DeleteRepositoryImpl
 import com.example.data.repositories.service.ParkingService
@@ -19,18 +20,18 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
 
         if (modelClass == LotViewModel::class.java) {
             return LotViewModel(GetLotListUseCase().apply {
-                repository = LotRepositoryImpl().apply {
-                    lotService = ParkingService()
-                }
+                repository =  LotRepositoryImpl(ParkingService(),
+                   DataBase.getInstance(context))
+
             }, GetReservationListUseCase().apply {
-                reservRepository = ReservationRepositoryImpl().apply {
-                    parkingService = ParkingService()
-                }
+                reservRepository = ReservationRepositoryImpl(ParkingService(),
+                   DataBase.getInstance(context))
             }) as T
 
         } else if (modelClass == ReservationViewModel::class.java) {
             return ReservationViewModel(DeleteReservationUseCase().apply {
                 deleteRepository = DeleteRepositoryImpl()
+
             }) as T
 
         } else if (modelClass == AddViewModel::class.java) {

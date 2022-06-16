@@ -34,8 +34,9 @@ class AddReservationFragment : Fragment() {
         binding = FragmentAddReservationBinding.inflate(inflater, container, false)
         return binding?.root
     }
+
     private val formatTool = AppDateFormat()
-    private  var parkingLot: Int = 0
+    private var parkingLot: Int = 0
     private lateinit var dateStart: Calendar
     private lateinit var dateEnd: Calendar
     private lateinit var authorizationCode: String
@@ -83,16 +84,16 @@ class AddReservationFragment : Fragment() {
         }
 
         //show input Authorization Code
-        binding.rectangleAuthorizationCode.setOnClickListener(){
+        binding.rectangleAuthorizationCode.setOnClickListener() {
             binding?.textView4?.setVisibility(View.GONE)
             editText?.isInvisible = false
 
-            authorizationCode = editText.text.toString()
+
         }
 
         //SAVE button
         buttonAddReservation?.setOnClickListener {
-
+            authorizationCode = editText.text.toString()
             viewModel.addReservation(
                 Reservation(
                     "",
@@ -136,7 +137,7 @@ class AddReservationFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun showDateTimePickerDialog(isStartDay: Boolean) {
-         // variable que contendra toda la informacion de fecha y hora
+        // variable que contendra toda la informacion de fecha y hora
         val date = Calendar.getInstance()
 
         //carga la fecha
@@ -174,7 +175,7 @@ class AddReservationFragment : Fragment() {
             binding?.tvStartEndTime?.text = dateTimeWithFormatStart*/
         }
 
-    // Las siguientes dos funciones muestran los dialogos con la hfecha y hora actuales
+        // Las siguientes dos funciones muestran los dialogos con la hfecha y hora actuales
 
         TimePickerDialog(
             activity, androidx.appcompat.R.style.Base_V28_Theme_AppCompat,
@@ -184,13 +185,15 @@ class AddReservationFragment : Fragment() {
             false
         ).show()
 
-        DatePickerDialog(
+        val datePicker = DatePickerDialog(
             requireContext(),
             dateListener,
             date.get(Calendar.YEAR),
             date.get(Calendar.MONTH),
             date.get(Calendar.DAY_OF_MONTH)
-        ).show()
+        )
+        datePicker.datePicker.minDate = System.currentTimeMillis()
+        datePicker.show()
     }
 
 }

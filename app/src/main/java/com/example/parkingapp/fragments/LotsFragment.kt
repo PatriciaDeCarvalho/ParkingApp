@@ -87,6 +87,9 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         )
     }
 
+
+
+
 }
 
 interface ItemOnRecyclerViewClicked {
