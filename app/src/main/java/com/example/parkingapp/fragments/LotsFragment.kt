@@ -34,19 +34,21 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.loadData()
+        onResume()
 
         viewModel.lotProgress.observe(viewLifecycleOwner) {
             binding?.tvBusy?.text = it.lotBusy.toString() + " Busy"
             binding?.tvFee?.text = it.lotFree.toString() + " Free"
             binding?.progressBar?.progress = it.lotBusy
             binding?.progressBar?.max = it.lotBusy + it.lotFree
+
         }
         viewModel.lots.observe(viewLifecycleOwner) { lotList ->
             initRecyclerViewLots(lotList)
         }
         viewModel.reservations?.observe(viewLifecycleOwner) { reservationList ->
             //   Toast.makeText(context, reservationList.reservationList.first().authorizationCode,Toast.LENGTH_LONG ).show()
+
         }
 
 
@@ -87,7 +89,10 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         )
     }
 
-
+    override fun onResume() {
+            super.onResume()
+        viewModel.loadData()
+    }
 
 
 }

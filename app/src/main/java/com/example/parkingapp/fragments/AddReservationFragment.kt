@@ -76,7 +76,7 @@ class AddReservationFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                parkingLot = position
+                parkingLot = position - 1
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
