@@ -41,7 +41,7 @@ class AddReservationFragment : Fragment() {
     private val formatTool = AppDateFormat()
     private lateinit var dateStart: Calendar
     private lateinit var dateEnd: Calendar
-
+    private var dia: String = "Prueba"
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
