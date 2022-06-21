@@ -9,11 +9,9 @@ import com.example.parkingapp.databinding.RecyclerLotDetailItemBinding
 
 class ReservationHolder(
 
-    private val view: View
-//    val listener: ItemReservationOnRecyclerViewClicked
-    ) :RecyclerView.ViewHolder(view) {
+    private val view: View) : RecyclerView.ViewHolder(view) {
 
-    private val  dateFormat: AppDateFormat = AppDateFormat()
+    private val dateFormat: AppDateFormat = AppDateFormat()
 
     private lateinit var binding: RecyclerLotDetailItemBinding
 
@@ -22,20 +20,20 @@ class ReservationHolder(
         listener: (Reservation, Int) -> Unit,
         position: Int
     ) {
-         binding = RecyclerLotDetailItemBinding.bind(view)
+        binding = RecyclerLotDetailItemBinding.bind(view)
 
         binding.apply {
-            tvStartDay.text = dateFormat.dayFormat(lotReservations.starDateTimeInMillis.toLong())
-            tvStartMonthYear.text = dateFormat.monthYearFormat(lotReservations.starDateTimeInMillis.toLong())
-            tvStartTime.text = dateFormat.hourFormat(lotReservations.starDateTimeInMillis.toLong())
-            tvEndDay.text = dateFormat.dayFormat(lotReservations.starDateTimeInMillis.toLong())
-            tvEndMonthYear.text = dateFormat.monthYearFormat(lotReservations.starDateTimeInMillis.toLong())
-            tvEndTime.text = dateFormat.hourFormat(lotReservations.starDateTimeInMillis.toLong())
+            tvStartDay.text = dateFormat.dayFormat(lotReservations.starDateTimeInMillis)
+            tvStartMonthYear.text = dateFormat.monthYearFormat(lotReservations.starDateTimeInMillis)
+            tvStartTime.text = dateFormat.hourFormat(lotReservations.starDateTimeInMillis)
+            tvEndDay.text = dateFormat.dayFormat(lotReservations.starDateTimeInMillis)
+            tvEndMonthYear.text = dateFormat.monthYearFormat(lotReservations.starDateTimeInMillis)
+            tvEndTime.text = dateFormat.hourFormat(lotReservations.starDateTimeInMillis)
 
         }
 
         binding.bnDelete.setOnClickListener {
-        listener(lotReservations, position)
+            listener(lotReservations, position)
         }
     }
 }

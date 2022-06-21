@@ -1,6 +1,7 @@
 
 package com.example.parkingapp.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -32,6 +33,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         return binding?.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onResume()
@@ -47,11 +49,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
             initRecyclerViewLots(lotList)
         }
         viewModel.reservations?.observe(viewLifecycleOwner) { reservationList ->
-            //   Toast.makeText(context, reservationList.reservationList.first().authorizationCode,Toast.LENGTH_LONG ).show()
-
         }
-
-
 
 
         //FloatingActionButton
@@ -67,12 +65,9 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         binding?.rvLots?.apply {
             adapter = LotAdapter(lotList, this@LotsFragment)
         }
-
     }
 
-
     override fun onDestroyView() {
-        // Consider not storing the binding instance in a field, if not needed.
         binding = null
         super.onDestroyView()
     }
@@ -82,7 +77,6 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
 
         val bundle = Bundle()
         bundle.putSerializable("objectLot", lot)
-        //send to next fragment
         findNavController().navigate(
             R.id.action_lotsFragment_to_lotDetailFragment,
             bundle
@@ -94,12 +88,10 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         viewModel.loadData()
     }
 
-
 }
 
 interface ItemOnRecyclerViewClicked {
     fun onClick(lot: LotReservation)
-
 
 }
 

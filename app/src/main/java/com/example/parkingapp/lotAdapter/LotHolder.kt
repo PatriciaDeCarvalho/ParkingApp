@@ -1,5 +1,6 @@
 package com.example.parkingapp.lotAdapter
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -15,29 +16,26 @@ class LotHolder(private val view: View, val listener: ItemOnRecyclerViewClicked)
     private val dateFormat: AppDateFormat = AppDateFormat()
 
 
-
+    @SuppressLint("SetTextI18n")
     fun bindLot(lot: LotReservation) {
         val binding = RecyclerItemBinding.bind(view)
         binding.apply {
 
             parkingNumber.text = lot.parkingLot.toString()
-            lot.reswervationList?.firstOrNull()?.let{
+            lot.reswervationList?.firstOrNull()?.let {
                 tvDate.visibility = VISIBLE
 
-                val day = dateFormat.dayFormat(it.endDateTimeInMillis.toLong())
-                val monthAndYear = dateFormat.monthYearFormat(it.endDateTimeInMillis.toLong())
-                val hour = dateFormat.hourFormat(it.endDateTimeInMillis.toLong())
+                val day = dateFormat.dayFormat(it.endDateTimeInMillis)
+                val monthAndYear = dateFormat.monthYearFormat(it.endDateTimeInMillis)
+                val hour = dateFormat.hourFormat(it.endDateTimeInMillis)
 
-                tvDate.text = day + " " + monthAndYear
+                tvDate.text = day +" "+ monthAndYear
                 tvTime.text = hour
-            }?: run {
+            } ?: run {
 
                 tvTime.text = "Empty"
                 tvDate.visibility = GONE
             }
-
-
-
 
         }
 
@@ -46,4 +44,4 @@ class LotHolder(private val view: View, val listener: ItemOnRecyclerViewClicked)
         }
 
     }
-    }
+}

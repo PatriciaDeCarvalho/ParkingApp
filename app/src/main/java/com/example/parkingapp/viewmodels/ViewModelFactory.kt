@@ -20,12 +20,16 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
 
         if (modelClass == LotViewModel::class.java) {
             return LotViewModel(GetLotListUseCase().apply {
-                repository =  LotRepositoryImpl(ParkingService(),
-                   DataBase.getInstance(context))
+                repository = LotRepositoryImpl(
+                    ParkingService(),
+                    DataBase.getInstance(context)
+                )
 
             }, GetReservationListUseCase().apply {
-                reservRepository = ReservationRepositoryImpl(ParkingService(),
-                   DataBase.getInstance(context))
+                reservRepository = ReservationRepositoryImpl(
+                    ParkingService(),
+                    DataBase.getInstance(context)
+                )
             }) as T
 
         } else if (modelClass == ReservationViewModel::class.java) {
@@ -35,7 +39,7 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
             }) as T
 
         } else if (modelClass == AddViewModel::class.java) {
-            return AddViewModel(AddReservationUseCase().apply{
+            return AddViewModel(AddReservationUseCase().apply {
                 addReservationRepository = AddRepositoryImpl()
 
             }) as T

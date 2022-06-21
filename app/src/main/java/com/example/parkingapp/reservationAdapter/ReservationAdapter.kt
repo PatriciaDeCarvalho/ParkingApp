@@ -8,7 +8,6 @@ import com.example.parkingapp.R
 
 class ReservationAdapter(
     val  reservationList:MutableList<Reservation>,
-    //val listener: ItemReservationOnRecyclerViewClicked) : RecyclerView.Adapter<ReservationHolder>(){
     val listener: (Reservation, Int) -> Unit):RecyclerView.Adapter<ReservationHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReservationHolder {
@@ -22,11 +21,8 @@ class ReservationAdapter(
 
         holder.bindLotDetail(item2,listener, position)
 
-
-
     }
 
     override fun getItemCount(): Int= reservationList.size
-
 
 }

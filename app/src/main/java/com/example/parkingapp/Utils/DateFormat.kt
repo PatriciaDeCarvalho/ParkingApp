@@ -2,7 +2,7 @@ package com.example.parkingapp.Utils
 
 
 import java.text.SimpleDateFormat
-import java.util.*
+
 
 class AppDateFormat {
 
@@ -23,6 +23,8 @@ class AppDateFormat {
         val simpleDateFormat = SimpleDateFormat(" dd-MM-yyyy hh:mm ")
         return simpleDateFormat.format(date)
     }
+
+
 
 }
 

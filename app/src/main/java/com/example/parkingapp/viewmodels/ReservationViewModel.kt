@@ -23,7 +23,13 @@ class ReservationViewModel(val deleteReservationUseCase: DeleteReservationUseCas
         viewModelScope.launch {
 
             if (reservation.authorizationCode == authorizationCode) {
-                val deleteReservation = withContext(Dispatchers.IO){ deleteReservationUseCase(parkingId, reservation, authorizationCode)}
+                val deleteReservation = withContext(Dispatchers.IO) {
+                    deleteReservationUseCase(
+                        parkingId,
+                        reservation,
+                        authorizationCode
+                    )
+                }
                 when (deleteReservation) {
                     is Result.Success -> {
                         mutableSuccessfulDelete.value = true
@@ -32,7 +38,7 @@ class ReservationViewModel(val deleteReservationUseCase: DeleteReservationUseCas
                         mutableSuccessfulDelete.value = false
                     }
                 }
-            }else{
+            } else {
                 mutableSuccessfulDelete.value = false
             }
 

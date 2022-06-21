@@ -21,6 +21,7 @@ class ReservationRepositoryImpl(private var parkingService: ParkingService,
             val result =  parkingService.getReservations()
 
             if (result is Result.Success) {
+                parkingDataBase.getReservationDao().deleteReservations()
                 result.data.forEach {reservation ->
                     saveToDataBase(reservation)
                 }
@@ -31,12 +32,14 @@ class ReservationRepositoryImpl(private var parkingService: ParkingService,
         return reservationList
     }
         private suspend fun saveToDataBase(reservation: ReservationResponse){
+
             val localReservation = ReservationMapperLocal().transformFromRepositoryToRoom(reservation)
 
             parkingDataBase.getReservationDao().addReservation(localReservation)
         }
-         private fun getLocalInfo(): MutableList<Reservation>{
-          val databaseReservations =  parkingDataBase.getReservationDao().getReservations()
+         suspend private fun getLocalInfo(): MutableList<Reservation>{
+
+           val databaseReservations =  parkingDataBase.getReservationDao().getReservations()
             val reservationList = mutableListOf<Reservation>()
             databaseReservations.forEach{
                 reservationList.add(ReservationMapperLocal().transformFromRoomToDomain(it))

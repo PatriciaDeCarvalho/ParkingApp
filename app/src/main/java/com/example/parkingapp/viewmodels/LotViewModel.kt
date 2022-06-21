@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.model.*
 import com.example.domain.usecases.GetLotListUseCase
 import com.example.domain.usecases.GetReservationListUseCase
-import com.example.parkingapp.uientity.LotProgress
+import com.example.parkingapp.Utils.LotProgress
 import kotlinx.coroutines.Dispatchers
 
 import kotlinx.coroutines.launch

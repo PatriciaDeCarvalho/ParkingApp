@@ -1,6 +1,5 @@
 package com.example.parkingapp.fragments
 
-import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
@@ -16,9 +15,9 @@ import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentAddReservationBinding
 import com.example.domain.model.Reservation
 import com.example.parkingapp.Utils.AppDateFormat
+import com.example.parkingapp.Utils.DateReservation
 import com.example.parkingapp.viewmodels.AddViewModel
 import com.example.parkingapp.viewmodels.LotViewModelProvider
-import java.text.SimpleDateFormat
 import java.util.*
 
 class AddReservationFragment : Fragment() {
@@ -26,48 +25,49 @@ class AddReservationFragment : Fragment() {
         LotViewModelProvider(requireActivity()).get(AddViewModel::class.java)
     }
     private lateinit var binding: FragmentAddReservationBinding
+    private var initialDate = DateReservation()
+    private var finalDate = DateReservation()
+    private var parkingLot: Int = -1
+    private var authorizationCode: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAddReservationBinding.inflate(inflater, container, false)
-        return binding?.root
+        return binding.root
     }
 
     private val formatTool = AppDateFormat()
-    private var parkingLot: Int = 0
     private lateinit var dateStart: Calendar
     private lateinit var dateEnd: Calendar
-    private lateinit var authorizationCode: String
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentAddReservationBinding.bind(view)
-
-        val spinner: Spinner? = binding?.planetsSpinner1
-        val textSelected = binding?.textView
-        val buttonAddReservation = binding?.buttonAdd
+        val spinner: Spinner = binding.planetsSpinner1
+        val buttonAddReservation = binding.buttonAdd
 
         //editText Authorization Code Hide
-        val editText = binding?.etAuthorizationCodeRegistered
-        editText?.isInvisible = true
+        val editText = binding.etAuthorizationCodeRegistered
+        editText.isInvisible = true
 
         //show DateTimePickerStart
-        binding?.rectangleStartTime?.setOnClickListener {
-            showDateTimePickerDialog(true)
+        binding.rectangleStartTime.setOnClickListener {
+            showDateTimePickerDialog(true, initialDate)
         }
         //show DateTimePickerEnd
-        binding?.rectangleEndTime?.setOnClickListener {
-            showDateTimePickerDialog(false)
+        binding.rectangleEndTime.setOnClickListener {
+            showDateTimePickerDialog(false, finalDate)
         }
         //show Spinner
-        spinner?.let {
+        spinner.let {
             createSpinner(it)
         }
         //listen Spinner
-        spinner?.onItemSelectedListener = object :
+        spinner.onItemSelectedListener = object :
 
             OnItemSelectedListener {
             override fun onItemSelected(
@@ -85,30 +85,50 @@ class AddReservationFragment : Fragment() {
 
         //show input Authorization Code
         binding.rectangleAuthorizationCode.setOnClickListener() {
-            binding?.textView4?.setVisibility(View.GONE)
-            editText?.isInvisible = false
+            binding.textView4.setVisibility(View.GONE)
+            editText.isInvisible = false
 
 
         }
 
         //SAVE button
-        buttonAddReservation?.setOnClickListener {
+        buttonAddReservation.setOnClickListener {
             authorizationCode = editText.text.toString()
-            viewModel.addReservation(
-                Reservation(
-                    "",
-                    authorizationCode,
-                    dateStart.timeInMillis,
-                    dateEnd.timeInMillis,
-                    parkingLot
+
+            if (
+                authorizationCode != "" &&
+                parkingLot > -1 &&
+                this::dateStart.isInitialized &&
+                this::dateEnd.isInitialized
+            ) {
+
+                viewModel.addReservation(
+                    Reservation(
+                        "",
+                        authorizationCode,
+                        dateStart.timeInMillis,
+                        dateEnd.timeInMillis,
+                        parkingLot
+                    )
                 )
-            )
+
+            } else {
+                Toast.makeText(context, "You must complete all fields", Toast.LENGTH_LONG).show()
+
+            }
+
             viewModel.successfulAdd.observe(viewLifecycleOwner) { addSuccessfuly ->
                 if (addSuccessfuly) {
-                    findNavController().navigate(R.id.action_addReservationFragment_to_lotsFragment)
-                    Toast.makeText(context, "Added correctly", Toast.LENGTH_LONG).show()
+
+                    Toast.makeText(context, "The reservation has been successfully added", Toast.LENGTH_LONG).show()
+                    findNavController().popBackStack()
+
+
                 } else {
                     Toast.makeText(context, "Could not be processed", Toast.LENGTH_LONG).show()
+
+                    findNavController().popBackStack()
+
                 }
             }
 
@@ -135,47 +155,40 @@ class AddReservationFragment : Fragment() {
 
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun showDateTimePickerDialog(isStartDay: Boolean) {
-        // variable que contendra toda la informacion de fecha y hora
+
+    private fun showDateTimePickerDialog(isStartDay: Boolean, dateInMillis: DateReservation) {
+
         val date = Calendar.getInstance()
 
-        //carga la fecha
         val dateListener = DatePickerDialog.OnDateSetListener { _, year, month, day ->
             date.set(Calendar.YEAR, year)
             date.set(Calendar.MONTH, month)
             date.set(Calendar.DAY_OF_MONTH, day)
 
-            //Toast.makeText(activity, "$day/$month/$year", Toast.LENGTH_LONG).show()
 
-            if (isStartDay == true) {
+            if (isStartDay) {
                 dateStart = date
             } else {
                 dateEnd = date
             }
 
         }
-        //carga la hora, esta es la ultima funcion en ejecutarse
+
         val timelistener = TimePickerDialog.OnTimeSetListener { _, hour, minutes ->
             date.set(Calendar.MINUTE, minutes)
             date.set(Calendar.HOUR, hour)
 
-            if (isStartDay == true) {
+            if (isStartDay) {
                 dateStart = date
                 binding.tvStartEndTime.text = formatTool.completeFormat(dateStart.timeInMillis)
 
             } else {
                 dateEnd = date
-                binding.tvEndDateTime.text = formatTool.completeFormat(dateStart.timeInMillis)
+                binding.tvEndDateTime.text = formatTool.completeFormat(dateEnd.timeInMillis)
             }
+            dateInMillis.dateInMilliseconds = date.timeInMillis
 
-            /*Toast.makeText(activity, "$minutes/$hour", Toast.LENGTH_LONG).show()
-
-            binding?.tvEndDateTime?.text = dateTimeWithFormatEnd
-            binding?.tvStartEndTime?.text = dateTimeWithFormatStart*/
         }
-
-        // Las siguientes dos funciones muestran los dialogos con la hfecha y hora actuales
 
         TimePickerDialog(
             activity, androidx.appcompat.R.style.Base_V28_Theme_AppCompat,
@@ -199,6 +212,3 @@ class AddReservationFragment : Fragment() {
 }
 
 
-interface OnclickCancelReservation {
-    fun onClickReservation(reservation: Reservation)
-}

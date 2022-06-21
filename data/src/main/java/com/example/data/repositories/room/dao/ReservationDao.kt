@@ -10,13 +10,16 @@ import com.example.domain.model.Reservation
 interface ReservationDao {
 
     @Query("SELECT * FROM Reservation")
-    fun getReservations(): List<ReservationRoom>
+    suspend fun getReservations(): List<ReservationRoom>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addReservation(addReservation: ReservationRoom)
 
     @Delete
-    fun deleteReservation(deleteReseervation: ReservationRoom)
+    suspend fun deleteReservation(deleteReseervation: ReservationRoom)
+
+    @Query("DELETE FROM Reservation")
+    suspend fun deleteReservations()
 
 }
 

@@ -1,5 +1,3 @@
-
-
 package com.example.parkingapp.fragments
 
 import android.content.ContentValues.TAG
@@ -24,11 +22,9 @@ import com.example.parkingapp.viewmodels.LotViewModelProvider
 import com.example.parkingapp.viewmodels.ReservationViewModel
 
 
-class LotDetailFragment : Fragment() //ItemReservationOnRecyclerViewClicked
- {
-     private var lot: LotReservation? = null
+class LotDetailFragment : Fragment() {
+    private var lot: LotReservation? = null
     private var binding: FragmentLotDetailsBinding? = null
-
     private val viewModel: ReservationViewModel by lazy {
         LotViewModelProvider(requireActivity()).get(ReservationViewModel::class.java)
     }
@@ -52,27 +48,17 @@ class LotDetailFragment : Fragment() //ItemReservationOnRecyclerViewClicked
         super.onViewCreated(view, savedInstanceState)
 
 
-
         lotViewModel.lots.observe(viewLifecycleOwner) { _lot ->
-            lot = _lot.find { l ->
-                l.parkingLot == lotSelected.parkingLot
+            lot = _lot.find { lotNumber ->
+                lotNumber.parkingLot == lotSelected.parkingLot
             }
         }
 
         // receipt bundle
         arguments?.let {
             lotSelected = it.getSerializable("objectLot") as LotReservation
-            //      viewModel.loadReservations()
-            val mensaje = "hola"//viewModel.loadReservations().toString()
-            Log.d(TAG,mensaje)
-
             initRecyclerWiewReservations(lotSelected.reswervationList)
-
         }
-
-
-
-
 
         binding = FragmentLotDetailsBinding.bind(view)
 
@@ -87,7 +73,8 @@ class LotDetailFragment : Fragment() //ItemReservationOnRecyclerViewClicked
         binding?.rvReservations?.apply {
             listR?.let {
                 adapter = ReservationAdapter(it) { reservation, pos ->
-                    onDeleteReservation(reservation, this, it, pos
+                    onDeleteReservation(
+                        reservation, this, it, pos
 
                     )
                 }
@@ -102,26 +89,28 @@ class LotDetailFragment : Fragment() //ItemReservationOnRecyclerViewClicked
         super.onDestroyView()
     }
 
-     fun onDeleteReservation(reservation: Reservation, recyclerView: RecyclerView,
-                                     reservationList: MutableList<Reservation>, pos: Int) {
-         Toast.makeText(context, "${reservation.authorizationCode}", Toast.LENGTH_LONG).show()
-        var dialog = DeleteDialogFragment()
+    fun onDeleteReservation(
+        reservation: Reservation, recyclerView: RecyclerView,
+        reservationList: MutableList<Reservation>, pos: Int
+    ) {
+
+        val dialog = DeleteDialogFragment()
         dialog.onDeleteClick = { codeText ->
-                viewModel.deleteReservation(reservation, codeText)
-            viewModel.successfulDelete.observe(viewLifecycleOwner){ deleteSuccessfuly ->
-                if(deleteSuccessfuly){
+            viewModel.deleteReservation(reservation, codeText)
+            viewModel.successfulDelete.observe(viewLifecycleOwner) { deleteSuccessfuly ->
+                if (deleteSuccessfuly) {
                     reservationList.removeAt(pos)
 
                     recyclerView.adapter?.notifyItemRemoved(pos)
 
                     Toast.makeText(context, "Proccesed correctly", Toast.LENGTH_LONG).show()
-                }else{
+                } else {
                     Toast.makeText(context, "Could not be processed", Toast.LENGTH_LONG).show()
                 }
             }
 
 
-            }
+        }
         val fm = activity?.supportFragmentManager
         fm?.let {
             dialog.show(it, "Costum Dialog")
@@ -136,9 +125,7 @@ class LotDetailFragment : Fragment() //ItemReservationOnRecyclerViewClicked
 
 }
 
-////interface ItemReservationOnRecyclerViewClicked {
-//    fun onDeleteReservation(reservation: Reservation)
-//}
+
 
 
 
