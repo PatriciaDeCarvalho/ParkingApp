@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="progressBar_layout_width">355dp</dimen>
+    <dimen name="progressBar_layout_height">0dp</dimen>
+    <dimen name="progressBar_marginStart">21dp</dimen>
+    <dimen name="progressBar_layout_marginTop">28dp</dimen>
+    <dimen name="progressBar_layout_marginEnd">21dp</dimen>
+
+    <dimen name="rectangleProgressBar_layout_width">414dp</dimen>
+    <dimen name="rectangleProgressBar_layout_height">71dp</dimen>
+
+    <dimen name="textWiew_busy_layout_width">0dp</dimen>
+    <dimen name="textWiew_busy_layout_marginStart">21dp</dimen>
+    <dimen name="textWiew_busy_textSize">20sp</dimen>
+
+    <dimen name="textWiew_free_layout_width">0dp</dimen>
+    <dimen name="textWiew_free_layout_marginEnd">21dp</dimen>
+    <dimen name="textWiew_free_textSize">20sp</dimen>
+
+    <dimen name="recyclerView1_layout_margin">10dp</dimen>
+    <dimen name="recyclerView1_layout_marginStart">10dp</dimen>
+    <dimen name="recyclerView1_layout_marginTop2">20dp</dimen>
+    <dimen name="recyclerView1_layout_marginEnd">10dp</dimen>
+    <dimen name="recyclerView1_layout_marginBottom">20dp</dimen>
+
+    <dimen name="floatingActionButton1_layout_margin">16dp</dimen>
+    <dimen name="floatingActionButton1_elevation">4dp</dimen>
+    <dimen name="floatingActionButton1_borderWidth">0dp</dimen>
+
+    <dimen name="buttonBack_layout_marginEnd">1dp</dimen>
+
+    //--------------------End ActivityMain----------------------
+
+    <dimen name="planets_spinner1_layout_width">340dp</dimen>
+    <dimen name="planets_spinner1_layout_height">48dp</dimen>
+    <dimen name="planets_spinner1_layout_margin">20sp</dimen>
+
+    <dimen name="rectangle_spinner1_layout_width">0sp</dimen>
+    <dimen name="rectangle_spinner1_layout_height">40dp</dimen>
+    <dimen name="rectangle_spinner1_layout_margin">20sp</dimen>
+    <dimen name="rectangle_spinner1_layout_marginTop">20dp</dimen>
+    <dimen name="rectangle_spinner1_layout_marginEnd">20sp</dimen>
+
+    <dimen name="rectangle_StartTime_layout_width">0sp</dimen>
+    <dimen name="rectangle_StartTime_layout_height">40dp</dimen>
+    <dimen name="rectangle_StartTime_layout_margin">20sp</dimen>
+    <dimen name="rectangle_StartTime_layout_marginEnd">20sp</dimen>
+
+    <dimen name="rectangle_EndTime_layout_width">0dp</dimen>
+    <dimen name="rectangle_EndTime_layout_height">40dp</dimen>
+    <dimen name="rectangle_EndTime_layout_margin">20sp</dimen>
+    <dimen name="rectangle_EndTime_layout_marginStart">20dp</dimen>
+    <dimen name="rectangle_EndTime_layout_marginEnd">20dp</dimen>
+
+    <dimen name="rectangle_EndTime2_layout_width">0sp</dimen>
+    <dimen name="rectangle_EndTime2_layout_height">40dp</dimen>
+    <dimen name="rectangle_EndTime2_layout_marginStart">20dp</dimen>
+    <dimen name="rectangle_EndTime2_layout_marginTop">20dp</dimen>
+    <dimen name="rectangle_EndTime2_layout_marginEnd">20dp</dimen>
+
+
+    <dimen name="calendar_1_layout_marginEnd">20sp</dimen>
+
+    <dimen name="calendar_2_layout_marginEnd">20sp</dimen>
+
+    <dimen name="textView_parking_slot_layout_marginStart">20sp</dimen>
+
+    <dimen name="textView2_start_date_time_layout_marginStart">20sp</dimen>
+
+    <dimen name="textView3_start_date_time_layout_marginStart">20sp</dimen>
+
+    <dimen name="textView4_start_date_time_layout_marginStart">20sp</dimen>
+
+    <dimen name="button_Reservation_layout_width">0dp</dimen>
+    <dimen name="button_Reservation_layout_height">48dp</dimen>
+    <dimen name="button_Reservation_layout_margin">20dp</dimen>
+
+    //--------------------End Activity_add_reservation----------------------
+
+    <dimen name="item_rectangle_layout_height">80dp</dimen>
+
+    <dimen name="item_ellipse_1_layout_width">40dp</dimen>
+    <dimen name="item_ellipse_1_layout_height">40dp</dimen>
+    <dimen name="item_ellipse_1_layout_marginStart">10dp</dimen>
+
+    <dimen name="item_fiestText_textSize">20sp</dimen>
+
+    <dimen name="item_secondText_textSize">15sp</dimen>
+    <dimen name="item_secondText_layout_marginTop">5dp</dimen>
+
+    <dimen name="item_parkingNumber_textSize">20sp</dimen>
+    <dimen name="cardWiew_layout_height">150sp</dimen>
+    <dimen name="tv_startDay_layour_marginTop">10sp</dimen>
+    <dimen name="tv_startDay_layout_marginstart">30sp</dimen>
+    <dimen name="card_view_cardCornerRadius">5sp</dimen>
+    <dimen name="tv_startDay_text">20sp</dimen>
+    <dimen name="tv_startMonthYear_layout_marginStart">30sp</dimen>
+    <dimen name="tv_startMonthYear_layout_MarginTop">40sp</dimen>
+    <dimen name="tv_startMonthYear_textSize">20sp</dimen>
+    <dimen name="tv_startTime_layout_marginStart">30sp</dimen>
+    <dimen name="tv_startTime_layoutMarginTop">70sp</dimen>
+    <dimen name="tv_startTime_textSize">20sp</dimen>
+    <dimen name="tv_endDay_layout_marginStart">30sp</dimen>
+    <dimen name="tv_endDay_layout_marginTop">10sp</dimen>
+    <dimen name="tv_endDay_layout_marginEnd">30sp</dimen>
+    <dimen name="tv_endDay_textSize">20sp</dimen>
+    <dimen name="tv_endMonthYear_layout_marginStart">30sp</dimen>
+    <dimen name="tv_endMonthYearlayout_marginTop">40sp</dimen>
+    <dimen name="tv_endMonthYear_layout_marginEnd">30sp</dimen>
+    <dimen name="tv_endMonthYear_textSize">20sp</dimen>
+    <dimen name="tv_endTime_layout_marginTop">70sp</dimen>
+    <dimen name="tv_endTime_layout_marginEnd">30sp</dimen>
+    <dimen name="tv_endTime_textSize">20sp</dimen>
+    <dimen name="bn_delete_layout_marginEnd">30sp</dimen>
+    <dimen name="bn_delete_layout_marginBottom">4sp</dimen>
+    <dimen name="bn_delete_textSize">12sp</dimen>
+    <dimen name="bn_delete_corner_radius">20dp</dimen>
+    <dimen name="rectangle_marginBottom">5dp</dimen>
+    <dimen name="tv_date_marginTop">16dp</dimen>
+    <dimen name="rv_lots_marginTop">40dp</dimen>
+    <dimen name="rv_lots_marginBottom">8dp</dimen>
+    <dimen name="buttonAdd_marginStart">20dp</dimen>
+    <dimen name="buttonAdd_marginEnd">20dp</dimen>
+    <dimen name="dialog_title_marginTop">30dp</dimen>
+    <dimen name="dialog_title_marginStart">20dp</dimen>
+    <dimen name="dialog_title_textSize">20dp</dimen>
+    <dimen name="dialog_description_dialog_description">30dp</dimen>
+    <dimen name="dialog_description_marginStart">20dp</dimen>
+    <dimen name="dialog_description_marginEnd">20dp</dimen>
+    <dimen name="textInputLayout_widht">409dp</dimen>
+    <dimen name="textInputLayout_marginstart">20dp</dimen>
+    <dimen name="textInputLayout_marginTop1">30dp</dimen>
+    <dimen name="textInputLayout_marginend">20dp</dimen>
+    <dimen name="textInputLayout_marginStart">20dp</dimen>
+    <dimen name="tv_cancel_delete_marginTop">30dp</dimen>
+    <dimen name="tv_cancel_delete_marginEnd">20dp</dimen>
+    <dimen name="tv_cancel_delete_marginBottom">30dp</dimen>
+    <dimen name="tv_ok_delete_marginTop">30dp</dimen>
+    <dimen name="tv_ok_delete_marginEnd">20dp</dimen>
+    <dimen name="tv_ok_delete_marginBottom">30dp</dimen>
+    <dimen name="tv_ok_delete_textSize">26sp</dimen>
+    <dimen name="view_Container_height">350dp</dimen>
+    <dimen name="dialog_textSize">26sp</dimen>
+</resources>
+

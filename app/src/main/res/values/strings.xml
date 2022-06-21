@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">ParkingApp</string>
+    <string name="_free">- Free</string>
+    <string name="_busy">- Busy</string>
+    <string name="_parkingNumber">1</string>
+    <string name="secondtext">secondText</string>
+    <string name="firstText">firstText</string>
+    <string name="parkingNumberImage">parkingNumberImage</string>
+    <string name="parking_number">1</string>
+    <string name="day">Monday</string>
+    <string name="montAndYear">May 2022</string>
+    <string name="time">20:30 PM</string>
+    <string name="time2">20:30 PM</string>
+    <string name="day2">Monday</string>
+    <string name="montAndYear2">May 2022</string>
+    <string name="buttonText">Button</string>
+    <string name="end_date_time">End date/time</string>
+    <string name="starr_date_time">start date/time</string>
+    <string name="parking_slot">Parking Slot</string>
+    <string name="calendar_2">calendar 2</string>
+    <string name="calendar_1">calendar</string>
+    <string name="add_reservartion">add reservartion</string>
+    <string name="save">Save</string>
+    <string name="lot_title">Lot{item}</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete_reservation">Delete Reservation</string>
+    <string name="authorizationCode">Are you sure you want to delete this reservation? Please input the authorization code to confirm.</string>
+    <string name="tv_authorization_code">Introduzca Texto Aquí</string>
+    <string name="ok">OK</string>
+    <string name="enter_the_code">Enter the code</string>
+    <string name="savebutton">SAVE</string>
+    <string name="authorization_code">Authorization code</string>
+    <string name="cancel">CANCEL</string>
+    <string name="delete">Delete</string>
 </resources>

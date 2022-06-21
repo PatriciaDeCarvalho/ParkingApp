@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange_dark"
+    tools:context=".activities.MainActivity">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="@dimen/progressBar_marginStart"
+        android:layout_marginTop="@dimen/progressBar_layout_marginTop"
+        android:layout_marginEnd="@dimen/progressBar_layout_marginEnd"
+        android:background="@color/orange_dark"
+        android:max="100"
+        android:progress="10"
+        android:progressTint="#343A3F"
+        android:scaleY="2.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_busy"
+        android:layout_width="@dimen/textWiew_busy_layout_width"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/textWiew_busy_layout_marginStart"
+        android:layout_marginTop="5dp"
+        android:text="@string/_busy"
+        tools:text="18"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textWiew_busy_textSize"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <TextView
+        android:id="@+id/tv_fee"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="21dp"
+        android:text="@string/_free"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textWiew_free_textSize"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_lots"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/recyclerView1_layout_margin"
+        android:layout_marginTop="@dimen/rv_lots_marginTop"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fee"
+        app:layout_constraintVertical_bias="0.213"
+        tools:itemCount="8"
+        tools:listitem="@layout/recycler_item" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/floatingActionButton1_layout_margin"
+        android:contentDescription="@string/add_reservartion"
+        android:elevation="@dimen/floatingActionButton1_elevation"
+        android:src="@drawable/ic_baseline_add_24"
+        android:backgroundTint="@color/orange"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
