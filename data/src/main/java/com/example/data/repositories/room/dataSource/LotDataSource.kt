@@ -6,6 +6,7 @@ import com.example.data.repositories.room.mapper.LotMapperLocal
 import com.example.domain.model.Lot
 import com.example.domain.util.Result
 
+/*TODO If you do not use this classes, deleted it from the project */
 class LotDataSource(context:Context) {
 //    private val dataBase = DataBase.getInstance(context)
 //    private val mapper = LotMapperLocal()

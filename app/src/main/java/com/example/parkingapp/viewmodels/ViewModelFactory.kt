@@ -14,6 +14,8 @@ import com.example.domain.usecases.DeleteReservationUseCase
 import com.example.domain.usecases.GetLotListUseCase
 import com.example.domain.usecases.GetReservationListUseCase
 
+/*TODO 9 What ViewModelFactory does? answer it for yourself*/
+
 class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

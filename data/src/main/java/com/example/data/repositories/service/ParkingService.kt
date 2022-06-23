@@ -22,6 +22,7 @@ class ParkingService {
 
             result = try {
                 val response = RetrofitInstance.getRetrofit().create(APIService::class.java).getParkingLots(PARKING_ID)
+                /*TODO Always delete the unnecessary comments  */
                 //val response = callResponse
                 if (response.lotList.isNotEmpty()) {
                     //llamar al maper para transformar Parking lot en parking lot list response
@@ -43,10 +44,10 @@ class ParkingService {
 
             result = try {
                 val response = RetrofitInstance.getRetrofit().create(APIService::class.java).getReservations(
-                    PARKING_ID)
+                    PARKING_ID) /** Do not let too much blank spaces */
 
 
-                if (response?.reservationList?.isNotEmpty()!!) {
+                if (response?.reservationList?.isNotEmpty()!!) { /** Do not let too much blank spaces */
 
                     Result.Success(response.reservationList)
                 } else {

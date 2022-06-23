@@ -21,6 +21,12 @@ import com.example.parkingapp.viewmodels.LotViewModel
 import com.example.parkingapp.viewmodels.LotViewModelProvider
 import com.example.parkingapp.viewmodels.ReservationViewModel
 
+/*TODO optimize imports everywhere */
+/*TODO 1 advice: Try to read a file like a book */
+/*TODO 2 advice: Understand the lifecycle methodss like what happens in onCreateView,onViewCreated,onResume,onDestroyView */
+/*TODO 3 advice: Why you need a ViewModelFactory?, answer it for yourself */
+/*TODO 4 advice: Why you need a those 3 modules: app, domain and data?, answer it for yourself*/
+
 
 class LotDetailFragment : Fragment() {
     private var lot: LotReservation? = null

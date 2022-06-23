@@ -39,7 +39,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         onResume()
 
         viewModel.lotProgress.observe(viewLifecycleOwner) {
-            binding?.tvBusy?.text = it.lotBusy.toString() + " Busy"
+            binding?.tvBusy?.text = it.lotBusy.toString() + " Busy" /*TODO Get the strings in the fragments from the resource xml*/
             binding?.tvFee?.text = it.lotFree.toString() + " Free"
             binding?.progressBar?.progress = it.lotBusy
             binding?.progressBar?.max = it.lotBusy + it.lotFree
@@ -48,7 +48,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         viewModel.lots.observe(viewLifecycleOwner) { lotList ->
             initRecyclerViewLots(lotList)
         }
-        viewModel.reservations?.observe(viewLifecycleOwner) { reservationList ->
+        viewModel.reservations?.observe(viewLifecycleOwner) { reservationList -> /*TODO if you do not use it, delete it */
         }
 
 

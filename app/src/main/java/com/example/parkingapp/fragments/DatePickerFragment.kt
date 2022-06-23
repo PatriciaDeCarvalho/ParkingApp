@@ -1,4 +1,4 @@
-package com.example.parkingapp
+package com.example.parkingapp /*TODO Correct the package name, notice the yellow underline */
 
 import android.app.DatePickerDialog
 import android.app.Dialog

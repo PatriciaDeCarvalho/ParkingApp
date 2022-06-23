@@ -6,6 +6,7 @@ import com.example.data.repositories.room.entities.ReservationRoom
 import com.example.domain.model.Lot
 import com.example.domain.model.Reservation
 
+/*TODO Always clean your unused imports in all your classes*/
 @Dao
 interface ReservationDao {
 
