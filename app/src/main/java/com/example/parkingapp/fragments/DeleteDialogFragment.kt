@@ -24,7 +24,20 @@ class DeleteDialogFragment() : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Toast.makeText(context, "showing mesege ", Toast.LENGTH_LONG).show()
+
+
+        //Dialog ok delete
+         binding?.tvOkDelete?.setOnClickListener() {
+            val authorizationCode = binding?.etAuthorizationCodeEntered
+            val codeText = authorizationCode?.text?.toString()
+          //  Toast.makeText(context, "bfb$codeText", Toast.LENGTH_LONG).show()
+            dismiss()
+        }
+
+        //Dialog cancel delete
+        binding?.tvCancelDelete?.setOnClickListener(){
+            dismiss()
+        }
 
     }
 

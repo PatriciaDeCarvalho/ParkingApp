@@ -1,14 +1,13 @@
-package com.example.parkingapp /*TODO Correct the package name, notice the yellow underline */
+package com.example.parkingapp.fragments
 
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
-import java.text.SimpleDateFormat
 import java.util.*
 
-class DatePickerFragment() : DialogFragment(), DatePickerDialog.OnDateSetListener {
+class DatePickerFragment: DialogFragment(), DatePickerDialog.OnDateSetListener {
     private val calendar: Calendar = Calendar.getInstance()
 
 

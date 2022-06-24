@@ -36,11 +36,12 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         onResume()
 
         viewModel.lotProgress.observe(viewLifecycleOwner) {
-            binding?.tvBusy?.text = it.lotBusy.toString() + " Busy" /*TODO Get the strings in the fragments from the resource xml*/
-            binding?.tvFee?.text = it.lotFree.toString() + " Free"
+            binding?.tvBusy?.text = it.lotBusy.toString() + getString(R.string.Busyy)
+            binding?.tvFee?.text = it.lotFree.toString() + getString(R.string.Freee)
             binding?.progressBar?.progress = it.lotBusy
             binding?.progressBar?.max = it.lotBusy + it.lotFree
 
@@ -48,8 +49,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
         viewModel.lots.observe(viewLifecycleOwner) { lotList ->
             initRecyclerViewLots(lotList)
         }
-        viewModel.reservations?.observe(viewLifecycleOwner) { reservationList -> /*TODO if you do not use it, delete it */
-        }
+
 
 
         //FloatingActionButton
@@ -84,7 +84,7 @@ class LotsFragment : Fragment(), ItemOnRecyclerViewClicked {
     }
 
     override fun onResume() {
-            super.onResume()
+        super.onResume()
         viewModel.loadData()
     }
 

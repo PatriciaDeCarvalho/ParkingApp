@@ -17,7 +17,7 @@ class ReservationAdapter(
     }
 
     override fun onBindViewHolder(holder: ReservationHolder, position: Int) {
-        val item2 = reservationList.get(position)
+        val item2 = reservationList[position]
 
         holder.bindLotDetail(item2,listener, position)
 

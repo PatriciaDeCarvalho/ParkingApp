@@ -3,7 +3,7 @@ package com.example.parkingapp.reservationAdapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.Reservation
-import com.example.parkingapp.Utils.AppDateFormat
+import com.example.parkingapp.utils.DateFormat
 import com.example.parkingapp.databinding.RecyclerLotDetailItemBinding
 
 
@@ -11,7 +11,7 @@ class ReservationHolder(
 
     private val view: View) : RecyclerView.ViewHolder(view) {
 
-    private val dateFormat: AppDateFormat = AppDateFormat()
+    private val dateFormat: DateFormat = DateFormat()
 
     private lateinit var binding: RecyclerLotDetailItemBinding
 

@@ -4,4 +4,4 @@ import com.google.gson.annotations.SerializedName
 
 data class ParkingLotListResponse(
     @SerializedName("lotList")
-    var lotList:List<LotRespsonse>)
+    var lotList:List<LotResponse>)

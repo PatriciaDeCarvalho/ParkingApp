@@ -11,9 +11,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
-/*TODO 10 What makes coevery and coverify?*/
-/*TODO 11 Read the importance of coding unit testing*/
-/*TODO 12 Read the importance of coding instrumental test in Android*/
+
 
 class DeleteReservationUseCaseTest {
 

@@ -8,4 +8,6 @@ interface ReservationRepository {
     suspend fun getReservationsList(): ReservationList
 
     suspend fun deleteReservation(reservation: Reservation, entryCode: String):Boolean
+
+
 }

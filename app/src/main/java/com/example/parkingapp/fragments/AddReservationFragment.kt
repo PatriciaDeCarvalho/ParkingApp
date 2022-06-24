@@ -14,8 +14,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.parkingapp.R
 import com.example.parkingapp.databinding.FragmentAddReservationBinding
 import com.example.domain.model.Reservation
-import com.example.parkingapp.Utils.AppDateFormat
-import com.example.parkingapp.Utils.DateReservation
+import com.example.parkingapp.utils.DateFormat
+import com.example.parkingapp.utils.DateReservation
 import com.example.parkingapp.viewmodels.AddViewModel
 import com.example.parkingapp.viewmodels.LotViewModelProvider
 import java.util.*
@@ -38,10 +38,10 @@ class AddReservationFragment : Fragment() {
         return binding.root
     }
 
-    private val formatTool = AppDateFormat()
+    private val formatTool = DateFormat()
     private lateinit var dateStart: Calendar
     private lateinit var dateEnd: Calendar
-    private var dia: String = "Prueba"
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,6 +49,7 @@ class AddReservationFragment : Fragment() {
         binding = FragmentAddReservationBinding.bind(view)
         val spinner: Spinner = binding.planetsSpinner1
         val buttonAddReservation = binding.buttonAdd
+
 
         //editText Authorization Code Hide
         val editText = binding.etAuthorizationCodeRegistered
@@ -62,6 +63,8 @@ class AddReservationFragment : Fragment() {
         binding.rectangleEndTime.setOnClickListener {
             showDateTimePickerDialog(false, finalDate)
         }
+
+
         //show Spinner
         spinner.let {
             createSpinner(it)
@@ -70,13 +73,16 @@ class AddReservationFragment : Fragment() {
         spinner.onItemSelectedListener = object :
 
             OnItemSelectedListener {
+
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
                 id: Long
             ) {
+
                 parkingLot = position - 1
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -85,7 +91,7 @@ class AddReservationFragment : Fragment() {
 
         //show input Authorization Code
         binding.rectangleAuthorizationCode.setOnClickListener() {
-            binding.textView4.setVisibility(View.GONE)
+            binding.textView4.visibility = View.GONE
             editText.isInvisible = false
 
 
@@ -111,27 +117,13 @@ class AddReservationFragment : Fragment() {
                         parkingLot
                     )
                 )
+                Toast.makeText(context, "The reservation has been successfully added", Toast.LENGTH_LONG).show()
+                findNavController().popBackStack()
 
             } else {
                 Toast.makeText(context, "You must complete all fields", Toast.LENGTH_LONG).show()
 
             }
-
-            viewModel.successfulAdd.observe(viewLifecycleOwner) { addSuccessfuly ->
-                if (addSuccessfuly) {
-
-                    Toast.makeText(context, "The reservation has been successfully added", Toast.LENGTH_LONG).show()
-                    findNavController().popBackStack()
-
-
-                } else {
-                    Toast.makeText(context, "Could not be processed", Toast.LENGTH_LONG).show()
-
-                    findNavController().popBackStack()
-
-                }
-            }
-
 
         }
     }

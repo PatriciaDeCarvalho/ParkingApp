@@ -8,7 +8,7 @@ import com.example.domain.model.LotReservation
 import com.example.parkingapp.R
 import com.example.parkingapp.fragments.ItemOnRecyclerViewClicked
 
-class LotAdapter(val lotList: List<LotReservation>, val listener: ItemOnRecyclerViewClicked) :
+class LotAdapter(private val lotList: List<LotReservation>, val listener: ItemOnRecyclerViewClicked) :
     RecyclerView.Adapter<LotHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LotHolder {

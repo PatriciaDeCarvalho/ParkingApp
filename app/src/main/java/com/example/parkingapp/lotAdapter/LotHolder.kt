@@ -6,14 +6,14 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.LotReservation
-import com.example.parkingapp.Utils.AppDateFormat
+import com.example.parkingapp.utils.DateFormat
 import com.example.parkingapp.databinding.RecyclerItemBinding
 import com.example.parkingapp.fragments.ItemOnRecyclerViewClicked
 
 class LotHolder(private val view: View, val listener: ItemOnRecyclerViewClicked) :
     RecyclerView.ViewHolder(view) {
 
-    private val dateFormat: AppDateFormat = AppDateFormat()
+    private val dateFormat: DateFormat = DateFormat()
 
 
     @SuppressLint("SetTextI18n")

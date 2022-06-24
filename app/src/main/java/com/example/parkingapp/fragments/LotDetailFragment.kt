@@ -1,9 +1,7 @@
 package com.example.parkingapp.fragments
 
-import android.content.ContentValues.TAG
+
 import android.os.Bundle
-import android.util.Log
-import android.view.ContentInfo
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.domain.model.Lot
 import com.example.domain.model.LotReservation
 import com.example.domain.model.Reservation
 import com.example.parkingapp.R
@@ -21,11 +18,7 @@ import com.example.parkingapp.viewmodels.LotViewModel
 import com.example.parkingapp.viewmodels.LotViewModelProvider
 import com.example.parkingapp.viewmodels.ReservationViewModel
 
-/*TODO optimize imports everywhere */
-/*TODO 1 advice: Try to read a file like a book */
-/*TODO 2 advice: Understand the lifecycle methodss like what happens in onCreateView,onViewCreated,onResume,onDestroyView */
-/*TODO 3 advice: Why you need a ViewModelFactory?, answer it for yourself */
-/*TODO 4 advice: Why you need a those 3 modules: app, domain and data?, answer it for yourself*/
+
 
 
 class LotDetailFragment : Fragment() {
@@ -95,7 +88,7 @@ class LotDetailFragment : Fragment() {
         super.onDestroyView()
     }
 
-    fun onDeleteReservation(
+    private fun onDeleteReservation(
         reservation: Reservation, recyclerView: RecyclerView,
         reservationList: MutableList<Reservation>, pos: Int
     ) {
@@ -115,11 +108,11 @@ class LotDetailFragment : Fragment() {
                 }
             }
 
-
         }
         val fm = activity?.supportFragmentManager
         fm?.let {
             dialog.show(it, "Costum Dialog")
+            Toast.makeText(context, "${reservation.authorizationCode}", Toast.LENGTH_LONG).show()
 
         }
     }

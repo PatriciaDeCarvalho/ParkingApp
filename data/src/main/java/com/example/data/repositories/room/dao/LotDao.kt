@@ -12,8 +12,7 @@ import com.example.domain.model.Reservation
 @Dao
 interface LotDao {
 
-    @Query("SELECT * FROM Lot") /*TODO Do not let a blank space between @Query and the method */
-
+    @Query("SELECT * FROM Lot")
     fun getLots(): List<LotRoom>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

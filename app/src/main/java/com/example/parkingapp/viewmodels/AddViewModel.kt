@@ -14,7 +14,7 @@ import com.example.domain.util.Result
 import kotlinx.coroutines.launch
 
 
-class AddViewModel(val addReservationUseCase: AddReservationUseCase,
+class AddViewModel(val addReservationUseCase: AddReservationUseCase
 
     )
     : ViewModel() {

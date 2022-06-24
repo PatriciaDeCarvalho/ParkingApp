@@ -1,10 +1,9 @@
-package com.example.parkingapp.Utils /*TODO Correct the package name, notice the yellow underline */
-
+package com.example.parkingapp.utils
 
 import java.text.SimpleDateFormat
 
 
-class AppDateFormat {
+class DateFormat {
 
     fun hourFormat(date: Long): String {
         val simpleDateFormat = SimpleDateFormat("hh:mm a")
