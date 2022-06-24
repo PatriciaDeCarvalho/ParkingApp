@@ -28,10 +28,10 @@ class DeleteDialogFragment() : DialogFragment() {
 
         //Dialog ok delete
          binding?.tvOkDelete?.setOnClickListener() {
-            val authorizationCode = binding?.etAuthorizationCodeEntered
-            val codeText = authorizationCode?.text?.toString()
-          //  Toast.makeText(context, "bfb$codeText", Toast.LENGTH_LONG).show()
-            dismiss()
+
+             val authorizationCode = binding?.etAuthorizationCodeEntered?.text?.toString()
+             onDeleteClick(authorizationCode!!)
+             dismiss()
         }
 
         //Dialog cancel delete

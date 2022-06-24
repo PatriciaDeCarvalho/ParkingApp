@@ -117,8 +117,12 @@ class AddReservationFragment : Fragment() {
                         parkingLot
                     )
                 )
-                Toast.makeText(context, "The reservation has been successfully added", Toast.LENGTH_LONG).show()
-                findNavController().popBackStack()
+                Toast.makeText(
+                    context,
+                    "The reservation has been successfully added",
+                    Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_addReservationFragment_to_lotsFragment)
+
 
             } else {
                 Toast.makeText(context, "You must complete all fields", Toast.LENGTH_LONG).show()

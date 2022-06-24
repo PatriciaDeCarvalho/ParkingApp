@@ -99,10 +99,9 @@ class LotDetailFragment : Fragment() {
             viewModel.successfulDelete.observe(viewLifecycleOwner) { deleteSuccessfuly ->
                 if (deleteSuccessfuly) {
                     reservationList.removeAt(pos)
-
+                    Toast.makeText(context, "Proccesed correctly", Toast.LENGTH_LONG).show()
                     recyclerView.adapter?.notifyItemRemoved(pos)
 
-                    Toast.makeText(context, "Proccesed correctly", Toast.LENGTH_LONG).show()
                 } else {
                     Toast.makeText(context, "Could not be processed", Toast.LENGTH_LONG).show()
                 }
@@ -112,7 +111,6 @@ class LotDetailFragment : Fragment() {
         val fm = activity?.supportFragmentManager
         fm?.let {
             dialog.show(it, "Costum Dialog")
-            Toast.makeText(context, "${reservation.authorizationCode}", Toast.LENGTH_LONG).show()
 
         }
     }
